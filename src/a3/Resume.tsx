@@ -1,7 +1,10 @@
 import { profile, resume } from './content';
 import { Accent, Footer, Label } from './ui';
 
-/** One-page ATS résumé. "Download PDF" prints only the document, as real selectable text. */
+// Generated from this page's print styles by `npm run resume-pdf`; regenerate after editing the résumé.
+const RESUME_PDF = '/Saksham-Shukla-Resume.pdf';
+
+/** One-page ATS résumé with a downloadable PDF of the same content. */
 export default function Resume() {
   return (
     <div className="page resume">
@@ -16,7 +19,7 @@ export default function Resume() {
         <div className="rhead__main">
           <h1 className="h-case"><Accent text="One page. Every number checks out." accent="checks out." /></h1>
           <div className="hero__ctas">
-            <button className="btn btn--solid" onClick={() => window.print()}>Download PDF</button>
+            <a className="btn btn--solid" href={RESUME_PDF} download>Download PDF</a>
             <a className="btn btn--line" href={`mailto:${profile.email}`}>Email me</a>
           </div>
         </div>

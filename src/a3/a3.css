@@ -48,6 +48,8 @@ h1, h2, h3, p, dl, dd, ul, ol, figure { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.02em; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+/* Headings receive focus after navigation; only show the ring for keyboard users. */
+[tabindex='-1']:focus:not(:focus-visible) { outline: none; }
 ::selection { background: var(--accent-tint); color: var(--ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: fixed; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: var(--paper); padding: 10px 14px; }
@@ -489,11 +491,19 @@ main:focus { outline: none; }
 
 /* ---------- print: résumé only ---------- */
 @media print {
-  @page { size: auto; margin: 14mm 14mm; }
+  @page { size: A4; margin: 12mm 14mm; }
   body { font-size: 10pt; }
   .hdr, .ftr, .skip, .rhead > .lbl, .rhead__meta, .rhead__main, .ask { display: none !important; }
   .rhead { display: block; padding: 0; }
-  .doc { border: 0; padding: 0; margin: 0; font-size: 9.5pt; line-height: 1.38; color: #222; }
+  .doc { border: 0; padding: 0; margin: 0; font-size: 9pt; line-height: 1.32; color: #222; }
+  .doc h2 { font-size: 19pt; }
+  .doc__contact { margin: 4px 0 10px; }
+  .doc h3 { margin: 14px 0 7px; padding-bottom: 4px; }
+  .doc__role + .doc__role { margin-top: 10px; }
+  /* Native list markers keep the PDF's text in reading order for ATS parsers. */
+  .doc ul { margin-top: 3px; padding-left: 13px; list-style: disc; }
+  .doc li { position: static; padding-left: 1px; margin-top: 2px; }
+  .doc li::before { content: none; }
   .doc a { color: inherit; }
   [data-rv] { opacity: 1 !important; transform: none !important; }
 }

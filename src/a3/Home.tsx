@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { cases, home, profile, type Case, type Shot } from './content';
+import { jumpTo } from './scroll';
 import { Accent, AskButton, Footer, Gauge, Img, Label, Tag, useReveal } from './ui';
 
 const bySlug = (s: string) => cases.find((c) => c.slug === s)!;
@@ -70,7 +71,7 @@ export default function Home() {
           </h1>
           <p className="hero__sub">{home.sub}</p>
           <div className="hero__ctas">
-            <a className="btn btn--solid" href="#work">See the work ↓</a>
+            <a className="btn btn--solid" href="#work" onClick={(e) => { e.preventDefault(); jumpTo('work'); }}>See the work ↓</a>
             <Link className="btn btn--line" to="/resume">Résumé →</Link>
             <AskButton />
           </div>

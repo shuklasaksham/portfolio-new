@@ -173,7 +173,7 @@ export const cases: Case[] = [
         items: [['Agents still need structure', 'Steppers, pinned facts and cards are what make an AI flow feel trustworthy — not the chat itself.']],
       },
     ],
-    card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Verizon · Shipped, A/B tested' },
+    card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection shipped and A/B tested · Activation prototyped' },
     next: 'darpan',
   },
   {
@@ -571,7 +571,7 @@ export const cases: Case[] = [
         },
       },
     ],
-    card: { result: '65% faster setup', line: 'One Audio, shown at CES 2025.', meta: 'HARMAN · CES 2025' },
+    card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'Shown at CES 2025' },
     next: 'relayos',
   },
   {
@@ -752,7 +752,7 @@ export const resume = {
       when: '2025 – Present · Remote, India',
       bullets: [
         'Designer on the tello.ai team (AI conversational assistant for Total Wireless), focused on cutting customer steps; in a 4-week A/B test with 2,400 users, plan selection became 5× faster, conversion rose 7%, CSAT rose 12% and funnel drop-off fell 6%.',
-        'Extended tello.ai into an agentic phone-activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM and plan PIN.',
+        'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',
         'Worked with designers, product managers and engineers from research to high-fidelity UI.',
       ],
     },

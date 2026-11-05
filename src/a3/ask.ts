@@ -61,8 +61,9 @@ const ALIAS: Record<string, string> = { paid: 'pay', payment: 'pay', measured: '
 const words = (s: string) => s.replace(/\bB\s*&\s*O\b/gi, 'Bang Olufsen').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}%+−-]+/gu, ' ').split(' ').filter((w) => w.length > 1 && !STOP.has(w));
 const stem = (w: string) => ALIAS[w] ?? w.replace(/(ing|ed|es|s)$/, '');
 
-// Each sentence also carries its project's name and one-liner, so "One Audio" finds Harman Kardon.
-const BAGS = DOCS.map((d) => new Set(words(`${d.text} ${d.c?.name ?? ''} ${d.c?.card.line ?? ''}`).map(stem)));
+// Each sentence also carries its project's name and aliases, so "One Audio" finds Harman Kardon.
+const ALIASES: Record<string, string> = { tello: 'Verizon Total Wireless', 'bang-olufsen': 'B&O Hyundai', 'harman-kardon': 'One Audio HARMAN CES' };
+const BAGS = DOCS.map((d) => new Set(words(`${d.text} ${d.c?.name ?? ''} ${d.c ? ALIASES[d.c.slug] ?? '' : ''}`).map(stem)));
 
 export function answer(q: string): Answer {
   const curated = CURATED[q.trim()];

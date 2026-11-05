@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './a3/Home';
+import { useRouteScroll } from './a3/scroll';
 import { AskProvider, Header } from './a3/ui';
 
 const CasePage = lazy(() => import('./a3/CasePage'));
@@ -15,14 +16,13 @@ const TITLES: Record<string, string> = {
 };
 
 export default function App() {
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
+  useRouteScroll();
 
   useEffect(() => {
     if (TITLES[pathname]) document.title = TITLES[pathname];
     else if (!pathname.startsWith('/work/')) document.title = 'Not found — Saksham Shukla';
-    if (hash) document.getElementById(hash.slice(1))?.scrollIntoView();
-    else window.scrollTo(0, 0);
-  }, [pathname, hash]);
+  }, [pathname]);
 
   return (
     <AskProvider>

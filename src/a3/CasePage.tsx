@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getCase, TIER_TAG, type Callout, type Decision, type Outcome, type Section, type Shot } from './content';
 import NotFound from './NotFound';
+import { jumpTo } from './scroll';
 import { Accent, Footer, Gauge, Img, Label, Tag, useReveal } from './ui';
 
 const pad = (i: number) => String(i + 1).padStart(2, '0');
@@ -192,7 +193,11 @@ function Toc({ sections }: { sections: Section[] }) {
       <ol>
         {sections.map((s, i) => (
           <li key={s.title}>
-            <a href={`#s${i + 1}`} aria-current={active === i ? 'true' : undefined}>
+            <a
+              href={`#s${i + 1}`}
+              aria-current={active === i ? 'true' : undefined}
+              onClick={(e) => { e.preventDefault(); jumpTo(`s${i + 1}`); }}
+            >
               <span className="lbl">{pad(i)}</span>
               {s.title}
             </a>
