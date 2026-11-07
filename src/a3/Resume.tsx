@@ -25,7 +25,7 @@ export default function Resume() {
           <div><dt className="lbl lbl--muted">Format</dt><dd>ATS-friendly · single column</dd></div>
           <div><dt className="lbl lbl--muted">Length</dt><dd>One page</dd></div>
           <div><dt className="lbl lbl--muted">Updated</dt><dd>2026</dd></div>
-          <div><dt className="lbl lbl--muted">Prints</dt><dd>Clean A4 / Letter PDF</dd></div>
+          <div><dt className="lbl lbl--muted">Prints</dt><dd>One-page A4 PDF</dd></div>
         </dl>
         <div className="rhead__main">
           <h1 className="h-case"><Accent text="One page. Every number checks out." accent="checks out." /></h1>

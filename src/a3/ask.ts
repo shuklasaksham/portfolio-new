@@ -30,7 +30,7 @@ const CURATED: Record<string, Answer> = {
     sources: [src(byslug('harman-kardon')), src(byslug('relayos'))],
   },
   [SUGGESTIONS[3]]: {
-    text: 'Two things, both published with the data. DarpanAI: 65 creators signed up and 6 paid, but only 2 recorded a take this week — retention is the open problem, and a guided second reel is the next hypothesis. Bracket: 1 of 15 workspaces is active and no trial has converted; he suspects setup comes before value and plans to investigate before changing onboarding.',
+    text: 'Two things, both published with the data. DarpanAI: 65 creators signed up and 6 subscribed at ₹299/month, but only 2 recorded a take this week — retention is the open problem, and a guided second reel is the next hypothesis. Bracket: 1 of 15 workspaces is active and no trial has converted; he suspects setup comes before value and plans to investigate before changing onboarding.',
     sources: [src(byslug('darpan')), src(byslug('bracket'))],
   },
 };

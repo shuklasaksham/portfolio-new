@@ -192,7 +192,7 @@ export const cases: Case[] = [
     brief: {
       problem: 'Everyday creators know what they want to say, not what to shoot — and most give up at editing.',
       did: 'Designed an AI director that plans five shots, coaches out loud, scores every take and edits the reel.',
-      result: { n: '65', label: 'creators signed up; 6 paid ₹299 and 32 reels were finished', source: 'Admin dashboard · 5 Nov 2026' },
+      result: { n: '65', label: 'creators signed up; 6 subscribed at ₹299/month and 32 reels were finished', source: 'Admin dashboard · 5 Nov 2026' },
     },
     cover: {
       phones: [
@@ -281,7 +281,7 @@ export const cases: Case[] = [
         listLabel: 'What the dashboard shows',
         items: [
           '65 creators signed up (the dashboard flags 5 as developer accounts).',
-          '6 creators paid ₹299 for Pro — ₹1,794 in total.',
+          '6 creators subscribed to Pro at ₹299/month — ₹1,794 so far.',
           '152 scripts → 266 recorded takes (average score 7.1/10) → 32 finished reels, none failed.',
           'Only 2 creators recorded a take this week. Retention, not sign-up, is the next problem to design for.',
         ],
@@ -479,7 +479,7 @@ export const cases: Case[] = [
             { n: '90%', label: 'review items accepted', source: 'Admin dashboard · 30 days' },
           ],
           method:
-            'Bracket’s admin dashboard, 90 days to 4 Nov 2026, including my own test account. Honest read: 1 of 15 workspaces is active and no trial has converted to paid yet — onboarding is the next problem to solve.',
+            'Bracket’s admin dashboard, 90 days to 4 Nov 2026, including my own test account. Honest read: the dashboard counts 1 of the 15 workspaces as active, and no trial has converted to paid yet — onboarding is the next problem to solve.',
           callouts: [
             {
               label: 'What I suspect · Hypothesis, not a finding',
@@ -717,6 +717,7 @@ export const about = {
     profile.summary,
     'At Verizon I design agentic AI that is judged by conversion. At HARMAN I designed in-car experiences for Harman Kardon, Hyundai and Bang & Olufsen — work that has to hold up at arm’s length, across five displays, in a moving car.',
     'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, and RelayOS is a voice-AI concept for Indian manufacturers.',
+    'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes until CES. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
   ],
   experience: [
     ['2025 – Now', 'Experience Designer II', 'Verizon', 'Hyderabad'],
@@ -773,7 +774,7 @@ export const resume = {
       when: '2026 – Present',
       bullets: [
         'Designed and launched an AI video director for everyday creators in India: it plans the shots, coaches out loud in Hindi, scores every take and edits the reel.',
-        'Launched in October 2026; within two weeks 65 creators signed up, 6 paid ₹299 for Pro and 32 reels were finished.',
+        'Launched in October 2026; within two weeks 65 creators signed up, 6 subscribed to Pro at ₹299/month and 32 reels were finished.',
       ],
     },
     {
