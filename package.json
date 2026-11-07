@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "images": "node scripts/optimize-images.mjs",
     "resume-pdf": "node scripts/resume-pdf.mjs",
-    "og-image": "node scripts/og-image.mjs"
+    "og-image": "node scripts/og-image.mjs",
+    "favicon": "node scripts/favicon.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

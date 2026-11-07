@@ -1,0 +1,20 @@
+<!doctype html>
+<!-- Site icon (512×512): the headline's italic serif "S" on the accent green.
+     Rendered to every icon size by scripts/favicon.mjs. Add ?round to the URL for rounded corners. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,500&display=block" rel="stylesheet" />
+<style>
+  * { margin: 0; }
+  html, body { width: 512px; height: 512px; overflow: hidden; background: transparent; }
+  .tile { width: 512px; height: 512px; background: #0b6e4f; display: grid; place-items: center; }
+  .round .tile { border-radius: 112px; }
+  span { font: italic 500 420px/1 Newsreader, serif; color: #fff; transform: translate(-8px, 52px); }
+</style>
+</head>
+<body>
+  <div class="tile"><span>S</span></div>
+  <script>if (location.search.includes('round')) document.body.classList.add('round');</script>
+</body>
+</html>
