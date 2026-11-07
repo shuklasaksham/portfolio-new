@@ -51,6 +51,8 @@ export type Case = {
   cover: { phones: Shot[] } | { wide: Shot; gauge?: { n: string; label: string; fill: number } };
   sections: Section[];
   card: { result: string; line: string; meta: string };
+  /** The decision that was the designer's own call — only where that is documented. */
+  myCall?: string;
   next: string;
 };
 
@@ -71,7 +73,7 @@ export const profile = {
   linkedinLabel: 'linkedin.com/in/saksham-shuklaa',
   location: 'Hyderabad, India',
   summary:
-    'Product designer with 4.5+ years leading end-to-end design for AI-powered, conversational and in-vehicle products at Verizon and HARMAN, and founder of Bracket, an AI-native decision OS.',
+    'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN. Outside work, I design and launch my own AI products end to end.',
 };
 
 export const cases: Case[] = [
@@ -85,7 +87,7 @@ export const cases: Case[] = [
     summary:
       'An agentic assistant for Verizon’s Total Wireless. The plan-selection conversation shipped and was A/B tested. The activation flow — one conversation instead of a 12-screen form, reading the IMEI, SIM and PIN off the box with the camera — was prototyped, not tested.',
     facts: [
-      ['Role', 'Experience Designer II · team designer'],
+      ['Role', 'Experience Designer II'],
       ['Worked with', 'Designers, product managers and engineers'],
       ['Year', '2025'],
       ['Status', 'Plan selection A/B tested · activation prototyped'],
@@ -93,16 +95,9 @@ export const cases: Case[] = [
     brief: {
       problem: 'Activation meant hunting for a 15-digit IMEI across 12+ form screens; choosing a plan took about 15 minutes.',
       did: 'With the team, designed a guided agent with plan cards (A/B tested) and a camera activation flow (prototype).',
-      result: { n: '+7%', label: 'conversion, with plan selection 5× faster (15 → 2.8 min)', source: 'A/B test · 2,400 users · 4 weeks · team result' },
+      result: { n: '+7%', label: 'conversion, with plan selection 5× faster (15 → 2.8 min)', source: 'A/B test · 2,400 users · 4 weeks' },
     },
-    cover: {
-      phones: [
-        tall('tello-plans', 'Plans shown as cards inside the chat'),
-        tall('tello-phones', 'The chosen phone stays pinned'),
-        tall('tello-scan', 'The camera reads the IMEI off the box'),
-        tall('tello-pin', 'Entering the plan PIN'),
-      ],
-    },
+    cover: { wide: wide('cover-tello', 1920, 1240, 'tello.ai screens: the assistant home, the guided conversation, camera scanning (prototype) and the account view') },
     sections: [
       {
         kind: 'lede',
@@ -156,7 +151,7 @@ export const cases: Case[] = [
         kind: 'outcome',
         title: 'Outcome',
         outcome: {
-          tag: 'A/B test · 2,400 users · 4 weeks · team result',
+          tag: 'A/B test · 2,400 users · 4 weeks',
           bars: { label: 'Time to choose a plan', before: 15, after: 2.8, beforeText: '15 min', afterText: '2.8 min' },
           tiles: [
             { n: '+7%', label: 'conversion', source: 'A/B test vs existing flow' },
@@ -164,7 +159,7 @@ export const cases: Case[] = [
             { n: '−6%', label: 'funnel drop-off', source: 'A/B test vs existing flow' },
           ],
           method:
-            'Random split against the existing flow over 4 weeks; CSAT from a post-purchase survey. Four weeks can include novelty effects. The activation flow was prototyped, not A/B tested.',
+            'Random split against the existing flow over 4 weeks; CSAT from a post-purchase survey. Four weeks can include novelty effects. The activation flow was prototyped, not A/B tested. These are team results; my part is under “My role and scope”.',
         },
       },
       {
@@ -296,6 +291,7 @@ export const cases: Case[] = [
       },
     ],
     card: { result: '6 paying creators', line: 'An AI video director that plans, coaches and edits.', meta: 'Independent · 0 → 1 · Live' },
+    myCall: 'I decided Darpan starts from the creator’s own words rather than a template, and that editing is fully automatic — trading fine control for finished reels.',
     next: 'bang-olufsen',
   },
   {
@@ -410,7 +406,7 @@ export const cases: Case[] = [
     title: 'An AI memory people can trust.',
     accent: 'trust.',
     summary:
-      'An AI decision OS for freelancers and small teams. It detects decisions — scope, dates, prices — inside email and Slack threads, then asks a human before updating anything.',
+      'An AI memory for freelancers and small teams. It detects decisions — scope, dates, prices — inside email and Slack threads, then asks a human before updating anything.',
     facts: [
       ['Role', 'Founder · strategy, research and design'],
       ['Year', '2026 – now'],
@@ -422,7 +418,7 @@ export const cases: Case[] = [
       did: 'Built an AI loop that detects changes, then asks a human before updating anything — with the source for every claim.',
       result: { n: '22', label: 'sign-ups and 15 workspaces in the last 90 days', source: 'Admin dashboard · 4 Nov 2026' },
     },
-    cover: { wide: wide('review', 2400, 1560, 'Change review: source, AI interpretation and confidence') },
+    cover: { wide: wide('overview', 2400, 1560, 'Bracket overview: what needs you, separated from what just happened') },
     sections: [
       {
         kind: 'lede',
@@ -494,6 +490,7 @@ export const cases: Case[] = [
       },
     ],
     card: { result: 'Live · v0.4', line: 'An AI memory people can trust.', meta: 'Independent · Live' },
+    myCall: 'I ruled out auto-applying AI-detected changes: nothing changes without one deliberate click, until real accept rates earn automation category by category.',
     next: 'harman-kardon',
   },
   {
@@ -516,7 +513,7 @@ export const cases: Case[] = [
       did: 'Made seats, moods and light the interface, and wrote rules so one app reflows to five in-car displays.',
       result: { n: '65%', label: 'faster device setup in prototype usability testing', source: 'Prototype validation · ~2,000 US participants' },
     },
-    cover: { wide: wide('oa-seatsonic', 1920, 1080, 'Seatsonic: seats rendered in 3D with their speakers'), gauge: { n: '65%', label: 'Faster setup', fill: 65 } },
+    cover: { wide: wide('oa-hero', 1920, 1080, 'One Audio home screen with Seatsonic: seats rendered in 3D with their speakers'), gauge: { n: '65%', label: 'Faster setup', fill: 65 } },
     sections: [
       {
         kind: 'lede',
@@ -676,6 +673,7 @@ export const cases: Case[] = [
       line: 'Voice AI that recovers a delayed order from one WhatsApp voice note — calling suppliers, transporters and the floor in their own languages.',
       meta: 'Concept — not shipped',
     },
+    myCall: 'I kept the owner inside WhatsApp and ruled that the AI never agrees a price — every money decision waits for the owner’s tap.',
     next: 'tello',
   },
 ];
@@ -694,7 +692,7 @@ export const home = {
     { n: '+7%', label: 'conversion on tello.ai', source: 'A/B test · 2,400 users', to: 'tello' },
     { n: '−40%', label: 'in-car audio interaction time', source: 'In-car prototype · 98 participants', to: 'bang-olufsen' },
     { n: 'CES', label: 'Harman Kardon One Audio, AutoOne cockpit', source: 'Shown at CES 2025', to: 'harman-kardon' },
-    { n: '65', label: 'creators on DarpanAI · 6 paying', source: 'Admin dashboard · Nov 2026', to: 'darpan' },
+    { n: '0→1', label: 'DarpanAI, live with paying users', source: 'Live since Oct 2026', to: 'darpan' },
   ],
   cards: {
     tello: [tall('tello-plans', ''), tall('tello-phones', ''), tall('tello-scan', ''), tall('tello-pin', '')],
@@ -738,16 +736,6 @@ export const resume = {
   headline: 'Product Designer | AI, Conversational & Automotive UX',
   roles: [
     {
-      role: 'Founder & Product Designer · Bracket (side venture)',
-      when: '2026 – Present · Remote',
-      bullets: [
-        'Designed and launched an AI decision OS for freelancers and small teams (live, v0.4): human-in-the-loop review of AI-detected scope, date and price changes, 173 screens and a 53-component design system.',
-        'Led product strategy, research and design from concept to launch.',
-        'Designed human-in-the-loop AI workflows that turn unstructured client conversations into structured decisions, with evidence and confidence shown for every AI claim.',
-        'Built a tokenized design system (53 components) and 173 desktop and mobile screens, with clickable prototypes for developer handoff.',
-      ],
-    },
-    {
       role: 'Experience Designer II · Verizon',
       when: '2025 – Present · Hyderabad',
       bullets: [
@@ -761,17 +749,34 @@ export const resume = {
       when: '2024 – 2025 · Bengaluru',
       bullets: [
         'Redesigned the in-vehicle audio interaction model for a Hyundai × Audio by Bang & Olufsen concept, validated in the car: navigation from 3 layers to 1, interaction time cut by 40%.',
-        'Achieved 76% user satisfaction while reducing driver distraction by 10%.',
-        'Partnered with engineering to ship production-ready experiences across global vehicle platforms.',
+        'Across in-car prototype sessions with 98 participants: 76% user satisfaction and 10% less driver distraction than the 3-layer model.',
+        'Tested in the car with live sound and ambient light, and fed six fixes back into the specification.',
       ],
     },
     {
       role: 'Associate Experience Designer · HARMAN International',
       when: '2022 – 2024 · Bengaluru',
       bullets: [
-        'Designed One Audio, a connected multi-device experience for Harman Kardon: 65% faster device setup, +13% multi-device usage; showcased in HARMAN’s AutoOne cockpit at CES 2025.',
-        'Achieved a 4.2 satisfaction rating in prototype validation with about 2,000 US participants.',
-        'Supported end-to-end design from research through developer handoff on the connected-audio design system.',
+        'Designed One Audio, a connected multi-device audio experience for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2025; prototype validation with about 2,000 US participants measured 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
+        'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design until demo day.',
+      ],
+    },
+  ],
+  independent: [
+    {
+      role: 'Product Designer · DarpanAI (independent product)',
+      when: '2026 – Present',
+      bullets: [
+        'Designed and launched an AI video director for everyday creators in India: it plans the shots, coaches out loud in Hindi, scores every take and edits the reel.',
+        'Launched in October 2026; within two weeks 65 creators signed up, 6 paid ₹299 for Pro and 32 reels were finished.',
+      ],
+    },
+    {
+      role: 'Founder & Product Designer · Bracket (independent product)',
+      when: '2026 – Present',
+      bullets: [
+        'Designed and launched Bracket (live, v0.4), an AI memory for freelancers and small teams: it detects scope, date and price decisions in email and Slack and asks a person before changing anything.',
+        'Built a tokenized design system (53 components) and 173 desktop and mobile screens, with clickable prototypes for handoff.',
       ],
     },
   ],

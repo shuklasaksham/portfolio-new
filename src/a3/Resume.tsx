@@ -5,6 +5,17 @@ import { Accent, Footer, Label } from './ui';
 const RESUME_PDF = '/Saksham-Shukla-Resume.pdf';
 
 /** One-page ATS résumé with a downloadable PDF of the same content. */
+const Roles = ({ roles }: { roles: typeof resume.roles }) => (
+  <>
+    {roles.map((r) => (
+      <section key={r.role} className="doc__role">
+        <p className="doc__rh"><b>{r.role}</b><span>{r.when}</span></p>
+        <ul>{r.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
+      </section>
+    ))}
+  </>
+);
+
 export default function Resume() {
   return (
     <div className="page resume">
@@ -36,12 +47,9 @@ export default function Resume() {
           </header>
           <p>{profile.summary}</p>
           <h3>Experience</h3>
-          {resume.roles.map((r) => (
-            <section key={r.role} className="doc__role">
-              <p className="doc__rh"><b>{r.role}</b><span>{r.when}</span></p>
-              <ul>{r.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
-            </section>
-          ))}
+          <Roles roles={resume.roles} />
+          <h3>Independent products</h3>
+          <Roles roles={resume.independent} />
           <h3>Skills</h3>
           {resume.skills.map(([k, v]) => <p key={k} className="doc__skill"><b>{k}:</b> {v}</p>)}
           <h3>Education</h3>

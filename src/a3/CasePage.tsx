@@ -240,6 +240,19 @@ export default function CasePage() {
         </div>
       </section>
 
+      <section className="wrap" aria-label="Key screens">
+        {'phones' in c.cover ? (
+          <div className="cover cover--phones">
+            {c.cover.phones.map((s, i) => <Img key={s.src} shot={s} eager={i < 2} />)}
+          </div>
+        ) : (
+          <div className={`cover cover--wide${c.cover.gauge ? ' is-dark' : ''}`}>
+            <Img shot={c.cover.wide} eager />
+            {c.cover.gauge && <div className="hmi-chip"><Gauge {...c.cover.gauge} size="sm" /></div>}
+          </div>
+        )}
+      </section>
+
       <section className="wrap brief" aria-label="In 60 seconds">
         <Label tone="muted">In 60 seconds</Label>
         <div className="brief__cols">
@@ -258,17 +271,10 @@ export default function CasePage() {
             <p className="lbl lbl--muted">{c.brief.result.source}</p>
           </div>
         </div>
-      </section>
-
-      <section className="wrap" aria-label="Screens">
-        {'phones' in c.cover ? (
-          <div className="cover cover--phones">
-            {c.cover.phones.map((s, i) => <Img key={s.src} shot={s} eager={i < 2} />)}
-          </div>
-        ) : (
-          <div className={`cover cover--wide${c.cover.gauge ? ' is-dark' : ''}`}>
-            <Img shot={c.cover.wide} eager />
-            {c.cover.gauge && <div className="hmi-chip"><Gauge {...c.cover.gauge} size="sm" /></div>}
+        {c.myCall && (
+          <div className="brief__call">
+            <Label tone="accent">My call</Label>
+            <p>{c.myCall}</p>
           </div>
         )}
       </section>

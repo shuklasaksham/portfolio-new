@@ -204,7 +204,9 @@ main:focus { outline: none; }
 .chead__main { grid-column: 4 / span 8; grid-row: 2; }
 .chead__sum { margin-top: 24px; max-width: 720px; font-size: 19px; line-height: 29px; color: var(--text-2); }
 
-.brief { margin-top: 72px; padding-top: 14px; border-top: 1px solid var(--ink); }
+.brief { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--ink); }
+.brief__call { display: grid; grid-template-columns: 140px 1fr; gap: var(--gap); align-items: baseline; margin-top: 28px; padding: 18px 22px; background: var(--accent-tint); }
+.brief__call p:not(.lbl) { font: 500 19px/28px var(--sans); letter-spacing: -0.01em; max-width: 980px; }
 .brief__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: 22px; }
 .brief__cols > div { display: grid; align-content: start; gap: 8px; padding-right: 24px; border-right: 1px solid var(--line); }
 .brief__cols > div:last-child { border-right: 0; }
@@ -212,12 +214,12 @@ main:focus { outline: none; }
 .brief__cols p.brief__n { font: 500 44px/1.1 var(--sans); letter-spacing: -0.03em; }
 .brief__cols p.brief__l { font-size: 15px; line-height: 22px; color: var(--text-2); }
 
-.cover { margin-top: 56px; background: var(--surface); }
-.cover--phones { display: flex; justify-content: center; gap: clamp(12px, 2vw, 28px); padding: clamp(24px, 4vw, 56px); }
-.cover--phones img { width: min(214px, 22%); border-radius: 16px; }
-.cover--wide { position: relative; padding: clamp(0px, 3.4vw, 48px); }
-.cover--wide img { width: 100%; aspect-ratio: 1248 / 464; object-fit: cover; object-position: top; }
-.cover--wide.is-dark { background: var(--hmi-bg); }
+/* The hero visual sits directly under the title: large, edge to edge of the grid. */
+.cover { margin-top: 48px; background: var(--surface); }
+.cover--phones { display: flex; justify-content: center; gap: clamp(12px, 2.2vw, 32px); padding: clamp(24px, 3.4vw, 48px); }
+.cover--phones img { width: min(268px, 23%); border-radius: 18px; box-shadow: 0 18px 40px rgba(10,10,10,.12); }
+.cover--wide { position: relative; overflow: hidden; background: var(--hmi-bg); }
+.cover--wide img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
 
 .cbody { margin-top: 96px; }
 .toc { grid-column: 1 / span 3; align-self: start; position: sticky; top: 104px; }
@@ -257,9 +259,10 @@ main:focus { outline: none; }
 
 .shots { display: grid; gap: 16px; }
 .shots img { width: 100%; }
-.shots--phones { display: flex; gap: 16px; flex-wrap: wrap; }
-.shots--phones figure { width: 200px; }
-.shots--phones img { border-radius: 16px; }
+/* Phone mockups sit on a panel so they read as one composed visual, not small islands in white. */
+.shots--phones { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; padding: clamp(24px, 3vw, 40px); background: var(--surface); }
+.shots--phones figure { width: min(250px, 42%); }
+.shots--phones img { border-radius: 18px; box-shadow: 0 14px 32px rgba(10,10,10,.12); }
 
 .pairs > div { display: grid; grid-template-columns: 1fr 1.6fr; gap: var(--gap); padding: 22px 0; border-top: 1px solid var(--line); }
 .pairs > div:last-child { border-bottom: 1px solid var(--line); }
@@ -437,7 +440,10 @@ main:focus { outline: none; }
   .cover { margin-top: 36px; margin-inline: calc(var(--margin) * -1); }
   .cover--phones { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding: 24px var(--margin); }
   .cover--phones img { width: 46%; flex: none; scroll-snap-align: start; border-radius: 12px; }
-  .cover--wide img { aspect-ratio: 4 / 3; }
+  .cover--wide img { aspect-ratio: 16 / 10; }
+  .cover .hmi-chip { display: none; }
+  .brief__call { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
+  .brief__call p:not(.lbl) { font-size: 17px; line-height: 25px; }
   .cbody { margin-top: 56px; }
   .sec { padding-bottom: 64px; }
   .sec > .h-sec { margin-bottom: 24px; }
@@ -450,7 +456,8 @@ main:focus { outline: none; }
   .dec__title { font-size: 24px; line-height: 30px; }
   .dec__ctx { font-size: 16px; line-height: 25px; }
   .dec__alt { grid-template-columns: 1fr; }
-  .shots--phones figure { width: calc(50% - 8px); }
+  .shots--phones { gap: 12px; padding: 16px; }
+  .shots--phones figure { width: calc(50% - 6px); }
   .pairs > div { grid-template-columns: 1fr; gap: 6px; }
   .map a { padding: 12px; overflow-x: auto; }
   .map img { min-width: 640px; }
