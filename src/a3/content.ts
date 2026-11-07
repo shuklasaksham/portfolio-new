@@ -75,7 +75,7 @@ export const profile = {
   linkedinLabel: 'linkedin.com/in/saksham-shuklaa',
   location: 'Hyderabad, India',
   summary:
-    'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN. Outside work, I design and launch my own AI products end to end.',
+    'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN, including an agentic assistant whose plan flow lifted conversion 7% in an A/B test. Outside work, I design and launch my own AI products end to end.',
 };
 
 export const cases: Case[] = [
@@ -754,9 +754,9 @@ export const resume = {
       role: 'Experience Designer II · Verizon',
       when: '2025 – Present · Hyderabad',
       bullets: [
-        'Designer on the tello.ai team (AI conversational assistant for Total Wireless), focused on cutting customer steps; in a 4-week A/B test with 2,400 users, plan selection became 5× faster, conversion rose 7%, CSAT rose 12% and funnel drop-off fell 6%.',
+        'Designed the conversation, stepper and plan cards for tello.ai, Total Wireless’s AI assistant; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%.',
         'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',
-        'Worked with designers, product managers and engineers from research to high-fidelity UI.',
+        'Wrote the conversation before drawing any screen, designed 20+ states across scanning, stepper and cards, and presented the flow to leadership as a prototype.',
       ],
     },
     {
@@ -796,12 +796,11 @@ export const resume = {
     },
   ],
   skills: [
-    ['AI & emerging tech', 'AI-assisted design, Conversational UX, Agentic AI, Human-AI interaction, Voice UI, Prompt-driven workflows'],
-    ['Product design', 'UX & UI design, Interaction design, Information architecture, User flows, Prototyping, Automotive HMI'],
-    ['Product & strategy', 'Product strategy, 0 → 1 development, Roadmapping, Stakeholder alignment, Cross-functional collaboration'],
-    ['Design systems', 'Component libraries, Design tokens, Atomic design, Accessibility, Documentation'],
-    ['Research', 'User interviews, Usability testing, Journey mapping, Competitive analysis, Design validation'],
-    ['Tools', 'Figma, FigJam, ProtoPie, Framer, Photoshop, After Effects, Miro, Notion'],
+    ['AI', 'Conversational UX, Agentic AI, Human-AI interaction'],
+    ['Product design', 'Interaction design, Information architecture, Prototyping, Automotive HMI, 0 → 1 products'],
+    ['Design systems', 'Design tokens, Component libraries, Accessibility'],
+    ['Research', 'Usability testing, User interviews'],
+    ['Tools', 'Figma, ProtoPie, Framer'],
   ] as [string, string][],
   education: 'B.Tech, Electrical & Electronics Engineering — United College of Engineering & Research, Prayagraj · 2018 – 2022',
 };
