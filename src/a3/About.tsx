@@ -59,6 +59,7 @@ export default function About() {
           <Label tone="accent">{about.disagreement.where}</Label>
           <h3>{about.disagreement.title}</h3>
           {about.disagreement.paragraphs.map((p) => <p key={p}>{p}</p>)}
+          <Link to="/work/bang-olufsen" className="lbl story__link">Read the Bang &amp; Olufsen case study →</Link>
         </article>
       </section>
 

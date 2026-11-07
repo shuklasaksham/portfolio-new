@@ -18,7 +18,7 @@ const byslug = (s: string) => cases.find((c) => c.slug === s)!;
 
 const CURATED: Record<string, Answer> = {
   [SUGGESTIONS[0]]: {
-    text: 'tello.ai — an agentic assistant for Total Wireless, designed with a team. In a 4-week A/B test with 2,400 users, plan selection was 5× faster and conversion rose 7% (a team result). The camera activation flow was prototyped, not part of the test.',
+    text: 'tello.ai — an agentic assistant for Total Wireless, designed with a team. I proposed a guided agent instead of an open chat. In a 4-week A/B test with 2,400 users, plan selection was 5× faster and conversion rose 7% (a team result); plan selection is now live on the Total Wireless site. The camera activation flow was prototyped, not part of the test.',
     sources: [src(byslug('tello'))],
   },
   [SUGGESTIONS[1]]: {

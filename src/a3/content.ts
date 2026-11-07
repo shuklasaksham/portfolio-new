@@ -89,16 +89,16 @@ export const cases: Case[] = [
     title: 'A plan in 2.8 minutes, not 15.',
     accent: '2.8 minutes',
     summary:
-      'An agentic assistant for Verizon’s Total Wireless. The plan-selection conversation shipped and was A/B tested. The activation flow — one conversation instead of a 12-screen form, reading the IMEI, SIM and PIN off the box with the camera — was prototyped, not tested.',
+      'An agentic assistant for Verizon’s Total Wireless. The plan-selection conversation was A/B tested and is now live on the Total Wireless site. The activation flow — one conversation instead of a 12-screen form, reading the IMEI, SIM and PIN off the box with the camera — was prototyped, not tested.',
     facts: [
       ['Role', 'Experience Designer II'],
       ['Worked with', 'Designers, product managers and engineers'],
       ['Year', '2025'],
-      ['Status', 'Plan selection A/B tested · activation prototyped'],
+      ['Status', 'Plan selection live on Total Wireless · activation prototyped'],
     ],
     brief: {
       problem: 'Activation meant hunting for a 15-digit IMEI across 12+ form screens; choosing a plan took about 15 minutes.',
-      did: 'With the team, designed a guided agent with plan cards (A/B tested) and a camera activation flow (prototype).',
+      did: 'Proposed a guided agent instead of an open chat; with the team, designed its plan cards (A/B tested, now live) and a camera activation flow (prototype).',
       result: { n: '+7%', label: 'conversion, with plan selection 5× faster (15 → 2.8 min)', source: 'A/B test · 2,400 users · 4 weeks' },
     },
     cover: { wide: wide('cover-tello', 1920, 1240, 'tello.ai screens: the assistant home, the guided conversation, camera scanning (prototype) and the account view') },
@@ -113,6 +113,7 @@ export const cases: Case[] = [
         title: 'My role and scope',
         items: [
           'Part of a team of designers, PMs and engineers. My focus: cutting the steps a customer takes and simplifying the experience — from auditing today’s flows to high-fidelity UI.',
+          'Proposed the guided-agent model — one question at a time, plans as cards, every choice pinned — over an open chat.',
           'Wrote the conversation before drawing a screen, then designed the stepper, rich cards and three scan flows (20+ states).',
           'Extended the assistant from plan selection into an agentic activation flow.',
         ],
@@ -122,7 +123,7 @@ export const cases: Case[] = [
         title: 'Key decisions',
         items: [
           {
-            label: 'Decision 01',
+            label: 'Decision 01 · my proposal',
             title: 'A guided agent, not an open chat.',
             context: 'Customers arrive to do one job: pick a plan and a phone, then activate. Most don’t know what to ask an assistant.',
             rejected: ['Open chat — “Ask me anything”', 'People have to guess what to type, and the happy path gets lost in back-and-forth.'],
@@ -172,7 +173,8 @@ export const cases: Case[] = [
         items: [['Agents still need structure', 'Steppers, pinned facts and cards are what make an AI flow feel trustworthy — not the chat itself.']],
       },
     ],
-    card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection shipped and A/B tested · Activation prototyped' },
+    card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection A/B tested and live · Activation prototyped' },
+    myCall: 'I proposed a guided agent instead of an open chat: one question at a time, plans as cards, every choice pinned — trading a free-form first turn for a path nobody gets lost on.',
     myPart: 'I wrote the conversation before any screen existed, then designed the stepper, rich cards and three scan flows (20+ states) that cut the steps a customer takes.',
     next: 'darpan',
   },
@@ -401,6 +403,7 @@ export const cases: Case[] = [
       },
     ],
     card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'HARMAN × Hyundai · In-car' },
+    myCall: 'When an engineer wanted to keep the traditional equaliser, I proposed testing both against the same tasks instead of arguing — and the team prototyped one gesture-based control, with the advanced settings kept within reach.',
     myPart: 'I designed Beosonic, AI sound tuning and the QR sign-in, then tested them in the car with live sound and light, and fed six fixes back into the spec.',
     next: 'bracket',
   },
@@ -533,6 +536,7 @@ export const cases: Case[] = [
           'Treated the guided demo as the user journey, giving each of its 15 steps a 10–30 second time budget.',
           'Designed Home, Media, Mood, Sound and System, and the adaptation rules that let one app reflow to five display formats.',
           'Reviewed every build side by side with the design and logged pixel-level fixes until demo day.',
+          'Ran the prototype validation with a UX researcher: about 2,000 participants in the US.',
         ],
       },
       {
@@ -570,12 +574,12 @@ export const cases: Case[] = [
             { n: '4.2', label: 'Satisfaction / 5', fill: 84, source: 'Prototype rating' },
           ],
           method:
-            'All three numbers come from prototype usability validation with about 2,000 participants in the US — not production analytics. CES 2024 was a showcase: it is listed as exposure, not as a measured result. The projected support-request reduction is not shown.',
+            'All three numbers come from prototype usability validation with about 2,000 participants in the US, which I ran with a UX researcher — not production analytics. CES 2024 was a showcase: it is listed as exposure, not as a measured result. The projected support-request reduction is not shown.',
         },
       },
     ],
     card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'Shown at CES 2024' },
-    myPart: 'I treated the 15-step CES demo as the user journey and wrote the adaptation rules that let one app reflow across five in-car display formats.',
+    myPart: 'I treated the 15-step CES demo as the user journey, wrote the adaptation rules that let one app reflow across five in-car display formats, and ran the ~2,000-participant validation with a UX researcher.',
     next: 'relayos',
   },
   {
@@ -708,7 +712,7 @@ export const home = {
   principles: [
     ['Business', 'I start from the number that matters.', 'Every case study says what moved, and how it was measured.'],
     ['Technology', 'I design inside real constraints.', 'WhatsApp’s button limits, five in-car displays, Indic scripts 40% longer.'],
-    ['Execution', 'I take work all the way to ship.', 'Dev-ready specs, every state designed, pixel-level QA against the build.'],
+    ['Execution', 'I see work through to the build.', 'tello.ai’s plan selection is live on Total Wireless; I reviewed every One Audio build until CES; DarpanAI and Bracket are live with users.'],
   ] as [string, string, string][],
 };
 
@@ -756,9 +760,9 @@ export const resume = {
       role: 'Experience Designer II · Verizon',
       when: '2025 – Present · Hyderabad',
       bullets: [
-        'Designed the conversation, stepper and plan cards for tello.ai, Total Wireless’s AI assistant; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%.',
+        'Proposed a guided agent instead of an open chat for tello.ai, Total Wireless’s AI assistant, and designed its conversation and plan cards; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%. Now live on the Total Wireless site.',
         'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',
-        'Wrote the conversation before drawing any screen, designed 20+ states across scanning, stepper and cards, and presented the flow to leadership as a prototype.',
+        'Own UX and design-system work on my team and guide two junior designers.',
       ],
     },
     {
@@ -767,6 +771,7 @@ export const resume = {
       bullets: [
         'Redesigned the in-vehicle audio interaction model for a Hyundai × Audio by Bang & Olufsen concept, validated in the car: navigation from 3 layers to 1, interaction time cut by 40%.',
         'Across in-car prototype sessions with 98 participants: 76% user satisfaction and 10% less driver distraction than the 3-layer model.',
+        'Aligned with Bang & Olufsen in a 2-day workshop and had each section approved with them; when an engineer wanted to keep the equaliser, proposed testing both on the same tasks instead of arguing.',
         'Tested in the car with live sound and ambient light, and fed six fixes back into the specification.',
       ],
     },
@@ -774,7 +779,7 @@ export const resume = {
       role: 'Associate Experience Designer · HARMAN International',
       when: '2022 – 2024 · Bengaluru',
       bullets: [
-        'Designed One Audio, a connected multi-device audio experience for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024; prototype validation with about 2,000 US participants measured 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
+        'Designed One Audio, a connected multi-device audio experience for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024; with a UX researcher, ran prototype validation with about 2,000 US participants: 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
         'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design until demo day.',
       ],
     },

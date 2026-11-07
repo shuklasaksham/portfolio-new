@@ -207,6 +207,8 @@ main:focus { outline: none; }
 .brief { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--ink); }
 .brief__call { display: grid; grid-template-columns: 140px 1fr; gap: var(--gap); align-items: baseline; margin-top: 28px; padding: 18px 22px; background: var(--accent-tint); }
 .brief__call p:not(.lbl) { font: 500 19px/28px var(--sans); letter-spacing: -0.01em; max-width: 980px; }
+.brief__call--part { margin-top: 2px; background: var(--surface); }
+.brief__call--part p:not(.lbl) { font-weight: 400; font-size: 17px; line-height: 26px; }
 .brief__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: 22px; }
 .brief__cols > div { display: grid; align-content: start; gap: 8px; padding-right: 24px; border-right: 1px solid var(--line); }
 .brief__cols > div:last-child { border-right: 0; }
@@ -326,7 +328,9 @@ main:focus { outline: none; }
 .story h3 { margin: 10px 0 14px; font: 500 24px/30px var(--sans); letter-spacing: -0.015em; }
 .story p:not(.lbl) { max-width: 760px; font-size: 17px; line-height: 27px; color: var(--text-2); }
 .story p:not(.lbl) + p { margin-top: 14px; }
-.story p:last-child { color: var(--ink); }
+.story p:last-of-type { color: var(--ink); }
+.story__link { display: inline-block; margin-top: 18px; color: var(--accent); }
+.story__link:hover { text-decoration: underline; }
 .habits { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
 .habits > div { border-top: 1px solid var(--ink); padding-top: 16px; }
 .habits h3 { font-size: 19px; line-height: 25px; }
