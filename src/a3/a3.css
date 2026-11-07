@@ -497,7 +497,7 @@ main:focus { outline: none; }
 
 /* ---------- print: résumé only ---------- */
 @media print {
-  @page { size: A4; margin: 12mm 14mm; }
+  @page { size: A4; margin: 10mm 14mm; }
   body { font-size: 10pt; }
   .hdr, .ftr, .skip, .rhead > .lbl, .rhead__meta, .rhead__main, .ask { display: none !important; }
   .rhead { display: block; padding: 0; }
