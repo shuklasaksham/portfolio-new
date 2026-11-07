@@ -274,7 +274,7 @@ export function Header() {
       <div className="hdr__in wrap">
         <Link to="/" className="hdr__name">{profile.name}</Link>
         <span className="hdr__meta">Product designer</span>
-        <span className="hdr__meta">India · remote</span>
+        <span className="hdr__meta">{profile.location}</span>
         <nav className="hdr__nav" aria-label="Main">
           {NAV.map(([label, to]) => (
             <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => (isActive || (to === '/' && location.pathname.startsWith('/work')) ? 'is-active' : '')}>

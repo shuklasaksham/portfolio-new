@@ -9,7 +9,7 @@ export default function About() {
       <section className="wrap grid ahead">
         <Label tone="muted">About</Label>
         <aside className="ahead__side">
-          <div className="portrait" aria-hidden="true"><span>SS</span></div>
+          <img className="portrait" src="/img/portrait.webp" width={820} height={1025} alt="Saksham Shukla speaking on stage" />
           <dl className="meta">
             <div><dt className="lbl lbl--muted">Based</dt><dd>{profile.location}</dd></div>
             <div><dt className="lbl lbl--muted">Experience</dt><dd>4.5+ years</dd></div>

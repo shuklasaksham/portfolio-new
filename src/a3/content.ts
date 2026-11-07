@@ -69,7 +69,7 @@ export const profile = {
   email: 'shuklasaksham01@gmail.com',
   linkedin: 'https://linkedin.com/in/saksham-shuklaa',
   linkedinLabel: 'linkedin.com/in/saksham-shuklaa',
-  location: 'India · works remote',
+  location: 'Hyderabad, India',
   summary:
     'Product designer with 4.5+ years leading end-to-end design for AI-powered, conversational and in-vehicle products at Verizon and HARMAN, and founder of Bracket, an AI-native decision OS.',
 };
@@ -716,7 +716,7 @@ export const about = {
     'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, and RelayOS is a voice-AI concept for Indian manufacturers.',
   ],
   experience: [
-    ['2025 – Now', 'Experience Designer II', 'Verizon', 'Remote, India'],
+    ['2025 – Now', 'Experience Designer II', 'Verizon', 'Hyderabad'],
     ['2024 – 2025', 'Experience Designer', 'HARMAN International', 'Bengaluru'],
     ['2022 – 2024', 'Associate Experience Designer', 'HARMAN International', 'Bengaluru'],
   ] as [string, string, string, string][],
@@ -749,7 +749,7 @@ export const resume = {
     },
     {
       role: 'Experience Designer II · Verizon',
-      when: '2025 – Present · Remote, India',
+      when: '2025 – Present · Hyderabad',
       bullets: [
         'Designer on the tello.ai team (AI conversational assistant for Total Wireless), focused on cutting customer steps; in a 4-week A/B test with 2,400 users, plan selection became 5× faster, conversion rose 7%, CSAT rose 12% and funnel drop-off fell 6%.',
         'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',

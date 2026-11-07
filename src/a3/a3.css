@@ -304,8 +304,7 @@ main:focus { outline: none; }
 .ahead > .lbl { grid-column: 1 / -1; }
 .ahead__side { grid-column: 1 / span 3; }
 .ahead__main { grid-column: 4 / span 8; }
-.portrait { aspect-ratio: 4 / 5; margin-bottom: 24px; display: grid; place-items: center; background: var(--surface); }
-.portrait span { font: italic 400 64px/1 var(--serif); color: var(--accent); }
+.portrait { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; margin-bottom: 24px; background: var(--surface); }
 .ahead__p { margin-top: 24px; max-width: 760px; font-size: 18px; line-height: 28px; color: var(--text-2); }
 .ahead__p:first-of-type { margin-top: 36px; color: var(--ink); }
 .rows-sec { margin-top: 112px; }
