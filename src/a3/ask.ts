@@ -22,7 +22,7 @@ const CURATED: Record<string, Answer> = {
     sources: [src(byslug('tello'))],
   },
   [SUGGESTIONS[1]]: {
-    text: 'Two HARMAN projects. Bang & Olufsen × Hyundai: one feel-based gesture replaced three layers of equaliser sliders; in in-car prototype sessions with 98 participants, interaction time fell 40%. Harman Kardon One Audio: one app across five in-car displays, shown at CES 2025; prototype validation with about 2,000 US participants measured 65% faster setup.',
+    text: 'Two HARMAN projects. Bang & Olufsen × Hyundai: one feel-based gesture replaced three layers of equaliser sliders; in in-car prototype sessions with 98 participants, interaction time fell 40%. Harman Kardon One Audio: one app across five in-car displays, shown at CES 2024; prototype validation with about 2,000 US participants measured 65% faster setup.',
     sources: [src(byslug('bang-olufsen')), src(byslug('harman-kardon'))],
   },
   [SUGGESTIONS[2]]: {

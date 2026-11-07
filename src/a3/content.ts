@@ -505,12 +505,12 @@ export const cases: Case[] = [
     title: 'Making sound you can see.',
     accent: 'you can see.',
     summary:
-      'One Audio, a connected multi-device audio experience for Harman Kardon, showcased in HARMAN’s AutoOne cockpit at CES 2025 — one app across five in-car display formats.',
+      'One Audio, a connected multi-device audio experience for Harman Kardon, showcased in HARMAN’s AutoOne cockpit at CES 2024 — one app across five in-car display formats.',
     facts: [
       ['Role', 'Associate Experience Designer, HARMAN'],
       ['Year', '2024'],
       ['Scope', '3 cars · 5 display formats · 15-step demo'],
-      ['Status', 'Shown at CES 2025'],
+      ['Status', 'Shown at CES 2024'],
     ],
     brief: {
       problem: 'Premium audio hardware is invisible, and CES visitors get about six noisy minutes in the car.',
@@ -568,11 +568,11 @@ export const cases: Case[] = [
             { n: '4.2', label: 'Satisfaction / 5', fill: 84, source: 'Prototype rating' },
           ],
           method:
-            'All three numbers come from prototype usability validation with about 2,000 participants in the US — not production analytics. CES 2025 was a showcase: it is listed as exposure, not as a measured result. The projected support-request reduction is not shown.',
+            'All three numbers come from prototype usability validation with about 2,000 participants in the US — not production analytics. CES 2024 was a showcase: it is listed as exposure, not as a measured result. The projected support-request reduction is not shown.',
         },
       },
     ],
-    card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'Shown at CES 2025' },
+    card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'Shown at CES 2024' },
     myPart: 'I treated the 15-step CES demo as the user journey and wrote the adaptation rules that let one app reflow across five in-car display formats.',
     next: 'relayos',
   },
@@ -696,7 +696,7 @@ export const home = {
   stats: [
     { n: '+7%', label: 'conversion on tello.ai', source: 'A/B test · 2,400 users', to: 'tello' },
     { n: '−40%', label: 'in-car audio interaction time', source: 'In-car prototype · 98 participants', to: 'bang-olufsen' },
-    { n: 'CES', label: 'Harman Kardon One Audio, AutoOne cockpit', source: 'Shown at CES 2025', to: 'harman-kardon' },
+    { n: 'CES', label: 'Harman Kardon One Audio, AutoOne cockpit', source: 'Shown at CES 2024', to: 'harman-kardon' },
     { n: '0→1', label: 'DarpanAI, live with paying users', source: 'Live since Oct 2026', to: 'darpan' },
   ],
   cards: {
@@ -763,7 +763,7 @@ export const resume = {
       role: 'Associate Experience Designer · HARMAN International',
       when: '2022 – 2024 · Bengaluru',
       bullets: [
-        'Designed One Audio, a connected multi-device audio experience for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2025; prototype validation with about 2,000 US participants measured 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
+        'Designed One Audio, a connected multi-device audio experience for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024; prototype validation with about 2,000 US participants measured 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
         'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design until demo day.',
       ],
     },
