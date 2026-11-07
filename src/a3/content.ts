@@ -73,7 +73,7 @@ export const profile = {
   email: 'shuklasaksham01@gmail.com',
   linkedin: 'https://linkedin.com/in/saksham-shuklaa',
   linkedinLabel: 'linkedin.com/in/saksham-shuklaa',
-  site: 'https://sakshamshukla.com',
+  site: 'https://www.sakshamshukla.com',
   siteLabel: 'sakshamshukla.com',
   location: 'Hyderabad, India',
   summary:

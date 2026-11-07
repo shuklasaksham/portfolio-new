@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sakshamshukla.com/sitemap.xml
+Sitemap: https://www.sakshamshukla.com/sitemap.xml

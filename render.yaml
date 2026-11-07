@@ -6,9 +6,9 @@ services:
     # The build pre-renders every page to its own HTML file (scripts/prerender.mjs).
     buildCommand: npm ci && npm run build
     staticPublishPath: ./dist
-    # Render also adds www.sakshamshukla.com and redirects it to the bare domain.
+    # Render also adds the bare sakshamshukla.com and redirects it to www.
     domains:
-      - sakshamshukla.com
+      - www.sakshamshukla.com
     # Rules apply only where no file exists, so pre-rendered pages are served as files.
     routes:
       # The old portfolio's résumé link.

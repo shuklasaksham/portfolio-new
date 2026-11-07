@@ -8,7 +8,7 @@ import { pathToFileURL } from 'node:url';
 const dist = resolve('dist');
 const { render, cases, profile, home } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href);
 
-const SITE = profile.site; // https://sakshamshukla.com
+const SITE = profile.site; // https://www.sakshamshukla.com
 const IMAGE = `${SITE}/og.jpg`;
 const template = readFileSync(resolve(dist, 'index.html'), 'utf8');
 
