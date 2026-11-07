@@ -271,10 +271,10 @@ export default function CasePage() {
             <p className="lbl lbl--muted">{c.brief.result.source}</p>
           </div>
         </div>
-        {c.myCall && (
+        {(c.myCall || c.myPart) && (
           <div className="brief__call">
-            <Label tone="accent">My call</Label>
-            <p>{c.myCall}</p>
+            <Label tone="accent">{c.myCall ? 'My call' : 'My part'}</Label>
+            <p>{c.myCall ?? c.myPart}</p>
           </div>
         )}
       </section>

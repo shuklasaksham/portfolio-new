@@ -53,6 +53,8 @@ export type Case = {
   card: { result: string; line: string; meta: string };
   /** The decision that was the designer's own call — only where that is documented. */
   myCall?: string;
+  /** What was the designer's own work in a team project, restated from the case study's role section. */
+  myPart?: string;
   next: string;
 };
 
@@ -169,6 +171,7 @@ export const cases: Case[] = [
       },
     ],
     card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection shipped and A/B tested · Activation prototyped' },
+    myPart: 'I wrote the conversation before any screen existed, then designed the stepper, rich cards and three scan flows (20+ states) that cut the steps a customer takes.',
     next: 'darpan',
   },
   {
@@ -396,6 +399,7 @@ export const cases: Case[] = [
       },
     ],
     card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'HARMAN × Hyundai · In-car' },
+    myPart: 'I designed Beosonic, AI sound tuning and the QR sign-in, then tested them in the car with live sound and light, and fed six fixes back into the spec.',
     next: 'bracket',
   },
   {
@@ -569,6 +573,7 @@ export const cases: Case[] = [
       },
     ],
     card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'Shown at CES 2025' },
+    myPart: 'I treated the 15-step CES demo as the user journey and wrote the adaptation rules that let one app reflow across five in-car display formats.',
     next: 'relayos',
   },
   {

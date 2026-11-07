@@ -50,7 +50,7 @@ function sectionText(s: Section): string[] {
   }
 }
 const DOCS: Doc[] = [
-  ...cases.flatMap((c) => [c.summary, ...c.facts.map(([k, v]) => `${k}: ${v}.`), ...(c.myCall ? [c.myCall] : []), c.brief.problem, c.brief.did, `${c.brief.result.n} ${c.brief.result.label} (${c.brief.result.source})`, ...c.sections.flatMap(sectionText)].map((text) => ({ text, c }))),
+  ...cases.flatMap((c) => [c.summary, ...c.facts.map(([k, v]) => `${k}: ${v}.`), ...[c.myCall, c.myPart].filter((x): x is string => !!x), c.brief.problem, c.brief.did, `${c.brief.result.n} ${c.brief.result.label} (${c.brief.result.source})`, ...c.sections.flatMap(sectionText)].map((text) => ({ text, c }))),
   ...about.paragraphs.map((text) => ({ text })),
 ];
 
