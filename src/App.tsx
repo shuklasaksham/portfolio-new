@@ -16,7 +16,8 @@ const TITLES: Record<string, string> = {
 };
 
 export default function App() {
-  const { pathname } = useLocation();
+  const path = useLocation().pathname;
+  const pathname = path.length > 1 ? path.replace(/\/+$/, '') : path;
   useRouteScroll();
 
   useEffect(() => {

@@ -73,6 +73,8 @@ export const profile = {
   email: 'shuklasaksham01@gmail.com',
   linkedin: 'https://linkedin.com/in/saksham-shuklaa',
   linkedinLabel: 'linkedin.com/in/saksham-shuklaa',
+  site: 'https://sakshamshukla.com',
+  siteLabel: 'sakshamshukla.com',
   location: 'Hyderabad, India',
   summary:
     'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN, including an agentic assistant whose plan flow lifted conversion 7% in an A/B test. Outside work, I design and launch my own AI products end to end.',

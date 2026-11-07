@@ -41,6 +41,7 @@ export default function Resume() {
             <p className="doc__hl">{resume.headline}</p>
             <p className="doc__contact">
               <span>{profile.location}</span>
+              <a href={profile.site}>{profile.siteLabel}</a>
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
               <a href={profile.linkedin}>{profile.linkedinLabel}</a>
             </p>

@@ -3,13 +3,50 @@ services:
   - type: web
     name: saksham-portfolio
     runtime: static
+    # The build pre-renders every page to its own HTML file (scripts/prerender.mjs).
     buildCommand: npm ci && npm run build
     staticPublishPath: ./dist
-    # Client-side routes (/work/tello, /about, /resume) must all serve index.html.
+    # Render also adds www.sakshamshukla.com and redirects it to the bare domain.
+    domains:
+      - sakshamshukla.com
+    # Rules apply only where no file exists, so pre-rendered pages are served as files.
     routes:
+      # The old portfolio's résumé link.
+      - type: redirect
+        source: /resume/Saksham_Shukla_Resume.pdf
+        destination: /Saksham-Shukla-Resume.pdf
+      - type: redirect
+        source: /work
+        destination: /#work
+      # Each page is pre-rendered to <page>/index.html.
+      - type: rewrite
+        source: /about
+        destination: /about/index.html
+      - type: rewrite
+        source: /resume
+        destination: /resume/index.html
+      - type: rewrite
+        source: /work/tello
+        destination: /work/tello/index.html
+      - type: rewrite
+        source: /work/darpan
+        destination: /work/darpan/index.html
+      - type: rewrite
+        source: /work/bang-olufsen
+        destination: /work/bang-olufsen/index.html
+      - type: rewrite
+        source: /work/bracket
+        destination: /work/bracket/index.html
+      - type: rewrite
+        source: /work/harman-kardon
+        destination: /work/harman-kardon/index.html
+      - type: rewrite
+        source: /work/relayos
+        destination: /work/relayos/index.html
+      # Anything else is not a page: show the 404 page.
       - type: rewrite
         source: /*
-        destination: /index.html
+        destination: /404.html
     headers:
       - path: /assets/*
         name: Cache-Control
@@ -17,3 +54,6 @@ services:
       - path: /img/*
         name: Cache-Control
         value: public, max-age=604800
+      - path: /og.jpg
+        name: Cache-Control
+        value: public, max-age=86400
