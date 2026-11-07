@@ -26,7 +26,7 @@ const CURATED: Record<string, Answer> = {
     sources: [src(byslug('bang-olufsen')), src(byslug('harman-kardon'))],
   },
   [SUGGESTIONS[2]]: {
-    text: 'Dev-ready specs with every state designed, then pixel-level QA against the build. On One Audio he reviewed every build side by side with the design and logged fixes until demo day; on RelayOS he handed off 46 screens and 5 prototype flows, with loading, empty, error and offline states for every surface.',
+    text: 'Dev-ready specs with every state designed, then pixel-level QA against the build. On One Audio he reviewed every build side by side with the design and logged fixes through to production; on RelayOS he handed off 46 screens and 5 prototype flows, with loading, empty, error and offline states for every surface.',
     sources: [src(byslug('harman-kardon')), src(byslug('relayos'))],
   },
   [SUGGESTIONS[3]]: {

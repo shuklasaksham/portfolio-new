@@ -535,7 +535,7 @@ export const cases: Case[] = [
         items: [
           'Treated the guided demo as the user journey, giving each of its 15 steps a 10–30 second time budget.',
           'Designed Home, Media, Mood, Sound and System, and the adaptation rules that let one app reflow to five display formats.',
-          'Reviewed every build side by side with the design and logged pixel-level fixes until demo day.',
+          'Reviewed every build side by side with the design and logged pixel-level fixes through to production.',
           'Ran the prototype validation with a UX researcher: about 2,000 participants in the US.',
         ],
       },
@@ -712,7 +712,7 @@ export const home = {
   principles: [
     ['Business', 'I start from the number that matters.', 'Every case study says what moved, and how it was measured.'],
     ['Technology', 'I design inside real constraints.', 'WhatsApp’s button limits, five in-car displays, Indic scripts 40% longer.'],
-    ['Execution', 'I see work through to the build.', 'tello.ai’s plan selection is live on Total Wireless; I reviewed every One Audio build until CES; DarpanAI and Bracket are live with users.'],
+    ['Execution', 'I see work through to the build.', 'tello.ai’s plan selection is live on Total Wireless; I reviewed every One Audio build through to production; DarpanAI and Bracket are live with users.'],
   ] as [string, string, string][],
 };
 
@@ -724,7 +724,7 @@ export const about = {
     'At Verizon I design agentic AI that is judged by conversion. At HARMAN I designed in-car experiences for Harman Kardon, Hyundai and Bang & Olufsen — work that has to hold up at arm’s length, across five displays, in a moving car.',
     'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, and RelayOS is a voice-AI concept for Indian manufacturers.',
     'At Verizon I own UX and design-system work on my team, and for about eight months I have guided two junior designers: reviewing their work and setting what to design and how.',
-    'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes until CES. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
+    'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes through to production. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
   ],
   disagreement: {
     where: 'Audio by Bang & Olufsen · Hyundai, Skoda · HARMAN',
