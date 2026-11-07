@@ -727,10 +727,10 @@ export const about = {
     'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes until CES. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
   ],
   disagreement: {
-    where: 'Bang & Olufsen × Hyundai · HARMAN',
+    where: 'Audio by Bang & Olufsen · Hyundai, Skoda · HARMAN',
     title: 'Testing both options instead of arguing for one',
     paragraphs: [
-      'On the Hyundai × Bang & Olufsen audio experience, an engineer wanted to keep the traditional equaliser: familiar, technically straightforward and precise. My concern was that layers of settings add cognitive load when a driver needs a quick adjustment.',
+      'On the Audio by Bang & Olufsen experience, an engineer wanted to keep the traditional equaliser: familiar, technically straightforward and precise. My concern was that layers of settings add cognitive load when a driver needs a quick adjustment.',
       'Rather than argue over visual preferences, I proposed evaluating both approaches against the same tasks: find a setting, adjust the sound, return to the main screen. The team agreed to prototype a simpler gesture-based control while keeping access to advanced controls.',
       'What I took from it: disagreements become productive when the team weighs user outcomes and technical constraints together, instead of defending individual solutions.',
     ],
@@ -780,7 +780,7 @@ export const resume = {
       when: '2022 – 2024 · Bengaluru',
       bullets: [
         'Designed One Audio, a connected multi-device audio app for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024 and shipped in BMW and Subaru vehicles; with a UX researcher, ran prototype validation with about 2,000 US participants: 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
-        'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design until demo day.',
+        'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design through to production.',
       ],
     },
   ],
