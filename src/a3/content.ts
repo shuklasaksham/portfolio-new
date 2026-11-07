@@ -77,7 +77,7 @@ export const profile = {
   siteLabel: 'sakshamshukla.com',
   location: 'Hyderabad, India',
   summary:
-    'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN, including an agentic assistant whose plan flow lifted conversion 7% in an A/B test. Outside work, I design and launch my own AI products end to end.',
+    'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN: an agentic assistant whose plan flow lifted conversion 7% in an A/B test, and in-car audio shipped in Hyundai, Skoda, BMW and Subaru vehicles. I guide two junior designers and launch my own AI products end to end.',
 };
 
 export const cases: Case[] = [
@@ -309,12 +309,12 @@ export const cases: Case[] = [
     title: 'Shaping sound by feel, not by equaliser.',
     accent: 'by feel,',
     summary:
-      'A new in-vehicle audio interaction model for a Hyundai × Audio by Bang & Olufsen concept: one feel-based gesture instead of three layers of sliders, AI tuning in plain words, and sign-in with a single QR code.',
+      'A new in-vehicle audio interaction model for Audio by Bang & Olufsen, shipped in Hyundai and Skoda vehicles: one feel-based gesture instead of three layers of sliders, AI tuning in plain words, and sign-in with a single QR code.',
     facts: [
       ['Role', 'Experience Designer, HARMAN'],
       ['Worked with', 'Bang & Olufsen, Hyundai, HARMAN engineering'],
       ['Year', '2024'],
-      ['Status', 'Concept · validated in the car'],
+      ['Status', 'Shipped · Hyundai, Skoda'],
     ],
     brief: {
       problem: 'Premium audio meant an equaliser three layers deep — meaningless to most drivers and distracting at speed.',
@@ -390,7 +390,7 @@ export const cases: Case[] = [
           ],
           bars: { label: 'Navigation depth to change sound', before: 3, after: 1, beforeText: '3 layers', afterText: '1 layer' },
           method:
-            'Compared against the previous 3-layer audio settings model, in the car with live sound and ambient light. A concept, not a production release. 98 participants took part in the in-car prototype sessions.',
+            'Compared against the previous 3-layer audio settings model, in the car with live sound and ambient light, before launch. 98 participants took part in the in-car prototype sessions. Beosonic, AI tuning and QR sign-in all shipped in Hyundai and Skoda vehicles; no production analytics are shown.',
         },
       },
       {
@@ -402,8 +402,8 @@ export const cases: Case[] = [
         ],
       },
     ],
-    card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'HARMAN × Hyundai · In-car' },
-    myCall: 'When an engineer wanted to keep the traditional equaliser, I proposed testing both against the same tasks instead of arguing — and the team prototyped one gesture-based control, with the advanced settings kept within reach.',
+    card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'Shipped in Hyundai and Skoda vehicles' },
+    myCall: 'When an engineer wanted to keep the traditional equaliser, I proposed testing both against the same tasks instead of arguing — and the team prototyped one gesture-based control, with the advanced settings kept within reach. In testing it cut interaction time 40% against the 3-layer model, and it shipped.',
     myPart: 'I designed Beosonic, AI sound tuning and the QR sign-in, then tested them in the car with live sound and light, and fed six fixes back into the spec.',
     next: 'bracket',
   },
@@ -510,12 +510,12 @@ export const cases: Case[] = [
     title: 'Making sound you can see.',
     accent: 'you can see.',
     summary:
-      'One Audio, a connected multi-device audio experience for Harman Kardon, showcased in HARMAN’s AutoOne cockpit at CES 2024 — one app across five in-car display formats.',
+      'One Audio, a connected multi-device audio experience for Harman Kardon — one app across five in-car display formats. Showcased in HARMAN’s AutoOne cockpit at CES 2024, then shipped in BMW and Subaru vehicles.',
     facts: [
       ['Role', 'Associate Experience Designer, HARMAN'],
       ['Year', '2024'],
       ['Scope', '3 cars · 5 display formats · 15-step demo'],
-      ['Status', 'Shown at CES 2024'],
+      ['Status', 'CES 2024 · shipped in BMW, Subaru'],
     ],
     brief: {
       problem: 'Premium audio hardware is invisible, and CES visitors get about six noisy minutes in the car.',
@@ -574,11 +574,11 @@ export const cases: Case[] = [
             { n: '4.2', label: 'Satisfaction / 5', fill: 84, source: 'Prototype rating' },
           ],
           method:
-            'All three numbers come from prototype usability validation with about 2,000 participants in the US, which I ran with a UX researcher — not production analytics. CES 2024 was a showcase: it is listed as exposure, not as a measured result. The projected support-request reduction is not shown.',
+            'All three numbers come from prototype usability validation with about 2,000 participants in the US, which I ran with a UX researcher — not production analytics. CES 2024 was a showcase, listed as exposure rather than a measured result; the whole app later shipped in BMW and Subaru vehicles. The projected support-request reduction is not shown.',
         },
       },
     ],
-    card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'Shown at CES 2024' },
+    card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'CES 2024 · Shipped in BMW and Subaru vehicles' },
     myPart: 'I treated the 15-step CES demo as the user journey, wrote the adaptation rules that let one app reflow across five in-car display formats, and ran the ~2,000-participant validation with a UX researcher.',
     next: 'relayos',
   },
@@ -698,11 +698,11 @@ export const home = {
     ['Focus', 'AI, conversational, in-car'],
     ['Experience', '4.5+ years'],
   ] as [string, string][],
-  sub: 'Experience Designer II at Verizon, previously HARMAN. 4.5+ years connecting design, engineering and business: agentic AI measured in A/B tests, in-car experiences validated in the car, and my own AI products with paying users.',
+  sub: 'Experience Designer II at Verizon, previously HARMAN. 4.5+ years connecting design, engineering and business: agentic AI measured in A/B tests, in-car audio shipped in Hyundai, Skoda, BMW and Subaru vehicles, and my own AI products with paying users.',
   stats: [
     { n: '+7%', label: 'conversion on tello.ai', source: 'A/B test · 2,400 users', to: 'tello' },
     { n: '−40%', label: 'in-car audio interaction time', source: 'In-car prototype · 98 participants', to: 'bang-olufsen' },
-    { n: 'CES', label: 'Harman Kardon One Audio, AutoOne cockpit', source: 'Shown at CES 2024', to: 'harman-kardon' },
+    { n: 'CES', label: 'Harman Kardon One Audio, then BMW and Subaru', source: 'Shown at CES 2024 · shipped', to: 'harman-kardon' },
     { n: '0→1', label: 'DarpanAI, live with paying users', source: 'Live since Oct 2026', to: 'darpan' },
   ],
   cards: {
@@ -723,6 +723,7 @@ export const about = {
     profile.summary,
     'At Verizon I design agentic AI that is judged by conversion. At HARMAN I designed in-car experiences for Harman Kardon, Hyundai and Bang & Olufsen — work that has to hold up at arm’s length, across five displays, in a moving car.',
     'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, and RelayOS is a voice-AI concept for Indian manufacturers.',
+    'At Verizon I own UX and design-system work on my team, and for about eight months I have guided two junior designers: reviewing their work and setting what to design and how.',
     'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes until CES. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
   ],
   disagreement: {
@@ -762,24 +763,23 @@ export const resume = {
       bullets: [
         'Proposed a guided agent instead of an open chat for tello.ai, Total Wireless’s AI assistant, and designed its conversation and plan cards; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%. Now live on the Total Wireless site.',
         'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',
-        'Own UX and design-system work on my team and guide two junior designers.',
+        'Own UX and design-system work on my team; for about 8 months have guided two junior designers, reviewing their work and setting what to design and how.',
       ],
     },
     {
       role: 'Experience Designer · HARMAN International',
       when: '2024 – 2025 · Bengaluru',
       bullets: [
-        'Redesigned the in-vehicle audio interaction model for a Hyundai × Audio by Bang & Olufsen concept, validated in the car: navigation from 3 layers to 1, interaction time cut by 40%.',
-        'Across in-car prototype sessions with 98 participants: 76% user satisfaction and 10% less driver distraction than the 3-layer model.',
-        'Aligned with Bang & Olufsen in a 2-day workshop and had each section approved with them; when an engineer wanted to keep the equaliser, proposed testing both on the same tasks instead of arguing.',
-        'Tested in the car with live sound and ambient light, and fed six fixes back into the specification.',
+        'Designed in-vehicle audio for Audio by Bang & Olufsen — feel-based sound control (Beosonic), AI sound tuning and QR sign-in — shipped in Hyundai and Skoda vehicles.',
+        'When an engineer wanted to keep the 3-layer equaliser, proposed testing both on the same tasks; with 98 participants in the car, the 1-layer gesture model cut interaction time 40% and distraction 10%, with 76% satisfaction.',
+        'Aligned with Bang & Olufsen in a 2-day workshop and had each section approved with them; in-car testing with live sound and light fed six fixes into the spec.',
       ],
     },
     {
       role: 'Associate Experience Designer · HARMAN International',
       when: '2022 – 2024 · Bengaluru',
       bullets: [
-        'Designed One Audio, a connected multi-device audio experience for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024; with a UX researcher, ran prototype validation with about 2,000 US participants: 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
+        'Designed One Audio, a connected multi-device audio app for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024 and shipped in BMW and Subaru vehicles; with a UX researcher, ran prototype validation with about 2,000 US participants: 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
         'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design until demo day.',
       ],
     },
