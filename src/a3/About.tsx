@@ -54,6 +54,15 @@ export default function About() {
       </section>
 
       <section className="wrap grid rows-sec">
+        <h2 className="h-sec">A disagreement, resolved</h2>
+        <article className="story" data-rv>
+          <Label tone="accent">{about.disagreement.where}</Label>
+          <h3>{about.disagreement.title}</h3>
+          {about.disagreement.paragraphs.map((p) => <p key={p}>{p}</p>)}
+        </article>
+      </section>
+
+      <section className="wrap grid rows-sec">
         <h2 className="h-sec">How I work</h2>
         <div className="habits">
           {about.habits.map(([where, t, d]) => (

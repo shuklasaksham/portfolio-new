@@ -51,7 +51,7 @@ function sectionText(s: Section): string[] {
 }
 const DOCS: Doc[] = [
   ...cases.flatMap((c) => [c.summary, ...c.facts.map(([k, v]) => `${k}: ${v}.`), ...[c.myCall, c.myPart].filter((x): x is string => !!x), c.brief.problem, c.brief.did, `${c.brief.result.n} ${c.brief.result.label} (${c.brief.result.source})`, ...c.sections.flatMap(sectionText)].map((text) => ({ text, c }))),
-  ...about.paragraphs.map((text) => ({ text })),
+  ...[...about.paragraphs, ...about.disagreement.paragraphs].map((text) => ({ text })),
 ];
 
 const STOP = new Set('a an and are as at be by can did do does for from has have he his how i in is it its me my of on or so tell that the their them this to was what when where which who why with you your about saksham work many much first day days any some one'.split(' '));
@@ -69,6 +69,9 @@ export function answer(q: string): Answer {
   const curated = CURATED[q.trim()];
   if (curated) return curated;
   if (OFF_TOPIC.test(q)) return FALLBACK;
+  if (/disagree|conflict|push ?back|pushed back|argu/i.test(q)) {
+    return { text: about.disagreement.paragraphs.join(' '), sources: [{ label: 'About — A disagreement, resolved', to: '/about' }] };
+  }
   const terms = [...new Set(words(q).map(stem))];
   if (!terms.length) return FALLBACK;
   // Rarer words count for more (idf), so "One Audio validation" beats a sentence that only shares "audio".

@@ -719,6 +719,15 @@ export const about = {
     'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, and RelayOS is a voice-AI concept for Indian manufacturers.',
     'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes until CES. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
   ],
+  disagreement: {
+    where: 'Bang & Olufsen × Hyundai · HARMAN',
+    title: 'Testing both options instead of arguing for one',
+    paragraphs: [
+      'On the Hyundai × Bang & Olufsen audio experience, an engineer wanted to keep the traditional equaliser: familiar, technically straightforward and precise. My concern was that layers of settings add cognitive load when a driver needs a quick adjustment.',
+      'Rather than argue over visual preferences, I proposed evaluating both approaches against the same tasks: find a setting, adjust the sound, return to the main screen. The team agreed to prototype a simpler gesture-based control while keeping access to advanced controls.',
+      'What I took from it: disagreements become productive when the team weighs user outcomes and technical constraints together, instead of defending individual solutions.',
+    ],
+  },
   experience: [
     ['2025 – Now', 'Experience Designer II', 'Verizon', 'Hyderabad'],
     ['2024 – 2025', 'Experience Designer', 'HARMAN International', 'Bengaluru'],
