@@ -101,6 +101,7 @@ export default function Home() {
 
         <Label tone="muted">Case studies — full reads</Label>
         <Card c={bySlug('tello')} big />
+        <Card c={bySlug('plug')} big />
         <div className="cards2">
           <Card c={bySlug('darpan')} />
           <Card c={bySlug('bang-olufsen')} />
@@ -112,8 +113,8 @@ export default function Home() {
           <Card c={bySlug('harman-kardon')} />
         </div>
 
-        <Label tone="muted">Not shipped — concept and in design</Label>
-        {[bySlug('relayos'), bySlug('plug')].map((c) => (
+        <Label tone="muted">Concept — not shipped</Label>
+        {[bySlug('relayos')].map((c) => (
           <Link key={c.slug} to={`/work/${c.slug}`} className="concept" data-rv>
             <div className="concept__text">
               <div className="card__row">

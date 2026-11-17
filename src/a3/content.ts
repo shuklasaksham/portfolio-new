@@ -179,11 +179,11 @@ export const cases: Case[] = [
     card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection A/B tested and live · Activation prototyped' },
     myCall: 'I proposed a guided agent instead of an open chat: one question at a time, plans as cards, every choice pinned — trading a free-form first turn for a path nobody gets lost on.',
     myPart: 'I wrote the conversation before any screen existed, then designed the stepper, rich cards and three scan flows (20+ states) that cut the steps a customer takes.',
-    next: 'darpan',
+    next: 'plug',
   },
   {
     slug: 'darpan',
-    num: '02',
+    num: '03',
     tier: 'deep',
     name: 'DarpanAI',
     title: 'From an idea to a finished reel, with no editing.',
@@ -306,7 +306,7 @@ export const cases: Case[] = [
   },
   {
     slug: 'bang-olufsen',
-    num: '03',
+    num: '04',
     tier: 'deep',
     name: 'Bang & Olufsen',
     title: 'Shaping sound by feel, not by equaliser.',
@@ -412,7 +412,7 @@ export const cases: Case[] = [
   },
   {
     slug: 'bracket',
-    num: '04',
+    num: '05',
     tier: 'medium',
     name: 'Bracket',
     title: 'An AI memory people can trust.',
@@ -507,7 +507,7 @@ export const cases: Case[] = [
   },
   {
     slug: 'harman-kardon',
-    num: '05',
+    num: '06',
     tier: 'medium',
     name: 'Harman Kardon',
     title: 'Making sound you can see.',
@@ -587,7 +587,7 @@ export const cases: Case[] = [
   },
   {
     slug: 'relayos',
-    num: '06',
+    num: '07',
     tier: 'concept',
     name: 'RelayOS',
     title: 'One voice note to recover a delayed order.',
@@ -688,11 +688,11 @@ export const cases: Case[] = [
       meta: 'Concept — not shipped',
     },
     myCall: 'I kept the owner inside WhatsApp and ruled that the AI never agrees a price — every money decision waits for the owner’s tap.',
-    next: 'plug',
+    next: 'tello',
   },
   {
     slug: 'plug',
-    num: '07',
+    num: '02',
     tier: 'design',
     name: 'Plug',
     title: 'Every overpayment, recovered.',
@@ -891,7 +891,7 @@ export const cases: Case[] = [
       meta: 'In design · launch planned Dec 2026',
     },
     myPart: 'I owned the journeys, interface, design system and states — 39 screens and the finding lifecycle — working with AI agents for product, architecture, engineering and content.',
-    next: 'tello',
+    next: 'darpan',
   },
 ];
 
