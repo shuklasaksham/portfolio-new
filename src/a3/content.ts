@@ -33,10 +33,11 @@ export type Section =
   | { kind: 'decisions'; title: string; items: Decision[] }
   | { kind: 'pairs'; title: string; items: [string, string][] }
   | { kind: 'image'; title: string; shot: Shot; caption: string }
+  | { kind: 'gallery'; title: string; text?: string; flow?: { shot: Shot; caption: string }; shots: Shot[] }
   | { kind: 'outcome'; title: string; outcome: Outcome }
   | { kind: 'results'; title: string; status: Callout; listLabel: string; items: string[]; callouts?: Callout[] };
 
-export type Tier = 'deep' | 'medium' | 'concept';
+export type Tier = 'deep' | 'medium' | 'concept' | 'design';
 
 export type Case = {
   slug: string;
@@ -62,11 +63,13 @@ export const TIER_TAG: Record<Tier, string> = {
   deep: 'Case study',
   medium: 'More work',
   concept: 'Concept — not shipped',
+  design: 'In design — not shipped',
 };
 
 const phone = (name: string, alt: string): Shot => ({ src: img(name), w: 390, h: 844, alt });
 const tall = (name: string, alt: string): Shot => ({ src: img(name), w: 900, h: 1949, alt });
 const wide = (name: string, w: number, h: number, alt: string): Shot => ({ src: img(name), w, h, alt });
+const screen = (name: string, h: number, alt: string): Shot => ({ src: img(name), w: 1440, h, alt });
 
 export const profile = {
   name: 'Saksham Shukla',
@@ -685,6 +688,209 @@ export const cases: Case[] = [
       meta: 'Concept — not shipped',
     },
     myCall: 'I kept the owner inside WhatsApp and ruled that the AI never agrees a price — every money decision waits for the owner’s tap.',
+    next: 'plug',
+  },
+  {
+    slug: 'plug',
+    num: '07',
+    tier: 'design',
+    name: 'Plug',
+    title: 'Every overpayment, recovered.',
+    accent: 'recovered.',
+    summary:
+      'An AI recovery platform for finance teams, in design. Plug checks every payment for duplicate payments and unused vendor credits, explains each finding with its evidence, and recovers the money from the vendor only after a person approves. It charges 15% of what comes back, and nothing if nothing does.',
+    facts: [
+      ['Role', 'Senior Product Designer'],
+      ['Worked with', 'AI agents for product, architecture, engineering, QA and content'],
+      ['Year', '2026'],
+      ['Status', 'In design · launch planned Dec 2026'],
+    ],
+    brief: {
+      problem: 'Industry estimates put 0.8–2% of annual payments in error, and recovery audits typically take 4–6 months and keep 25–50% of what they find.',
+      did: 'Designed the whole product: onboarding, findings that explain themselves, a four-way decision, vendor recovery, bank-verified fees and every failure state.',
+      result: { n: '39', label: 'desktop screens across 7 flows, with loading, empty, error and partial-data states', source: 'Figma · not built or tested yet' },
+    },
+    cover: { wide: wide('plug-overview', 1440, 900, 'Plug overview: money found, waiting for a decision, with vendors and recovered, plus the tasks that need you') },
+    sections: [
+      {
+        kind: 'lede',
+        title: 'The problem',
+        text: 'Duplicate payments and unused vendor credits hide in thousands of transactions, and finance teams rarely have time to look. The real design problem was trust: an AI that finds money and writes to your vendors has to prove every claim before anyone lets it act.',
+      },
+      {
+        kind: 'list',
+        title: 'My role and scope',
+        items: [
+          'Senior Product Designer, working with AI agents that covered product management, architecture, engineering, QA and content. I owned the user journeys, interface design, product design system and interaction states.',
+          'Framed five roles (controller, CFO, founder, AP specialist and the vendor’s AR contact) and a nine-stage journey from free leak check to fee paid — as hypotheses for usability testing.',
+          'Mapped the finding lifecycle in FigJam: 15 states from “to review” to “fee paid”, and four flows including disconnected and partial data.',
+          'Designed 39 desktop screens: onboarding, findings, decisions, recovery, fees, settings, failure states, and company groups in USD and INR.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'How it works',
+        steps: [
+          ['Share', 'Read-only connection or uploaded exports'],
+          ['Detect', 'Every payment checked; findings ranked by value'],
+          ['Decide', 'Approve, reject, ask Plug or dispute'],
+          ['Recover', 'Plug contacts the vendor; the fee waits until the money is verified'],
+        ],
+      },
+      {
+        kind: 'image',
+        title: 'Information architecture',
+        shot: wide('plug-flow-ia', 1428, 1663, 'Plug information architecture'),
+        caption: 'Overview, findings, recoveries, statements, data sources and settings, with onboarding outside the main navigation and an inbox for tasks assigned to you.',
+      },
+      {
+        kind: 'image',
+        title: 'The finding lifecycle',
+        shot: wide('plug-flow-lifecycle', 2400, 786, 'State diagram of a finding from to review to fee paid'),
+        caption: '15 states from “to review” to “fee paid”: questions, rejections, disputes, approvals over the threshold, vendor negotiation, the 14-day check and on-hold.',
+      },
+      {
+        kind: 'decisions',
+        title: 'Key decisions',
+        items: [
+          {
+            label: 'Decision 01',
+            title: 'Every finding answers four questions.',
+            context: 'A controller’s first question is whether a finding is real or a false alarm. An AI that only lists amounts pushes the checking back onto them.',
+            rejected: ['A list of flagged transactions', 'Amounts without proof get ignored, or re-checked by hand.'],
+            chosen: ['How much, why, how sure, what next', 'Each finding shows the amount, the evidence side by side, Plug’s confidence and the recommended step.'],
+            tradeoff: 'Longer pages, in exchange for findings people can act on without redoing the work.',
+            shots: [wide('plug-finding', 1440, 1347, 'Finding detail: two payments for the same invoice matched side by side, why Plug is confident, the evidence and the decision panel')],
+          },
+          {
+            label: 'Decision 02',
+            title: 'Four decisions, not two.',
+            context: 'Approve or reject forces a choice when someone is only unsure, or disagrees with the amount.',
+            rejected: ['Approve or reject', 'Doubt turns into a rejection, and the reason is lost.'],
+            chosen: ['Approve, reject with a reason, ask Plug, or dispute', 'Each shows its consequence, including the fee, before you commit. Above a threshold (default $10,000) an approver decides.'],
+            tradeoff: 'More choices on screen, in exchange for fewer wrong rejections and a reason for every one.',
+            shots: [wide('plug-approver', 1440, 1234, 'Approver view of a claim over the threshold')],
+          },
+          {
+            label: 'Decision 03',
+            title: 'No fee until the money reaches you.',
+            context: 'Plug is paid 15% of what it recovers, so the moment money “counts” decides whether customers trust the bill.',
+            rejected: ['Bill when the vendor agrees', 'A vendor’s promise is not money in your bank.'],
+            chosen: ['Bill after it lands, then a 14-day check', 'A refund counts when it reaches your bank; a credit only when it is used on a paid invoice. Then 14 days to confirm or dispute, itemised monthly.'],
+            tradeoff: 'Plug waits longer to be paid, in exchange for a fee nobody has to argue about.',
+            shots: [wide('plug-statement', 1440, 1124, 'Monthly statement with the fee broken down per finding')],
+          },
+        ],
+      },
+      {
+        kind: 'gallery',
+        title: 'Flow · Sign up and connect',
+        text: 'From a free leak check to the first findings. Every branch has somewhere to go: an unverified email, access denied, invalid files and partial data.',
+        flow: { shot: wide('plug-flow-signup', 2400, 417, 'Sign-up and connect flow'), caption: 'Sign up and connect, as mapped in FigJam.' },
+        shots: [
+          screen('plug-o1-signup', 900, 'Sign up for a free leak check'),
+          screen('plug-o2-connect', 900, 'Connect accounting data, read-only'),
+          screen('plug-o3-upload', 900, 'Upload files and check data coverage'),
+          screen('plug-o4-running', 900, 'Leak check running — leave and come back'),
+        ],
+      },
+      {
+        kind: 'gallery',
+        title: 'Flow · Review and decide',
+        text: 'Findings arrive ranked by value. Each decision states its consequence before you commit, and the recovery agreement is signed once, at the first approval.',
+        flow: { shot: wide('plug-flow-decide', 2270, 776, 'Review and decide flow'), caption: 'Review and decide, as mapped in FigJam.' },
+        shots: [
+          screen('plug-b2-list', 1108, 'Findings, sorted by value'),
+          screen('plug-b3-selected', 1108, 'Two findings selected: the fee is shown before approving'),
+          screen('plug-c1-agreement', 1347, 'First approval: sign the recovery agreement once'),
+          screen('plug-c2-ask', 959, 'Ask Plug: a question thread on the finding'),
+          screen('plug-c4-reject', 1347, 'Reject with a reason, so Plug learns'),
+          screen('plug-c5-dispute', 1347, 'Dispute the amount or the evidence'),
+          screen('plug-c6-after', 900, 'After approval: what happens now'),
+        ],
+      },
+      {
+        kind: 'gallery',
+        title: 'Flow · Recover, verify and pay',
+        text: 'Plug writes to the vendor, follows up on day 7, 14 and 21, negotiates partial offers, and only bills once the money is matched in the bank or ledger and the 14-day check has passed.',
+        flow: { shot: wide('plug-flow-recover', 2143, 963, 'Recovery to fee flow'), caption: 'Recovery to fee, as mapped in FigJam.' },
+        shots: [
+          screen('plug-d1-recoveries', 1067, 'Recoveries by stage'),
+          screen('plug-d2-vendor-disputed', 1116, 'Vendor disputed: Plug needs you'),
+          screen('plug-g5-offer', 900, 'Vendor final offer below the claim: accept or refuse'),
+          screen('plug-d3-arrived', 1020, 'Refund arrived: the 14-day check'),
+          screen('plug-d5-pay', 941, 'Pay the fee'),
+          screen('plug-d6-notifications', 900, 'Notifications'),
+        ],
+      },
+      {
+        kind: 'gallery',
+        title: 'States, designed rather than left over',
+        text: 'Loading, empty, errors, partial data and disconnected accounts each say what happened and what to do next.',
+        flow: { shot: wide('plug-flow-partial', 2057, 676, 'Disconnected and partial data flow'), caption: 'Disconnected and partial data, as mapped in FigJam.' },
+        shots: [
+          screen('plug-f1-loading', 900, 'Findings: loading'),
+          screen('plug-f2-nothing', 900, 'Findings: nothing needs a decision'),
+          screen('plug-f3-running', 900, 'Findings: first leak check still running'),
+          screen('plug-f4-error', 900, 'Findings: could not load'),
+          screen('plug-f5-limited', 928, 'Finding with limited evidence (partial data)'),
+          screen('plug-f6-disconnected', 900, 'Data sources: disconnected account'),
+          screen('plug-f7-none', 900, 'Recoveries: none yet'),
+          screen('plug-f8-denied', 913, 'Connect: access not granted'),
+          screen('plug-f9-row-errors', 900, 'Upload: row errors explained'),
+        ],
+      },
+      {
+        kind: 'gallery',
+        title: 'Settings and permissions',
+        text: 'Five roles — owner, admin, approver, reviewer and contributor — with a dollar threshold above which an approver must decide.',
+        shots: [
+          screen('plug-e1-sources', 900, 'Data sources'),
+          screen('plug-e2-team', 900, 'Team and roles'),
+          screen('plug-e3-threshold', 900, 'Approval threshold'),
+          screen('plug-e4-notifs', 1079, 'Notification settings'),
+        ],
+      },
+      {
+        kind: 'gallery',
+        title: 'Company groups, USD and INR',
+        text: 'One workspace can hold several companies. Dashboards switch between USD and INR; claims and statements always stay in their original currency.',
+        shots: [
+          screen('plug-g1-all', 900, 'Overview across all companies, in USD'),
+          screen('plug-g2-switcher', 900, 'Company switcher'),
+          screen('plug-g3-inr', 900, 'Findings for an India company, in INR'),
+          screen('plug-g4-statement-inr', 900, 'Statement in INR, with tax at 0%'),
+          screen('plug-g6-companies', 900, 'Settings: companies and currency'),
+        ],
+      },
+      {
+        kind: 'pairs',
+        title: 'Trust rules, designed in',
+        items: [
+          ['Read-only, always', 'Plug only reads accounting and bank data. It never pays, moves or edits money; vendors refund you directly.'],
+          ['Nothing behind your back', 'No vendor is contacted without approval, and every message, reply and status change is on the timeline.'],
+          ['Free until the first approval', 'The leak check and every finding are free to see. The recovery agreement is signed once, at the first approval.'],
+        ],
+      },
+      {
+        kind: 'results',
+        title: 'Validation',
+        status: { label: 'Status', text: 'In design — not built and not yet tested with users. The research is desk research, written as hypotheses for the first usability test. No outcome numbers are claimed.' },
+        listLabel: 'What the first usability test will check',
+        items: [
+          'Can a controller tell a real finding from a false alarm?',
+          'Does an approver trust the evidence enough to let Plug contact the vendor?',
+          'Is the 15% fee clear before anyone commits?',
+          'Do partial data and disconnected accounts make the next step obvious?',
+        ],
+      },
+    ],
+    card: {
+      result: '',
+      line: 'An AI that finds what a company overpaid its vendors and recovers it — and is only paid once the money is back.',
+      meta: 'In design · launch planned Dec 2026',
+    },
+    myPart: 'I owned the journeys, interface, design system and states — 39 screens and the finding lifecycle — working with AI agents for product, architecture, engineering and content.',
     next: 'tello',
   },
 ];
@@ -722,7 +928,7 @@ export const about = {
   paragraphs: [
     profile.summary,
     'At Verizon I design agentic AI that is judged by conversion. At HARMAN I designed in-car experiences for Harman Kardon, Hyundai and Bang & Olufsen — work that has to hold up at arm’s length, across five displays, in a moving car.',
-    'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, and RelayOS is a voice-AI concept for Indian manufacturers.',
+    'On my own I build AI products end to end: Bracket is live in v0.4, DarpanAI is an AI video director that 65 creators signed up for in its first two weeks, RelayOS is a voice-AI concept for Indian manufacturers, and Plug, an AI that recovers overpayments for finance teams, is in design.',
     'At Verizon I own UX and design-system work on my team, and for about eight months I have guided two junior designers: reviewing their work and setting what to design and how.',
     'I work closest with engineers and partners where design meets the build. On One Audio I reviewed every build side by side with the design and logged fixes through to production. With Bang & Olufsen, each section of the design was approved with them before it moved on, and testing in the car fed six fixes back into the spec. On RelayOS I specified loading, empty, error and offline states for every surface, so engineering never had to guess.',
   ],
@@ -744,6 +950,7 @@ export const about = {
     ['bracket', 'An AI memory people can trust', 'Live · v0.4'],
     ['darpan', 'An AI video director in your pocket', 'Live · 6 paying creators'],
     ['relayos', 'Voice AI that recovers delayed orders', 'Not shipped'],
+    ['plug', 'AI that recovers overpayments to vendors', 'In design'],
   ] as [string, string, string][],
   habits: [
     ['One Audio', 'Design for the real moment of use', 'At CES, the demo script was the user journey.'],

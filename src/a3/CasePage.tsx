@@ -150,6 +150,30 @@ function Body({ s }: { s: Section }) {
           <figcaption>{s.caption} <span className="lbl lbl--muted">Open full size ↗</span></figcaption>
         </figure>
       );
+    case 'gallery':
+      return (
+        <div className="gallery">
+          {s.text && <p className="gallery__text" data-rv>{s.text}</p>}
+          {s.flow && (
+            <figure className="map" data-rv>
+              <a href={s.flow.shot.src} target="_blank" rel="noreferrer" aria-label={`Open full size: ${s.flow.shot.alt}`}>
+                <Img shot={s.flow.shot} />
+              </a>
+              <figcaption>{s.flow.caption} <span className="lbl lbl--muted">Open full size ↗</span></figcaption>
+            </figure>
+          )}
+          <div className="gallery__grid">
+            {s.shots.map((x) => (
+              <figure key={x.src} data-rv>
+                <a href={x.src} target="_blank" rel="noreferrer" aria-label={`Open full size: ${x.alt}`}>
+                  <Img shot={x} />
+                </a>
+                <figcaption>{x.alt}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      );
     case 'outcome':
       return <OutcomeView o={s.outcome} />;
     case 'results':

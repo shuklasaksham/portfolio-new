@@ -43,6 +43,9 @@ services:
       - type: rewrite
         source: /work/relayos
         destination: /work/relayos/index.html
+      - type: rewrite
+        source: /work/plug
+        destination: /work/plug/index.html
       # Anything else is not a page: show the 404 page.
       - type: rewrite
         source: /*

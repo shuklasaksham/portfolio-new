@@ -44,6 +44,7 @@ function sectionText(s: Section): string[] {
     case 'steps': return s.steps.map(([a, b]) => `${a}: ${b}`);
     case 'pairs': return s.items.map(([a, b]) => `${a}. ${b}`);
     case 'image': return [s.caption];
+    case 'gallery': return [s.text ?? '', s.flow?.caption ?? ''].filter(Boolean);
     case 'decisions': return s.items.flatMap((d) => [d.title, d.context, d.chosen?.join(': ') ?? '', d.tradeoff ?? ''].filter(Boolean));
     case 'outcome': return [`How it was measured — ${s.outcome.method}`, ...(s.outcome.callouts ?? []).map((c) => c.text)];
     case 'results': return [s.status.text, ...s.items, ...(s.callouts ?? []).map((c) => c.text)];
@@ -62,7 +63,7 @@ const words = (s: string) => s.replace(/\bB\s*&\s*O\b/gi, 'Bang Olufsen').toLowe
 const stem = (w: string) => ALIAS[w] ?? w.replace(/(ing|ed|es|s)$/, '');
 
 // Each sentence also carries its project's name and aliases, so "One Audio" finds Harman Kardon.
-const ALIASES: Record<string, string> = { tello: 'Verizon Total Wireless', 'bang-olufsen': 'B&O Hyundai', 'harman-kardon': 'One Audio HARMAN CES' };
+const ALIASES: Record<string, string> = { tello: 'Verizon Total Wireless', 'bang-olufsen': 'B&O Hyundai', 'harman-kardon': 'One Audio HARMAN CES', plug: 'overpayment recovery finance vendor credit duplicate payment' };
 const BAGS = DOCS.map((d) => new Set(words(`${d.text} ${d.c?.name ?? ''} ${d.c ? ALIASES[d.c.slug] ?? '' : ''}`).map(stem)));
 
 export function answer(q: string): Answer {

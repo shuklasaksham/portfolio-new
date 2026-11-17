@@ -48,7 +48,6 @@ function Card({ c, big }: { c: Case; big?: boolean }) {
 
 export default function Home() {
   useReveal();
-  const relay = bySlug('relayos');
   return (
     <div className="page home">
       <section className="hero wrap grid">
@@ -91,11 +90,12 @@ export default function Home() {
       <section className="wrap work" id="work" aria-labelledby="work-title">
         <div className="work__head">
           <h2 id="work-title" className="h-xl">Work</h2>
-          <span className="lbl lbl--muted">06 projects · ordered by depth</span>
+          <span className="lbl lbl--muted">07 projects · ordered by depth</span>
           <span className="work__legend" aria-hidden="true">
             <Tag tier="deep" />
             <Tag tier="medium" />
             <Tag tier="concept" />
+            <Tag tier="design" />
           </span>
         </div>
 
@@ -112,18 +112,20 @@ export default function Home() {
           <Card c={bySlug('harman-kardon')} />
         </div>
 
-        <Label tone="muted">Concept — not shipped</Label>
-        <Link to={`/work/${relay.slug}`} className="concept" data-rv>
-          <div className="concept__text">
-            <div className="card__row">
-              <span className="lbl">{relay.num}</span>
-              <Tag tier="concept" />
+        <Label tone="muted">Not shipped — concept and in design</Label>
+        {[bySlug('relayos'), bySlug('plug')].map((c) => (
+          <Link key={c.slug} to={`/work/${c.slug}`} className="concept" data-rv>
+            <div className="concept__text">
+              <div className="card__row">
+                <span className="lbl">{c.num}</span>
+                <Tag tier={c.tier} />
+              </div>
+              <h3 className="card__name">{c.name}</h3>
+              <p className="card__line">{c.card.line}</p>
             </div>
-            <h3 className="card__name">{relay.name}</h3>
-            <p className="card__line">{relay.card.line}</p>
-          </div>
-          {'wide' in relay.cover && <Img shot={{ ...relay.cover.wide, alt: '' }} className="concept__img" />}
-        </Link>
+            {'wide' in c.cover && <Img shot={{ ...c.cover.wide, alt: '' }} className="concept__img" />}
+          </Link>
+        ))}
       </section>
 
       <section className="wrap how" aria-labelledby="how-title">
