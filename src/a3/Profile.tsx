@@ -8,11 +8,47 @@ import { Accent, Img } from './ui';
 
 const MAILTO = `mailto:${profile.email}`;
 
-export const STATS: [string, string][] = [
-  ['03', 'Projects'],
-  ['04', 'Case studies'],
-  ['4.5+', 'Years'],
+type StatDef = { value: number; label: string; pad?: number; decimals?: number; suffix?: string };
+export const STATS: StatDef[] = [
+  { value: 3, pad: 2, label: 'Projects' },
+  { value: 4, pad: 2, label: 'Case studies' },
+  { value: 4.5, decimals: 1, suffix: '+', label: 'Years' },
 ];
+const show = (d: StatDef, v: number) =>
+  (d.decimals ? v.toFixed(d.decimals) : String(Math.round(v)).padStart(d.pad ?? 1, '0')) + (d.suffix ?? '');
+
+/**
+ * Three numbers on a small dark card. The page arrives with the final values; after it
+ * loads they count up once (skipped with reduced motion). Text is updated in place, so
+ * hydration always matches.
+ */
+function Stats() {
+  const refs = useRef<(HTMLElement | null)[]>([]);
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const start = performance.now();
+    const dur = 1100;
+    let raf = 0;
+    const tick = (t: number) => {
+      const k = Math.min(1, (t - start) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      STATS.forEach((d, i) => { const el = refs.current[i]; if (el) el.textContent = show(d, d.value * e); });
+      if (k < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  return (
+    <dl className="pf__stats">
+      {STATS.map((d, i) => (
+        <div key={d.label} className="pf__stat">
+          <dt>{d.label}</dt>
+          <dd ref={(el) => { refs.current[i] = el; }}>{show(d, d.value)}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
 
 export function Socials() {
   return (
@@ -73,11 +109,7 @@ export function ProfileHead() {
         <div className="pf__ctas">
           <a className="pf__btn" href={MAILTO}>Message</a>
         </div>
-        <dl className="pf__stats">
-          {STATS.map(([n, l]) => (
-            <div key={l}><dt>{l}</dt><dd>{n}</dd></div>
-          ))}
-        </dl>
+        <Stats />
       </div>
       <Reel />
     </section>
