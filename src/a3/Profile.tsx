@@ -65,7 +65,7 @@ export function ProfileHead() {
           </span>
           <span className="pf__where">
             <span>Verizon · Hyderabad</span>
-            <a className="pf__avail" href={MAILTO}>Open to work <span aria-hidden="true">›</span></a>
+            <a className="pf__avail" href={MAILTO}>Open to work</a>
           </span>
         </div>
         <h1 className="pf__name">{profile.name}</h1>
