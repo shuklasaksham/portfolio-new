@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { profile, resume } from './content';
-import { Accent } from './ui';
 
 // Generated from this page's print styles by `npm run resume-pdf`; regenerate after editing the résumé.
 const RESUME_PDF = '/Saksham-Shukla-Resume.pdf';
@@ -22,14 +21,8 @@ export default function Resume() {
     <div className="page resume">
       <section className="wrap grid rhead">
         <p className="lbl lbl--muted rhead__crumb"><Link to="/">← Work</Link> / Résumé</p>
-        <dl className="meta rhead__meta">
-          <div><dt className="lbl lbl--muted">Format</dt><dd>ATS-friendly · single column</dd></div>
-          <div><dt className="lbl lbl--muted">Length</dt><dd>One page</dd></div>
-          <div><dt className="lbl lbl--muted">Updated</dt><dd>2026</dd></div>
-          <div><dt className="lbl lbl--muted">Prints</dt><dd>One-page A4 PDF</dd></div>
-        </dl>
         <div className="rhead__main">
-          <h1 className="h-case"><Accent text="One page. Every number checks out." accent="checks out." /></h1>
+          <h1 className="h-case">Résumé</h1>
           <div className="hero__ctas">
             <a className="btn btn--solid" href={RESUME_PDF} download>Download PDF</a>
             <a className="btn btn--line" href={`mailto:${profile.email}`}>Email me</a>

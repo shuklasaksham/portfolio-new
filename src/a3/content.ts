@@ -62,10 +62,10 @@ export type Case = {
 };
 
 export const TIER_TAG: Record<Tier, string> = {
-  deep: 'Case study',
-  medium: 'More work',
-  concept: 'Concept — not shipped',
-  design: 'In design — not shipped',
+  deep: 'Shipped work',
+  medium: 'Own product',
+  concept: 'Own product · concept',
+  design: 'Own product · in design',
 };
 
 const phone = (name: string, alt: string): Shot => ({ src: img(name), w: 390, h: 844, alt });
@@ -83,7 +83,7 @@ export const profile = {
   siteLabel: 'sakshamshukla.com',
   location: 'Hyderabad, India',
   summary:
-    'Product designer with 4.5+ years designing AI-powered, conversational and in-vehicle products at Verizon and HARMAN: an agentic assistant whose plan flow lifted conversion 7% in an A/B test, and in-car audio shipped in Hyundai, Skoda, BMW and Subaru vehicles. I guide two junior designers and launch my own AI products end to end.',
+    'Product designer with 4.5+ years on AI, conversational and in-car products at Verizon and HARMAN: an agentic assistant that lifted conversion 7% in an A/B test, and in-car audio shipped in Hyundai, Skoda, BMW and Subaru vehicles. I guide two junior designers and build my own AI products.',
 };
 
 export const cases: Case[] = [
@@ -95,7 +95,7 @@ export const cases: Case[] = [
     title: 'A plan in 2.8 minutes, not 15.',
     accent: '2.8 minutes',
     summary:
-      'An agentic assistant for Verizon’s Total Wireless. The plan-selection conversation was A/B tested and is now live on the Total Wireless site. The activation flow — one conversation instead of a 12-screen form, reading the IMEI, SIM and PIN off the box with the camera — was prototyped, not tested.',
+      'An agentic assistant for Verizon’s Total Wireless. The plan-selection conversation was A/B tested and is now live on the Total Wireless site. The activation flow — one conversation instead of a 12+ screen form, reading the IMEI, SIM and PIN off the box with the camera — was prototyped, not tested.',
     facts: [
       ['Role', 'Experience Designer II'],
       ['Worked with', 'Designers, product managers and engineers'],
@@ -183,19 +183,19 @@ export const cases: Case[] = [
     card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection A/B tested and live · Activation prototyped' },
     myCall: 'I proposed a guided agent instead of an open chat: one question at a time, plans as cards, every choice pinned — trading a free-form first turn for a path nobody gets lost on.',
     myPart: 'I wrote the conversation before any screen existed, then designed the stepper, rich cards and three scan flows (20+ states) that cut the steps a customer takes.',
-    next: 'plug',
+    next: 'bang-olufsen',
   },
   {
     slug: 'darpan',
-    num: '03',
-    tier: 'deep',
+    num: '06',
+    tier: 'medium',
     name: 'DarpanAI',
     title: 'From an idea to a finished reel, with no editing.',
     accent: 'no editing.',
     summary:
       'DarpanAI is an AI video director for everyday creators in India. Say what your video is about in Hindi, Hinglish or English; it plans the shots, coaches you out loud, scores every take and edits the reel for you.',
     facts: [
-      ['Role', 'Product, flows and UI, end to end'],
+      ['Role', 'Founder & product designer'],
       ['Type', 'Independent product · 0 → 1'],
       ['Languages', 'Hindi, Hinglish, English'],
       ['Status', 'Live since Oct 2026 · 6 paying creators'],
@@ -288,10 +288,10 @@ export const cases: Case[] = [
       {
         kind: 'results',
         title: 'Early results',
-        status: { label: 'Launch data · Admin dashboard, 5 Nov 2026', text: 'Live since October 2026. 61 of 70 sign-ups came on a single day, 24 Oct.' },
+        status: { label: 'Launch data · Admin dashboard, 5 Nov 2026', text: 'Live since October 2026. 70 sign-ups — 65 after removing developer accounts — and 61 of them came on a single day, 24 Oct.' },
         listLabel: 'What the dashboard shows',
         items: [
-          '65 creators signed up (the dashboard flags 5 as developer accounts).',
+          '65 creators signed up, after removing 5 developer accounts.',
           '6 creators subscribed to Pro at ₹299/month — ₹1,794 so far.',
           '152 scripts → 266 recorded takes (average score 7.1/10) → 32 finished reels, none failed.',
           'Only 2 creators recorded a take this week. Retention, not sign-up, is the next problem to design for.',
@@ -304,14 +304,14 @@ export const cases: Case[] = [
         ],
       },
     ],
-    tile: { eyebrow: 'DarpanAI · AI video director', stat: { n: '65', label: 'Creators in 2 weeks' }, pills: [{ text: 'Live · 6 paying creators', tone: 'live' }, { text: '32 reels finished', tone: 'line' }], role: 'Independent product · 0 → 1 · 2026' },
+    tile: { eyebrow: 'DarpanAI · AI video director', stat: { n: '65', label: 'Creators in 2 weeks' }, pills: [{ text: 'Live · 6 paying creators', tone: 'live' }, { text: '32 reels finished', tone: 'line' }], role: 'Founder & product designer · 2026' },
     card: { result: '6 paying creators', line: 'An AI video director that plans, coaches and edits.', meta: 'Independent · 0 → 1 · Live' },
     myCall: 'I decided Darpan starts from the creator’s own words rather than a template, and that editing is fully automatic — trading fine control for finished reels.',
-    next: 'bang-olufsen',
+    next: 'relayos',
   },
   {
     slug: 'bang-olufsen',
-    num: '04',
+    num: '02',
     tier: 'deep',
     name: 'Bang & Olufsen',
     title: 'Shaping sound by feel, not by equaliser.',
@@ -329,7 +329,7 @@ export const cases: Case[] = [
       did: 'Designed one feel-based gesture, AI tuning in plain words and one-QR sign-in, then tested it in the car.',
       result: { n: '−40%', label: 'interaction time; navigation from 3 layers to 1', source: 'In-car prototype sessions · 98 participants' },
     },
-    cover: { wide: wide('bo-beosonic', 2400, 1500, 'Beosonic: one dot on two feel-based axes'), gauge: { n: '−40%', label: 'Task time', fill: 40 } },
+    cover: { wide: wide('bo-beosonic', 2400, 1500, 'Beosonic: one dot on two feel-based axes'), gauge: { n: '−40%', label: 'Interaction time', fill: 40 } },
     sections: [
       {
         kind: 'lede',
@@ -414,7 +414,7 @@ export const cases: Case[] = [
     card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'Shipped in Hyundai and Skoda vehicles' },
     myCall: 'When an engineer wanted to keep the traditional equaliser, I proposed testing both against the same tasks instead of arguing — and the team prototyped one gesture-based control, with the advanced settings kept within reach. In testing it cut interaction time 40% against the 3-layer model, and it shipped.',
     myPart: 'I designed Beosonic, AI sound tuning and the QR sign-in, then tested them in the car with live sound and light, and fed six fixes back into the spec.',
-    next: 'bracket',
+    next: 'harman-kardon',
   },
   {
     slug: 'bracket',
@@ -426,7 +426,7 @@ export const cases: Case[] = [
     summary:
       'An AI memory for freelancers and small teams. It detects decisions — scope, dates, prices — inside email and Slack threads, then asks a human before updating anything.',
     facts: [
-      ['Role', 'Founder · strategy, research and design'],
+      ['Role', 'Founder & product designer'],
       ['Year', '2026 – now'],
       ['Scope', '173 screens · 53 components · 11 flows'],
       ['Status', 'Live · v0.4 · #9 on Product Hunt'],
@@ -434,7 +434,7 @@ export const cases: Case[] = [
     brief: {
       problem: 'Scope, date and price decisions get lost in email and Slack threads; nobody can say later who agreed to what.',
       did: 'Built an AI loop that detects changes, then asks a human before updating anything — with the source for every claim.',
-      result: { n: '22', label: 'sign-ups and 15 workspaces in the last 90 days', source: 'Admin dashboard · 4 Nov 2026' },
+      result: { n: '#9', label: 'on Product Hunt; live at v0.4', source: 'Product Hunt launch' },
     },
     cover: { wide: wide('overview', 2400, 1560, 'Bracket overview: what needs you, separated from what just happened') },
     sections: [
@@ -478,14 +478,13 @@ export const cases: Case[] = [
         title: 'Complexity handled',
         items: [
           ['19 scenario areas, 8 principles', '“Humans control change” and “Every claim has evidence” were used to test every layout.'],
-          ['Platform, not template', 'A polo manufacturer’s orders ran through the same screens to prove the model generalises.'],
         ],
       },
       {
         kind: 'outcome',
         title: 'Outcome',
         outcome: {
-          tag: 'Live since 2026 · v0.4',
+          tag: 'Live · v0.4',
           tiles: [
             { n: '22', label: 'sign-ups in 90 days', source: 'Admin dashboard · 90 days' },
             { n: '15', label: 'workspaces created', source: 'Admin dashboard · 90 days' },
@@ -507,15 +506,15 @@ export const cases: Case[] = [
         },
       },
     ],
-    tile: { eyebrow: 'Bracket · AI memory for small teams', stat: { n: '#9', label: 'On Product Hunt' }, pills: [{ text: 'Live · v0.4', tone: 'live' }, { text: '90% of review items accepted', tone: 'line' }], role: 'Founder & designer · 2026' },
+    tile: { eyebrow: 'Bracket · AI memory for small teams', stat: { n: '#9', label: 'On Product Hunt' }, pills: [{ text: 'Live · v0.4', tone: 'live' }, { text: '90% of review items accepted', tone: 'line' }], role: 'Founder & product designer · 2026' },
     card: { result: 'Live · v0.4', line: 'An AI memory people can trust.', meta: 'Independent · Live' },
     myCall: 'I ruled out auto-applying AI-detected changes: nothing changes without one deliberate click, until real accept rates earn automation category by category.',
-    next: 'harman-kardon',
+    next: 'darpan',
   },
   {
     slug: 'harman-kardon',
-    num: '06',
-    tier: 'medium',
+    num: '03',
+    tier: 'deep',
     name: 'Harman Kardon',
     title: 'Making sound you can see.',
     accent: 'you can see.',
@@ -584,14 +583,14 @@ export const cases: Case[] = [
             { n: '4.2', label: 'Satisfaction / 5', fill: 84, source: 'Prototype rating' },
           ],
           method:
-            'All three numbers come from prototype usability validation with about 2,000 participants in the US, which I ran with a UX researcher — not production analytics. CES 2024 was a showcase, listed as exposure rather than a measured result; the whole app later shipped in BMW and Subaru vehicles. The projected support-request reduction is not shown.',
+            'All three numbers come from prototype usability validation with about 2,000 participants in the US, which I ran with a UX researcher — not production analytics. CES 2024 was a showcase, listed as exposure rather than a measured result; the whole app later shipped in BMW and Subaru vehicles.',
         },
       },
     ],
     tile: { eyebrow: 'One Audio · Harman Kardon · HARMAN', stat: { n: '65%', label: 'Faster setup · prototype test' }, pills: [{ text: 'Shipped in BMW & Subaru', tone: 'live' }, { text: 'Shown at CES 2024', tone: 'line' }], role: 'Associate Experience Designer · 2024' },
     card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'CES 2024 · Shipped in BMW and Subaru vehicles' },
     myPart: 'I treated the 15-step CES demo as the user journey, wrote the adaptation rules that let one app reflow across five in-car display formats, and ran the ~2,000-participant validation with a UX researcher.',
-    next: 'relayos',
+    next: 'plug',
   },
   {
     slug: 'relayos',
@@ -701,7 +700,7 @@ export const cases: Case[] = [
   },
   {
     slug: 'plug',
-    num: '02',
+    num: '04',
     tier: 'design',
     name: 'Plug',
     title: 'Every overpayment, recovered.',
@@ -709,7 +708,7 @@ export const cases: Case[] = [
     summary:
       'An AI recovery platform for finance teams, in design. Plug checks every payment for duplicate payments and unused vendor credits, explains each finding with its evidence, and recovers the money from the vendor only after a person approves. It charges 15% of what comes back, and nothing if nothing does.',
     facts: [
-      ['Role', 'Senior Product Designer'],
+      ['Role', 'Founder & product designer'],
       ['Worked with', 'AI agents for product, architecture, engineering, QA and content'],
       ['Year', '2026'],
       ['Status', 'In design · launch planned Dec 2026'],
@@ -730,7 +729,7 @@ export const cases: Case[] = [
         kind: 'list',
         title: 'My role and scope',
         items: [
-          'Senior Product Designer, working with AI agents that covered product management, architecture, engineering, QA and content. I owned the user journeys, interface design, product design system and interaction states.',
+          'Founder and product designer, working with AI agents that covered product management, architecture, engineering, QA and content. I owned the user journeys, interface design, product design system and interaction states.',
           'Framed five roles (controller, CFO, founder, AP specialist and the vendor’s AR contact) and a nine-stage journey from free leak check to fee paid — as hypotheses for usability testing.',
           'Mapped the finding lifecycle in FigJam: 15 states from “to review” to “fee paid”, and four flows including disconnected and partial data.',
           'Designed 39 desktop screens: onboarding, findings, decisions, recovery, fees, settings, failure states, and company groups in USD and INR.',
@@ -894,14 +893,14 @@ export const cases: Case[] = [
         ],
       },
     ],
-    tile: { eyebrow: 'Plug · AI overpayment recovery', stat: { n: '39', label: 'Screens · 7 flows' }, pills: [{ text: 'In design · launch Dec 2026', tone: 'draft' }, { text: 'Paid only from what it recovers', tone: 'line' }], role: 'Senior Product Designer · 2026' },
+    tile: { eyebrow: 'Plug · AI overpayment recovery', stat: { n: '39', label: 'Screens · 7 flows' }, pills: [{ text: 'In design · launch Dec 2026', tone: 'draft' }, { text: 'Paid only from what it recovers', tone: 'line' }], role: 'Founder & product designer · 2026' },
     card: {
       result: '',
       line: 'An AI that finds what a company overpaid its vendors and recovers it — and is only paid once the money is back.',
       meta: 'In design · launch planned Dec 2026',
     },
     myPart: 'I owned the journeys, interface, design system and states — 39 screens and the finding lifecycle — working with AI agents for product, architecture, engineering and content.',
-    next: 'darpan',
+    next: 'bracket',
   },
 ];
 
@@ -938,7 +937,7 @@ export const about = {
     'At Verizon I design tello.ai, the AI assistant on Total Wireless. I pushed for a guided agent instead of an open chat; in the team’s A/B test conversion rose 7%, and it is now live. I own UX and the design system on my team, and guide two junior designers.',
     'At HARMAN I designed in-car audio for Bang & Olufsen and Harman Kardon that now ships in Hyundai, Skoda, BMW and Subaru vehicles — tested in the car and with prototypes before launch.',
     'Outside work I design and build my own AI products end to end. Bracket reached #9 on Product Hunt, and DarpanAI has paying users.',
-    'I work best where design meets engineering: writing the rules, specifying every state and reviewing builds until they match. Based in Hyderabad (IST, GMT+5:30), with hours that overlap Europe and US East mornings.',
+    'I work best where design meets engineering: writing the rules, specifying every state and reviewing builds until they match. Based in Hyderabad (IST, GMT+5:30), and open to on-site, hybrid and remote roles.',
   ],
   details: [
     ['Location', 'Hyderabad, India'],
@@ -1041,7 +1040,7 @@ export const resume = {
       bullets: [
         'Proposed a guided agent instead of an open chat for tello.ai, Total Wireless’s AI assistant, and designed its conversation and plan cards; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%. Now live on the Total Wireless site.',
         'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',
-        'Own UX and design-system work on my team; for about 8 months have guided two junior designers, reviewing their work and setting what to design and how.',
+        'Own UX and design-system work on my team; guide two junior designers (about 8 months), reviewing their work and setting direction.',
       ],
     },
     {
@@ -1064,7 +1063,7 @@ export const resume = {
   ],
   independent: [
     {
-      role: 'Product Designer · DarpanAI (independent product)',
+      role: 'Founder & Product Designer · DarpanAI (independent product)',
       when: '2026 – Present',
       bullets: [
         'Designed and launched an AI video director for everyday creators in India: it plans the shots, coaches out loud in Hindi, scores every take and edits the reel.',
@@ -1076,16 +1075,16 @@ export const resume = {
       when: '2026 – Present',
       bullets: [
         'Designed and launched Bracket (live, v0.4; #9 on Product Hunt), an AI memory for freelancers and small teams: it detects scope, date and price decisions in email and Slack and asks a person before changing anything.',
-        'Built a tokenized design system (53 components) and 173 desktop and mobile screens, with clickable prototypes for handoff.',
+        'Built a 53-component tokenised design system and 173 desktop and mobile screens, with clickable prototypes.',
       ],
     },
   ],
   skills: [
     ['AI', 'Conversational UX, Agentic AI, Human-AI interaction'],
-    ['Product design', 'Interaction design, Information architecture, Prototyping, Automotive HMI, 0 → 1 products'],
+    ['Product design', 'Interaction design, Information architecture, Prototyping, Automotive HMI, 0-to-1 product design'],
     ['Design systems', 'Design tokens, Component libraries, Accessibility'],
     ['Research', 'Usability testing, User interviews'],
-    ['Tools', 'Figma, ProtoPie, Framer'],
+    ['Tools', 'Figma, FigJam, Framer, Jira, Notion, Adobe Creative Suite, Procreate'],
   ] as [string, string][],
   education: 'B.Tech, Electrical & Electronics Engineering — United College of Engineering & Research, Prayagraj · 2018 – 2022',
 };

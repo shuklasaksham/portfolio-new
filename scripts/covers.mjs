@@ -36,7 +36,7 @@ const COVERS = [
     layout: 'pair', shots: ['oa-hero', 'oa-system'],
   },
   {
-    slug: 'plug', eyebrow: 'Plug · Senior Product Designer',
+    slug: 'plug', eyebrow: 'Plug · Founder and product designer',
     title: 'Every overpayment,<br><em>recovered.</em>', n: '39', label: 'Screens · 7 flows',
     layout: 'pair', shots: ['plug-overview', 'plug-finding'],
   },
@@ -46,7 +46,7 @@ const COVERS = [
     layout: 'pair', shots: ['overview', 'review'],
   },
   {
-    slug: 'darpan', eyebrow: 'DarpanAI · Product, flows and UI, end to end',
+    slug: 'darpan', eyebrow: 'DarpanAI · Founder and product designer',
     title: 'From an idea to a finished<br>reel, with <em>no editing.</em>', n: '65', label: 'Creators in 2 weeks',
     layout: 'phones', shots: ['darpan-plan', 'darpan-report', 'darpan-ready'],
   },

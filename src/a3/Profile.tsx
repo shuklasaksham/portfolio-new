@@ -10,8 +10,8 @@ const MAILTO = `mailto:${profile.email}`;
 
 type StatDef = { value: number; label: string; pad?: number; decimals?: number; suffix?: string };
 export const STATS: StatDef[] = [
-  { value: 3, pad: 2, label: 'Projects' },
-  { value: 4, pad: 2, label: 'Case studies' },
+  { value: 3, label: 'Shipped work' },
+  { value: 4, label: 'Own products' },
   { value: 4.5, decimals: 1, suffix: '+', label: 'Years' },
 ];
 const show = (d: StatDef, v: number) =>
@@ -36,7 +36,9 @@ function Stats() {
       if (k < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    // Animation frames pause in background tabs; make sure the final values always land.
+    const settle = window.setTimeout(() => STATS.forEach((d, i) => { const el = refs.current[i]; if (el) el.textContent = show(d, d.value); }), dur + 300);
+    return () => { cancelAnimationFrame(raf); clearTimeout(settle); };
   }, []);
   return (
     <dl className="pf__stats">
@@ -105,7 +107,7 @@ export function ProfileHead() {
           </span>
         </div>
         <h1 className="pf__name">{profile.name}</h1>
-        <p className="pf__tag">Product designer. I design and build.</p>
+        <p className="pf__tag">Product designer for AI and in-car products.</p>
         <div className="pf__ctas">
           <a className="pf__btn" href={MAILTO}>Message</a>
         </div>
@@ -118,8 +120,6 @@ export function ProfileHead() {
 
 const TABS = [
   ['Work', '/'],
-  ['Posts', '/posts'],
-  ['Reviews', '/reviews'],
   ['About', '/about'],
 ] as const;
 
