@@ -79,7 +79,7 @@ function Reel() {
     <figure className="pf__reel">
       <video
         ref={ref}
-        src="/video/showreel.mp4"
+        src="/video/showreel-2.mp4"
         poster="/video/showreel-poster.webp"
         muted
         loop
