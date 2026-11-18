@@ -655,7 +655,6 @@ main:focus { outline: none; }
 .tile__media--phones img:nth-child(even) { transform: rotate(2.5deg); }
 .tile__media--phones.n3 img { width: 26%; }
 .wtile:hover .tile__media img { transform: translateY(-3%); }
-.wtile:hover .wtile__title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 
 .pf__empty { padding: 72px 0; text-align: center; color: var(--text-3); }
 .pf__empty-t { font: 500 20px/1.3 var(--sans); color: var(--ink); margin-bottom: 6px; }
@@ -809,3 +808,31 @@ main { padding-bottom: 96px; }
   .wtile, .emp__co { transition: none; }
 }
 .pf__name { font-size: clamp(32px, 2.9vw, 42px); white-space: nowrap; }
+
+/* Round 12: tiles -2px, no underline; employment as logos + side panel */
+.wtile:hover .wtile__title { text-decoration: none; }
+.wtile__eyebrow { font-size: 9px; }
+.wtile__stat b { font-size: 30px; }
+.wtile__stat span { font-size: 9px; }
+.wtile__title { font-size: clamp(20px, calc(2vw - 2px), 26px); }
+
+.emp__grid { display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr); gap: 28px; align-items: start; margin-top: 16px; }
+.emp__cos { grid-template-columns: 1fr; margin-top: 0; gap: 12px; }
+.emp__co { min-height: 0; height: 150px; padding: 20px; gap: 10px; text-align: center; }
+.emp__co--verizon img { height: 40px; }
+.emp__co--harman img { height: 78px; }
+.emp__co.is-active { background: #fafaf8; }
+.emp__panels { position: relative; min-height: 312px; }
+.emp__panel { margin-top: 0; padding: 0; }
+.emp__panel:not([hidden]) { animation: empSlide .45s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes empSlide { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+.emp__role:first-child { padding-top: 4px; }
+@media (max-width: 767px) {
+  .emp__grid { grid-template-columns: 1fr; }
+  .emp__cos { grid-template-columns: 1fr 1fr; }
+  .emp__co { height: 120px; }
+  .emp__co--verizon img { height: 28px; }
+  .emp__co--harman img { height: 58px; }
+  .emp__panels { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .emp__panel:not([hidden]) { animation: none; } }

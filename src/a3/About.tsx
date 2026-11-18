@@ -63,16 +63,17 @@ const COMPANIES = [
 type CompanyKey = (typeof COMPANIES)[number]['key'];
 const rolesAt = (k: CompanyKey) => about.employment.filter((e) => e.logo === k);
 
-/** Big company logos. Hovering, focusing or tapping one slides its roles in below. */
+/** Company logos on the left; hovering, focusing or tapping one slides its roles in on the right. Verizon shows first. */
 function Employment() {
-  const [active, setActive] = useState<CompanyKey | null>(null);
+  const [active, setActive] = useState<CompanyKey>('verizon');
   return (
     <section className="emp" aria-labelledby="emp-title">
       <div className="emp__top">
         <h2 id="emp-title" className="emp__h">Employment history</h2>
         <p className="emp__total"><span suppressHydrationWarning>{fmt(totalMonths(about.employment))}</span> total</p>
       </div>
-      <div className="emp__cos" role="tablist" aria-label="Companies">
+      <div className="emp__grid">
+      <div className="emp__cos" role="tablist" aria-label="Companies" aria-orientation="vertical">
         {COMPANIES.map((c) => {
           const roles = rolesAt(c.key);
           return (
@@ -96,7 +97,7 @@ function Employment() {
           );
         })}
       </div>
-      {!active && <p className="emp__hint">Hover over a company to see my roles there.</p>}
+      <div className="emp__panels">
       {COMPANIES.map((c) => (
         <div
           key={c.key}
@@ -119,6 +120,8 @@ function Employment() {
           ))}
         </div>
       ))}
+      </div>
+      </div>
     </section>
   );
 }
