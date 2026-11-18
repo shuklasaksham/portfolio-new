@@ -138,17 +138,19 @@ function TileMedia({ c }: { c: Case }) {
   return null;
 }
 
-/** A work tile: what it is, one sourced result, status and one proof point, then the work. */
+/** A work tile: the work on top; below it the company, the title and one sourced result. */
 export function Tile({ c }: { c: Case }) {
   const t = c.tile;
   return (
     <Link to={`/work/${c.slug}`} className="wtile" data-rv>
-      <span className="wtile__head">
-        <span className="wtile__eyebrow">{t.eyebrow}</span>
-        <span className="wtile__stat"><b>{t.stat.n}</b><span>{t.stat.label}</span></span>
-      </span>
-      <h3 className="wtile__title"><Accent text={c.title} accent={c.accent} /></h3>
       <TileMedia c={c} />
+      <span className="wtile__body">
+        <span className="wtile__meta">{t.eyebrow}</span>
+        <span className="wtile__row">
+          <h3 className="wtile__title"><Accent text={c.title} accent={c.accent} /></h3>
+          <span className="wtile__stat"><b>{t.stat.n}</b><span>{t.stat.label}</span></span>
+        </span>
+      </span>
     </Link>
   );
 }
