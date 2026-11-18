@@ -926,3 +926,16 @@ main { padding-bottom: 96px; }
 }
 .cx__panel[hidden] { display: none; }
 .cx__years span:first-child { transform: none; }
+
+/* Skills and tools: hover */
+.pf__chip { transition: background-color .2s, color .2s, border-color .2s, transform .2s, box-shadow .2s; }
+.pf__chips > .pf__chip:not(.pf__chip--tool):not(.pf__chip--more):hover { background: #0f1411; color: #c8ff4d; transform: translateY(-2px); }
+.pf__chip--tool { cursor: default; }
+.pf__chip--tool svg, .pf__chip--tool img { transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
+.pf__chip--tool:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(10, 10, 10, .08); }
+.pf__chip--tool:hover svg, .pf__chip--tool:hover img { transform: scale(1.18) rotate(-6deg); }
+.pf__chip--more:hover { background: #0f1411; color: #fff; }
+@media (prefers-reduced-motion: reduce) {
+  .pf__chip, .pf__chip--tool svg, .pf__chip--tool img { transition: none; }
+  .pf__chip:hover, .pf__chip--tool:hover svg, .pf__chip--tool:hover img { transform: none; }
+}
