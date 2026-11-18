@@ -428,7 +428,7 @@ export const cases: Case[] = [
       ['Role', 'Founder · strategy, research and design'],
       ['Year', '2026 – now'],
       ['Scope', '173 screens · 53 components · 11 flows'],
-      ['Status', 'Live · v0.4'],
+      ['Status', 'Live · v0.4 · #9 on Product Hunt'],
     ],
     brief: {
       problem: 'Scope, date and price decisions get lost in email and Slack threads; nobody can say later who agreed to what.',
@@ -506,7 +506,7 @@ export const cases: Case[] = [
         },
       },
     ],
-    tile: { eyebrow: 'Bracket · AI memory for small teams', stat: { n: '90%', label: 'Review items accepted' }, pills: [{ text: 'Live · v0.4', tone: 'live' }, { text: '53 components · 173 screens', tone: 'line' }], role: 'Founder & designer · 2026' },
+    tile: { eyebrow: 'Bracket · AI memory for small teams', stat: { n: '#9', label: 'On Product Hunt' }, pills: [{ text: 'Live · v0.4', tone: 'live' }, { text: '90% of review items accepted', tone: 'line' }], role: 'Founder & designer · 2026' },
     card: { result: 'Live · v0.4', line: 'An AI memory people can trust.', meta: 'Independent · Live' },
     myCall: 'I ruled out auto-applying AI-detected changes: nothing changes without one deliberate click, until real accept rates earn automation category by category.',
     next: 'harman-kardon',
@@ -932,6 +932,17 @@ export const home = {
 };
 
 export const about = {
+  bio: [
+    'Product designer with 4.5+ years designing AI and conversational products at Verizon and HARMAN. Work I designed with my teams lifted conversion 7% in an A/B test and shipped in Hyundai, Skoda, BMW and Subaru vehicles.',
+    'At Verizon I own UX and design-system work on my team and guide two junior designers.',
+    'I also design and build my own AI products: Bracket hit #9 on Product Hunt, and DarpanAI has paying users.',
+    'Based in Hyderabad, India (IST, GMT+5:30), with working hours that overlap Europe and US East mornings.',
+  ],
+  details: [
+    ['Location', 'Hyderabad, India'],
+    ['Time zone', 'IST (GMT+5:30)'],
+    ['Language', 'Fluent in English'],
+  ] as [string, string][],
   title: 'I care about why it matters, how it’s built, and whether it ships.',
   accent: 'ships.',
   paragraphs: [
@@ -1013,7 +1024,7 @@ export const resume = {
       role: 'Founder & Product Designer · Bracket (independent product)',
       when: '2026 – Present',
       bullets: [
-        'Designed and launched Bracket (live, v0.4), an AI memory for freelancers and small teams: it detects scope, date and price decisions in email and Slack and asks a person before changing anything.',
+        'Designed and launched Bracket (live, v0.4; #9 on Product Hunt), an AI memory for freelancers and small teams: it detects scope, date and price decisions in email and Slack and asks a person before changing anything.',
         'Built a tokenized design system (53 components) and 173 desktop and mobile screens, with clickable prototypes for handoff.',
       ],
     },

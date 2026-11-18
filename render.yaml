@@ -17,11 +17,17 @@ services:
         destination: /Saksham-Shukla-Resume.pdf
       - type: redirect
         source: /work
-        destination: /#work
+        destination: /
       # Each page is pre-rendered to <page>/index.html.
       - type: rewrite
         source: /about
         destination: /about/index.html
+      - type: rewrite
+        source: /posts
+        destination: /posts/index.html
+      - type: rewrite
+        source: /reviews
+        destination: /reviews/index.html
       - type: rewrite
         source: /resume
         destination: /resume/index.html
@@ -55,6 +61,9 @@ services:
         name: Cache-Control
         value: public, max-age=31536000, immutable
       - path: /img/*
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /video/*
         name: Cache-Control
         value: public, max-age=604800
       - path: /og.jpg

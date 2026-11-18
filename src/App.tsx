@@ -12,6 +12,8 @@ const NotFound = lazy(() => import('./a3/NotFound'));
 const TITLES: Record<string, string> = {
   '/': 'Saksham Shukla — Product Designer',
   '/about': 'About — Saksham Shukla',
+  '/posts': 'Posts — Saksham Shukla',
+  '/reviews': 'Reviews — Saksham Shukla',
   '/resume': 'Résumé — Saksham Shukla',
 };
 
@@ -33,7 +35,9 @@ export default function App() {
         <Suspense fallback={<div className="page" style={{ minHeight: '100vh' }} />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Navigate to="/#work" replace />} />
+            <Route path="/posts" element={<Home tab="posts" />} />
+            <Route path="/reviews" element={<Home tab="reviews" />} />
+            <Route path="/work" element={<Navigate to="/" replace />} />
             <Route path="/work/:slug" element={<CasePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />

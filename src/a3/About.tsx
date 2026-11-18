@@ -1,29 +1,52 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { about, cases, profile } from './content';
-import { Accent, Footer, Label, useReveal } from './ui';
+import { about, home, resume } from './content';
+import { ProfilePage, Socials } from './Profile';
+import { Label, useReveal } from './ui';
+
+const SKILLS = resume.skills.flatMap(([, v]) => v.split(', '));
+const SHOWN = 8;
+
+function SideCard() {
+  const [all, setAll] = useState(false);
+  const shown = all ? SKILLS : SKILLS.slice(0, SHOWN);
+  return (
+    <aside className="pf__card" aria-label="Skills and details">
+      <p className="pf__card-h">Skills and tools</p>
+      <p className="pf__chips">
+        {shown.map((s) => <span key={s} className="pf__chip">{s}</span>)}
+        {!all && SKILLS.length > SHOWN && (
+          <button type="button" className="pf__chip pf__chip--more" onClick={() => setAll(true)} aria-label={`Show ${SKILLS.length - SHOWN} more skills`}>
+            +{SKILLS.length - SHOWN}
+          </button>
+        )}
+      </p>
+      <p className="pf__card-h">Details</p>
+      <ul className="pf__details">
+        {about.details.map(([k, v]) => <li key={k}><span className="sr-only">{k}: </span>{v}</li>)}
+      </ul>
+      <Socials />
+    </aside>
+  );
+}
 
 export default function About() {
-  useReveal();
+  useReveal('about');
   return (
-    <div className="page about">
-      <section className="wrap grid ahead">
-        <Label tone="muted">About</Label>
-        <aside className="ahead__side">
-          <img className="portrait" src="/img/portrait.webp" width={820} height={1025} alt="Saksham Shukla speaking on stage" />
-          <dl className="meta">
-            <div><dt className="lbl lbl--muted">Based</dt><dd>{profile.location}</dd></div>
-            <div><dt className="lbl lbl--muted">Experience</dt><dd>4.5+ years</dd></div>
-            <div><dt className="lbl lbl--muted">Email</dt><dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd></div>
-            <div><dt className="lbl lbl--muted">LinkedIn</dt><dd><a href={profile.linkedin} target="_blank" rel="noreferrer">{profile.linkedinLabel}</a></dd></div>
-          </dl>
-        </aside>
-        <div className="ahead__main">
-          <h1 className="h-case"><Accent text={about.title} accent={about.accent} /></h1>
-          {about.paragraphs.map((p) => <p key={p} className="ahead__p">{p}</p>)}
+    <ProfilePage className="pf--about">
+      <div className="pf__about">
+        <div className="pf__meet">
+          <p className="pf__meet-h">
+            <img src="/img/portrait.webp" width={820} height={1025} alt="" />
+            <span>Meet Saksham</span>
+          </p>
+          <h2 className="sr-only">About</h2>
+          {about.bio.map((p) => <p key={p} className="pf__bio">{p}</p>)}
         </div>
-      </section>
+        <SideCard />
+      </div>
 
-      <section className="wrap grid rows-sec">
+      <section className="grid rows-sec">
         <h2 className="h-sec">Experience</h2>
         <div className="rows">
           {about.experience.map(([when, role, co, place]) => (
@@ -37,23 +60,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="wrap grid rows-sec">
-        <h2 className="h-sec">Independent work</h2>
-        <div className="rows">
-          {about.independent.map(([slug, line, status]) => {
-            const c = cases.find((x) => x.slug === slug)!;
-            return (
-              <Link key={slug} to={`/work/${slug}`} className="rows__r rows__r--link" data-rv>
-                <span className="rows__main">{c.name}</span>
-                <span>{line}</span>
-                <span className="rows__muted">{status} →</span>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="wrap grid rows-sec">
+      <section className="grid rows-sec">
         <h2 className="h-sec">A disagreement, resolved</h2>
         <article className="story" data-rv>
           <Label tone="accent">{about.disagreement.where}</Label>
@@ -63,10 +70,17 @@ export default function About() {
         </article>
       </section>
 
-      <section className="wrap grid rows-sec">
+      <section className="grid rows-sec">
         <h2 className="h-sec">How I work</h2>
         <div className="habits">
-          {about.habits.map(([where, t, d]) => (
+          {home.principles.map(([k, t, d]) => (
+            <div key={k} data-rv>
+              <Label tone="accent">{k}</Label>
+              <h3>{t}</h3>
+              <p>{d}</p>
+            </div>
+          ))}
+          {about.habits.slice(0, 1).map(([where, t, d]) => (
             <div key={t} data-rv>
               <Label tone="accent">{where}</Label>
               <h3>{t}</h3>
@@ -76,7 +90,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="wrap grid rows-sec">
+      <section className="grid rows-sec">
         <h2 className="h-sec">Education</h2>
         <div className="rows">
           <div className="rows__r" data-rv>
@@ -86,7 +100,6 @@ export default function About() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </ProfilePage>
   );
 }
