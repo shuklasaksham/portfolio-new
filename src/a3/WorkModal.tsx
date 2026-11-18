@@ -140,46 +140,62 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
 
         <div className="wm__body" ref={body} id="wm-panel" role="tabpanel" aria-labelledby={`wm-tab-${tab}`} key={tab}>
           {tab === 'overview' ? (
-            <div className="wm__overview">
-              <aside className="wm__info">
-                {role && <p className="wm__role"><span>My role</span>{role}</p>}
-                <h3>Project description</h3>
-                <p className="wm__desc">{c.summary}</p>
-                {(c.myCall || c.myPart) && (
-                  <>
-                    <h3>{c.myCall ? 'My call' : 'My part'}</h3>
-                    <p className="wm__desc">{c.myCall ?? c.myPart}</p>
-                  </>
-                )}
-                <div className="wm__resultcard">
-                  <b>{c.brief.result.n}</b>
-                  <span>{c.brief.result.label}</span>
-                  <small>{c.brief.result.source}</small>
-                </div>
-                {meta && (
-                  <>
-                    <h3>Skills and deliverables</h3>
-                    <p className="wm__chips">{meta.skills.map((x) => <span key={x}>{x}</span>)}</p>
-                  </>
-                )}
-                <dl className="wm__facts">
-                  {c.facts.filter(([k]) => k !== 'Role').map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
-                </dl>
-              </aside>
-
-              <div className="wm__shots">
-                {blocksFor(c).map((b, i) =>
+            <div className="wm__ov">
+              {(() => {
+                const blocks = blocksFor(c);
+                const [lead, ...rest] = blocks;
+                const show = (b: Block, i: number, eager = false) =>
                   b.kind === 'wide' ? (
                     <figure key={b.shot.src} className="wm__shot">
-                      <Img shot={b.shot} eager={i < 2} />
+                      <Img shot={b.shot} eager={eager} />
                     </figure>
                   ) : (
-                    <figure key={b.shots[0].src} className="wm__shot wm__shot--phones">
-                      {b.shots.map((x) => <Img key={x.src} shot={x} />)}
+                    <figure key={b.shots[0].src} className="wm__shot wm__shot--phones wm__span">
+                      {b.shots.map((x) => <Img key={x.src} shot={x} eager={eager} />)}
                     </figure>
-                  ),
-                )}
-              </div>
+                  );
+                const year = c.facts.find(([k]) => k === 'Year')?.[1];
+                const status = c.facts.find(([k]) => k === 'Status' || k === 'Type')?.[1];
+                return (
+                  <>
+                    {lead && <div className="wm__lead">{show(lead, 0, true)}</div>}
+
+                    <dl className="wm__strip">
+                      {role && <div><dt>My role</dt><dd>{role}</dd></div>}
+                      {year && <div><dt>Year</dt><dd>{year}</dd></div>}
+                      {status && <div><dt>Status</dt><dd>{status}</dd></div>}
+                      <div className="wm__strip-result">
+                        <dt>Key result</dt>
+                        <dd><b>{c.brief.result.n}</b> {c.brief.result.label}</dd>
+                      </div>
+                    </dl>
+
+                    <div className="wm__text">
+                      <p className="wm__lede">{c.summary}</p>
+                      {(c.myCall || c.myPart) && (
+                        <blockquote className="wm__call">
+                          <p className="wm__call-h">{c.myCall ? 'My call' : 'My part'}</p>
+                          <p>{c.myCall ?? c.myPart}</p>
+                        </blockquote>
+                      )}
+                      {meta && (
+                        <div className="wm__skills">
+                          <p className="wm__call-h">Skills and deliverables</p>
+                          <p className="wm__chips">{meta.skills.map((x) => <span key={x}>{x}</span>)}</p>
+                        </div>
+                      )}
+                      <p className="wm__src">Result source: {c.brief.result.source}</p>
+                    </div>
+
+                    {rest.length > 0 && (
+                      <>
+                        <h3 className="wm__gal-h">Screens</h3>
+                        <div className="wm__gallery">{rest.map((b, i) => show(b, i))}</div>
+                      </>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           ) : (
             <div className="wm__doc">
