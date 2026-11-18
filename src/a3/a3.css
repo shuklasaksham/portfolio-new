@@ -1034,3 +1034,40 @@ main { padding-bottom: 96px; }
 .wm__doc [data-rv] { opacity: 1; transform: none; }
 @media (max-width: 899px) { .wm__overview { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .wm__body { animation: none; } }
+
+/* Preview: proportions */
+.wm__panel { width: min(1440px, 100%); height: min(100%, 1040px); }
+.wm__head { padding: 24px 32px 16px; }
+.wm__tabs { padding: 0 32px; }
+.wm__body { padding: 28px 32px 0; }
+.wm__overview { grid-template-columns: 360px minmax(0, 1fr); gap: 40px; align-items: start; }
+.wm__info { position: static; padding: 0 0 40px; }
+.wm__role { display: grid; gap: 4px; font-size: 16px; font-weight: 500; }
+.wm__role span { font: 400 11px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+.wm__info h3, .wm__info h3:first-of-type { margin: 22px 0 8px; font: 400 11px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+.wm__desc { font-size: 15px; line-height: 1.6; }
+.wm__resultcard { display: grid; gap: 4px; margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: #f1f8f3; border: 1px solid #dcefe2; }
+.wm__resultcard b { font: 600 34px/1 var(--sans); letter-spacing: -0.03em; color: #108a4a; }
+.wm__resultcard span { font-size: 15px; line-height: 1.45; color: var(--ink); }
+.wm__resultcard small { margin-top: 4px; font: 400 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+.wm__chips span { font-size: 13px; padding: 5px 11px; }
+.wm__facts { margin-top: 24px; padding-top: 18px; }
+.wm__facts div { grid-template-columns: 96px 1fr; font-size: 13.5px; }
+.wm__shots { gap: 16px; padding: 0 0 40px; }
+.wm__shot { border-radius: 14px; box-shadow: 0 1px 0 var(--pf-line, #e6e6e1) inset; }
+
+/* Other tabs: centred, full reading width */
+.wm__doc { max-width: 1120px; margin: 0 auto; padding: 4px 0 56px; }
+.wm__brief { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+.wm__brief p { font-size: 16px; line-height: 1.6; color: var(--text-2); }
+.wm__brief .wm__sec-h { font-size: 20px; margin-bottom: 10px; }
+.wm__doc .dec__ctx, .wm__doc .lede, .wm__doc .dash { max-width: none; }
+.wm__doc .dec__alt { max-width: none; }
+
+@media (max-width: 1099px) { .wm__overview { grid-template-columns: 300px minmax(0, 1fr); gap: 28px; } }
+@media (max-width: 899px) {
+  .wm__head { padding: 16px 18px 10px; }
+  .wm__tabs { padding: 0 18px; }
+  .wm__body { padding: 20px 18px 0; }
+  .wm__overview { grid-template-columns: 1fr; }
+}

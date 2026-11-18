@@ -142,18 +142,20 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
           {tab === 'overview' ? (
             <div className="wm__overview">
               <aside className="wm__info">
-                {role && <p className="wm__role"><span>My role.</span> {role}</p>}
+                {role && <p className="wm__role"><span>My role</span>{role}</p>}
                 <h3>Project description</h3>
                 <p className="wm__desc">{c.summary}</p>
-                <h3>Problem</h3>
-                <p className="wm__desc">{c.brief.problem}</p>
-                <h3>What I did</h3>
-                <p className="wm__desc">{c.brief.did}</p>
-                {c.myCall && (<><h3>My call</h3><p className="wm__desc">{c.myCall}</p></>)}
-                {c.myPart && (<><h3>My part</h3><p className="wm__desc">{c.myPart}</p></>)}
-                <h3>Key result</h3>
-                <p className="wm__result"><b>{c.brief.result.n}</b> {c.brief.result.label}</p>
-                <p className="wm__src">{c.brief.result.source}</p>
+                {(c.myCall || c.myPart) && (
+                  <>
+                    <h3>{c.myCall ? 'My call' : 'My part'}</h3>
+                    <p className="wm__desc">{c.myCall ?? c.myPart}</p>
+                  </>
+                )}
+                <div className="wm__resultcard">
+                  <b>{c.brief.result.n}</b>
+                  <span>{c.brief.result.label}</span>
+                  <small>{c.brief.result.source}</small>
+                </div>
                 {meta && (
                   <>
                     <h3>Skills and deliverables</h3>
@@ -161,7 +163,7 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
                   </>
                 )}
                 <dl className="wm__facts">
-                  {c.facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
+                  {c.facts.filter(([k]) => k !== 'Role').map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
                 </dl>
               </aside>
 
@@ -181,9 +183,16 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
             </div>
           ) : (
             <div className="wm__doc">
+              {tab === 'process' && (
+                <section className="wm__sec wm__brief">
+                  <div><h3 className="wm__sec-h">Problem</h3><p>{c.brief.problem}</p></div>
+                  <div><h3 className="wm__sec-h">What I did</h3><p>{c.brief.did}</p></div>
+                  {c.myCall && c.myPart && <div><h3 className="wm__sec-h">My part</h3><p>{c.myPart}</p></div>}
+                </section>
+              )}
               {c.sections.filter((x) => GROUP[x.kind] === tab).map((x) => (
                 <section key={x.title} className="wm__sec">
-                  <h3 className="wm__sec-h">{x.title}</h3>
+                  {x.title !== TAB_LABEL[tab] && x.title !== 'Outcome' && <h3 className="wm__sec-h">{x.title}</h3>}
                   <Body s={x} />
                 </section>
               ))}
