@@ -748,3 +748,17 @@ main { padding-bottom: 96px; }
 .tile__media { margin-top: 14px; }
 @media (max-width: 639px) { .wtile { aspect-ratio: 4 / 3.8; } }
 .emp__list { list-style: disc; } .emp__list li { padding-left: 2px; }
+
+/* Round 10: three big tiles per row on desktop; employment totals */
+.wgrid { grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .wgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .wgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
+.wtile { aspect-ratio: 4 / 3.2; padding: 24px 24px 0; }
+.wtile__eyebrow { font-size: 11px; }
+.wtile__stat b { font-size: 32px; }
+.wtile__stat span { font-size: 10px; }
+.wtile__title { margin-top: 10px; font-size: clamp(22px, 2vw, 28px); }
+.tile__media { margin-top: 20px; }
+.emp__top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.emp__top .emp__h { margin-bottom: 0; }
+.emp__total { font-size: 15px; color: var(--text-3); }

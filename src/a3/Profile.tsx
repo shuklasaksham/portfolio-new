@@ -148,9 +148,6 @@ export function Tile({ c }: { c: Case }) {
         <span className="wtile__stat"><b>{t.stat.n}</b><span>{t.stat.label}</span></span>
       </span>
       <h3 className="wtile__title"><Accent text={c.title} accent={c.accent} /></h3>
-      <span className="wtile__pills">
-        <span className={`xpill xpill--${t.pills[0].tone}`}>{t.pills[0].text}</span>
-      </span>
       <TileMedia c={c} />
     </Link>
   );

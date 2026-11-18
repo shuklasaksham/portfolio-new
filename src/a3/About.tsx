@@ -39,12 +39,25 @@ function SideCard() {
 }
 
 type Employment = (typeof about.employment)[number];
-const VISIBLE = 3;
 
-/** One role: logo, title, dates, and bullets — the first three shown, the rest behind "more". */
+// Months counted the way LinkedIn does: both the first and the last month count.
+const toIndex = (ym: string) => { const [y, m] = ym.split('-').map(Number); return y * 12 + (m - 1); };
+const nowIndex = () => { const d = new Date(); return d.getFullYear() * 12 + d.getMonth(); };
+const span = (e: Employment) => [toIndex(e.start), e.end ? toIndex(e.end) : nowIndex()] as const;
+function fmt(months: number) {
+  const y = Math.floor(months / 12), m = months % 12;
+  return [y && `${y} yr${y > 1 ? 's' : ''}`, m && `${m} mo${m > 1 ? 's' : ''}`].filter(Boolean).join(' ');
+}
+const months = (e: Employment) => { const [a, b] = span(e); return b - a + 1; };
+/** Total time employed, counting a month shared by two roles only once. */
+function totalMonths(list: readonly Employment[]) {
+  const seen = new Set<number>();
+  list.forEach((e) => { const [a, b] = span(e); for (let k = a; k <= b; k++) seen.add(k); });
+  return seen.size;
+}
+
+/** One role: logo, title, dates with duration, and every bullet. */
 function Job({ e }: { e: Employment }) {
-  const [open, setOpen] = useState(false);
-  const bullets = open ? e.bullets : e.bullets.slice(0, VISIBLE);
   return (
     <article className="emp__job" data-rv>
       <span className={`emp__logo emp__logo--${e.logo}`} aria-hidden="true">
@@ -52,15 +65,12 @@ function Job({ e }: { e: Employment }) {
       </span>
       <div className="emp__main">
         <h3>{e.role} | {e.company}</h3>
-        <p className="emp__dates">{e.dates}</p>
+        <p className="emp__dates">
+          {e.dates} · <span suppressHydrationWarning>{fmt(months(e))}</span> · {e.place}
+        </p>
         <ul className="emp__list">
-          {bullets.map((b) => <li key={b}>{b}</li>)}
+          {e.bullets.map((b) => <li key={b}>{b}</li>)}
         </ul>
-        {e.bullets.length > VISIBLE && (
-          <button type="button" className="emp__more" aria-expanded={open} onClick={() => setOpen(!open)}>
-            {open ? 'less' : 'more'}
-          </button>
-        )}
       </div>
     </article>
   );
@@ -83,7 +93,10 @@ export default function About() {
       </div>
 
       <section className="emp" aria-labelledby="emp-title">
-        <h2 id="emp-title" className="emp__h">Employment history</h2>
+        <div className="emp__top">
+          <h2 id="emp-title" className="emp__h">Employment history</h2>
+          <p className="emp__total"><span suppressHydrationWarning>{fmt(totalMonths(about.employment))}</span> total</p>
+        </div>
         {about.employment.map((e) => <Job key={e.role} e={e} />)}
       </section>
 
