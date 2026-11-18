@@ -129,8 +129,8 @@ function OneAudio() {
 function Plug() {
   return (
     <Stage>
-      <Copy eyebrow="Plug · Senior Product Designer" lines={['Every overpayment,', <Em>recovered.</Em>]}
-        notes={['AI that finds and recovers vendor overpayments', 'Every finding shows its evidence', 'In design · launching December 2026']} />
+      <Copy eyebrow="Plug · Founder and product designer" lines={['Every overpayment,', <Em>recovered.</Em>]}
+        notes={['AI that finds and recovers vendor overpayments', 'Every finding shows its evidence', 'In design · launching 14 January 2027']} />
       <StatAt at={120} value={39} label="Screens · 7 flows" />
       <Shot src="plug-overview.png" at={40} from="right" style={{ left: 860, top: 190, width: 960 }} />
       <Shot src="plug-finding.png" at={130} from="right" style={{ left: 1300, top: 430, width: 560 }} />
@@ -143,7 +143,7 @@ function Bracket() {
   return (
     <Stage>
       <Copy eyebrow="Bracket · Founder and product designer" lines={['An AI memory', <>people can <Em>trust.</Em></>]}
-        notes={['Live · v0.4', 'Nothing changes without a person’s approval']} />
+        notes={['Live since October 2026 · v0.4', 'Nothing changes without a person’s approval']} />
       <StatAt at={110} prefix="#" value={9} from={1} label="On Product Hunt" />
       <Shot src="overview.png" at={40} from="right" style={{ left: 840, top: 210, width: 1000 }} />
       <Shot src="review.png" at={120} from="right" style={{ left: 1160, top: 560, width: 680 }} />
@@ -154,7 +154,7 @@ function Bracket() {
 function Darpan() {
   return (
     <Stage>
-      <Copy eyebrow="DarpanAI · Product, flows and UI, end to end" lines={['From an idea to', 'a finished reel,', <>with <Em>no editing.</Em></>]}
+      <Copy eyebrow="DarpanAI · Founder and product designer" lines={['From an idea to', 'a finished reel,', <>with <Em>no editing.</Em></>]}
         notes={['Live with paying creators', '32 reels finished in two weeks']} />
       <StatAt at={110} value={65} label="Creators in 2 weeks" />
       <Shot src="darpan-plan.png" at={40} style={{ left: 980, top: 260, width: 280 }} radius={34} />

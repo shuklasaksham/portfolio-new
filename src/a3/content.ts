@@ -429,12 +429,12 @@ export const cases: Case[] = [
       ['Role', 'Founder & product designer'],
       ['Year', '2026 – now'],
       ['Scope', '173 screens · 53 components · 11 flows'],
-      ['Status', 'Live · v0.4 · #9 on Product Hunt'],
+      ['Status', 'Live since Oct 2026 · #9 on Product Hunt'],
     ],
     brief: {
       problem: 'Scope, date and price decisions get lost in email and Slack threads; nobody can say later who agreed to what.',
       did: 'Built an AI loop that detects changes, then asks a human before updating anything — with the source for every claim.',
-      result: { n: '#9', label: 'on Product Hunt; live at v0.4', source: 'Product Hunt launch' },
+      result: { n: '#9', label: 'on Product Hunt; live at v0.4', source: 'Product Hunt launch · 1 Oct 2026' },
     },
     cover: { wide: wide('overview', 2400, 1560, 'Bracket overview: what needs you, separated from what just happened') },
     sections: [
@@ -484,7 +484,7 @@ export const cases: Case[] = [
         kind: 'outcome',
         title: 'Outcome',
         outcome: {
-          tag: 'Live · v0.4',
+          tag: 'Live since 1 Oct 2026 · v0.4',
           tiles: [
             { n: '22', label: 'sign-ups in 90 days', source: 'Admin dashboard · 90 days' },
             { n: '15', label: 'workspaces created', source: 'Admin dashboard · 90 days' },
@@ -711,7 +711,7 @@ export const cases: Case[] = [
       ['Role', 'Founder & product designer'],
       ['Worked with', 'AI agents for product, architecture, engineering, QA and content'],
       ['Year', '2026'],
-      ['Status', 'In design · launch planned Dec 2026'],
+      ['Status', 'In design · launching 14 Jan 2027'],
     ],
     brief: {
       problem: 'Industry estimates put 0.8–2% of annual payments in error, and recovery audits typically take 4–6 months and keep 25–50% of what they find.',
@@ -893,11 +893,11 @@ export const cases: Case[] = [
         ],
       },
     ],
-    tile: { eyebrow: 'Plug · AI overpayment recovery', stat: { n: '39', label: 'Screens · 7 flows' }, pills: [{ text: 'In design · launch Dec 2026', tone: 'draft' }, { text: 'Paid only from what it recovers', tone: 'line' }], role: 'Founder & product designer · 2026' },
+    tile: { eyebrow: 'Plug · AI overpayment recovery', stat: { n: '39', label: 'Screens · 7 flows' }, pills: [{ text: 'In design · launching 14 Jan 2027', tone: 'draft' }, { text: 'Paid only from what it recovers', tone: 'line' }], role: 'Founder & product designer · 2026' },
     card: {
       result: '',
       line: 'An AI that finds what a company overpaid its vendors and recovers it — and is only paid once the money is back.',
-      meta: 'In design · launch planned Dec 2026',
+      meta: 'In design · launching 14 Jan 2027',
     },
     myPart: 'I owned the journeys, interface, design system and states — 39 screens and the finding lifecycle — working with AI agents for product, architecture, engineering and content.',
     next: 'bracket',
@@ -1017,7 +1017,7 @@ export const about = {
     ['2022 – 2024', 'Associate Experience Designer', 'HARMAN International', 'Bengaluru'],
   ] as [string, string, string, string][],
   independent: [
-    ['bracket', 'An AI memory people can trust', 'Live · v0.4'],
+    ['bracket', 'An AI memory people can trust', 'Live since Oct 2026'],
     ['darpan', 'An AI video director in your pocket', 'Live · 6 paying creators'],
     ['relayos', 'Voice AI that recovers delayed orders', 'Not shipped'],
     ['plug', 'AI that recovers overpayments to vendors', 'In design'],
