@@ -16,11 +16,11 @@ const META: Record<string, { subtitle: string; role: string; skills: string[] }>
   relayos: { subtitle: 'Voice AI for manufacturers', role: 'Product designer · independent concept', skills: ['Voice AI', 'WhatsApp UX', 'Multilingual design', 'Service design', 'Engineering handoff'] },
 };
 
-type TabKey = 'overview' | 'process' | 'decisions' | 'outcome';
-const TAB_LABEL: Record<TabKey, string> = { overview: 'Overview', process: 'Process', decisions: 'Key decisions', outcome: 'Outcome' };
+type TabKey = 'overview' | 'lead' | 'process' | 'decisions' | 'outcome';
+const TAB_LABEL: Record<TabKey, string> = { overview: 'Overview', lead: 'How I led', process: 'Process', decisions: 'Key decisions', outcome: 'Outcome' };
 const GROUP: Record<Section['kind'], Exclude<TabKey, 'overview'>> = {
   lede: 'process', list: 'process', steps: 'process', image: 'process', gallery: 'process',
-  decisions: 'decisions', outcome: 'outcome', results: 'outcome', pairs: 'outcome',
+  decisions: 'decisions', outcome: 'outcome', results: 'outcome', pairs: 'outcome', leadership: 'lead',
 };
 
 type Block = { kind: 'wide'; shot: Shot } | { kind: 'phones'; shots: Shot[] };
@@ -56,7 +56,7 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
   const [copied, setCopied] = useState(false);
   const [tab, setTab] = useState<TabKey>('overview');
   const body = useRef<HTMLDivElement>(null);
-  const tabs: TabKey[] = ['overview', ...(['process', 'decisions', 'outcome'] as const).filter((k) => c.sections.some((x) => GROUP[x.kind] === k))];
+  const tabs: TabKey[] = ['overview', ...(['lead', 'process', 'decisions', 'outcome'] as const).filter((k) => c.sections.some((x) => GROUP[x.kind] === k))];
 
   // New tab: back to the top, and show its content (no scroll-reveal inside the preview).
   useEffect(() => {
@@ -208,7 +208,7 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
               )}
               {c.sections.filter((x) => GROUP[x.kind] === tab).map((x) => (
                 <section key={x.title} className="wm__sec">
-                  {x.title !== TAB_LABEL[tab] && x.title !== 'Outcome' && <h3 className="wm__sec-h">{x.title}</h3>}
+                  {x.title !== TAB_LABEL[tab] && x.title !== 'Outcome' && x.kind !== 'leadership' && <h3 className="wm__sec-h">{x.title}</h3>}
                   <Body s={x} />
                 </section>
               ))}

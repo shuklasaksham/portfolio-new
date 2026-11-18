@@ -141,6 +141,18 @@ export function Body({ s }: { s: Section }) {
           ))}
         </dl>
       );
+    case 'leadership':
+      return (
+        <div className="lead">
+          {s.items.map(([k, v], i) => (
+            <div key={k} className="lead__card" data-rv>
+              <span className="lbl lbl--accent">{pad(i)}</span>
+              <h3>{k}</h3>
+              <p>{v}</p>
+            </div>
+          ))}
+        </div>
+      );
     case 'image':
       return (
         <figure className="map" data-rv>

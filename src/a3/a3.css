@@ -1177,3 +1177,14 @@ main { padding-bottom: 96px; }
 .wm .bars__row.is-after .bars__track i { background: linear-gradient(90deg, var(--wm-mint), var(--wm-lime)); }
 .wm .hmi { border-radius: 20px; }
 .wm .note { max-width: none; }
+
+/* How I led: four cards */
+.lead { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lead__card { padding: 22px 24px; border: 1px solid var(--pf-line, #e6e6e1); border-radius: 18px; background: #fff; }
+.lead__card .lbl--accent { color: #1a9b55; }
+.lead__card h3 { margin: 10px 0 8px; font: 500 20px/1.25 var(--sans); letter-spacing: -0.02em; }
+.lead__card p { font-size: 15.5px; line-height: 1.6; color: var(--text-2); }
+.lead__card:first-child { background: radial-gradient(120% 140% at 100% 100%, #104332 0%, rgba(16, 67, 50, 0) 70%), #0f1411; border-color: #0f1411; color: #f3f6f4; }
+.lead__card:first-child .lbl--accent { color: #c8ff4d; }
+.lead__card:first-child p { color: rgba(243, 246, 244, .82); }
+@media (max-width: 767px) { .lead { grid-template-columns: 1fr; } }

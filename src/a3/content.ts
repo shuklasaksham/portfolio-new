@@ -32,6 +32,7 @@ export type Section =
   | { kind: 'steps'; title: string; steps: [string, string][] }
   | { kind: 'decisions'; title: string; items: Decision[] }
   | { kind: 'pairs'; title: string; items: [string, string][] }
+  | { kind: 'leadership'; title: string; items: [string, string][] }
   | { kind: 'image'; title: string; shot: Shot; caption: string }
   | { kind: 'gallery'; title: string; text?: string; flow?: { shot: Shot; caption: string }; shots: Shot[] }
   | { kind: 'outcome'; title: string; outcome: Outcome }
@@ -125,6 +126,16 @@ export const cases: Case[] = [
         ],
       },
       {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Set the direction', 'Proposed the guided-agent model over an open chat. It became the plan-selection flow the team A/B tested and shipped.'],
+          ['Wrote the conversation first', 'Scripted every turn before any screen existed, then designed the stepper, plan cards and 20+ scan states from that script.'],
+          ['Made the case to leadership', 'Took activation from a 12+ screen form to a working conversational prototype and presented it to leadership.'],
+          ['Lead on the team', 'Own UX and design-system work on the team and guide two junior designers.'],
+        ],
+      },
+      {
         kind: 'decisions',
         title: 'Key decisions',
         items: [
@@ -178,6 +189,14 @@ export const cases: Case[] = [
         title: 'What I learned',
         items: [['Agents still need structure', 'Steppers, pinned facts and cards are what make an AI flow feel trustworthy — not the chat itself.']],
       },
+      {
+        kind: 'pairs',
+        title: 'What I’d do next',
+        items: [
+          ['Check the lift holds', 'Four weeks can include novelty effects. I would re-read conversion after the novelty window before scaling the pattern.'],
+          ['Test activation', 'Put the camera activation prototype through the same A/B rigour as plan selection.'],
+        ],
+      },
     ],
     tile: { eyebrow: 'tello.ai · Verizon · Total Wireless', stat: { n: '+7%', label: 'Conversion · A/B test' }, pills: [{ text: 'Live on Total Wireless', tone: 'live' }, { text: '5× faster plan selection', tone: 'line' }], role: 'Experience Designer II · 2025 · team result' },
     card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection A/B tested and live · Activation prototyped' },
@@ -226,6 +245,16 @@ export const cases: Case[] = [
           'Defined the product loop: plan → check → record → report → keep → make.',
           'Designed the 9-screen MVP flow and the journey map of what the user does, what Darpan does and how each step should feel.',
           'Wrote the in-app copy, including spoken coaching in Hindi and a take report that explains every score.',
+        ],
+      },
+      {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Defined the product loop', 'Plan → check → record → report → keep → make, mapped as a journey of what the creator and Darpan each do.'],
+          ['Made the trade-off', 'Fully automatic editing: creators give up fine control in exchange for finishing a reel.'],
+          ['Wrote the product voice', 'In-app copy, including spoken coaching in Hindi and a take report that explains every score.'],
+          ['Launched and measured', '65 creators in two weeks and 6 paying, then named retention as the next problem to solve.'],
         ],
       },
       {
@@ -346,6 +375,16 @@ export const cases: Case[] = [
         ],
       },
       {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Aligned two brands', 'Aligned with Bang & Olufsen in a 2-day workshop, then had each section approved with them before it moved on.'],
+          ['Settled a debate with evidence', 'When engineering wanted to keep the equaliser, I proposed testing both on the same tasks. The gesture model cut interaction time 40%.'],
+          ['Designed the whole system', 'Beosonic, AI sound tuning and one-QR sign-in, with light behaviour specified for every state.'],
+          ['Closed the loop in the car', 'Tested with live sound and light in the vehicle and fed six fixes back into the spec before launch.'],
+        ],
+      },
+      {
         kind: 'decisions',
         title: 'Key decisions',
         items: [
@@ -409,6 +448,13 @@ export const cases: Case[] = [
           ['Specify every state', 'Light behaviour was specified for every state, from start-up to soundscapes, so engineering never had to guess.'],
         ],
       },
+      {
+        kind: 'pairs',
+        title: 'What I’d do next',
+        items: [
+          ['Measure it in production', 'With Beosonic now in Hyundai and Skoda vehicles, I would measure how often drivers use the dot versus presets.'],
+        ],
+      },
     ],
     tile: { eyebrow: 'Audio by Bang & Olufsen · HARMAN', stat: { n: '−40%', label: 'Interaction time' }, pills: [{ text: 'Shipped in Hyundai & Skoda', tone: 'live' }, { text: '98 in-car participants', tone: 'line' }], role: 'Experience Designer · 2024' },
     card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'Shipped in Hyundai and Skoda vehicles' },
@@ -450,6 +496,16 @@ export const cases: Case[] = [
           'Led product strategy, research and design from concept to launch.',
           'Designed human-in-the-loop AI workflows: every AI claim shows its source and confidence.',
           'Built a tokenised design system (53 components) and 173 screens with clickable prototypes for handoff.',
+        ],
+      },
+      {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Set the principles', '“Humans control change” and “Every claim has evidence” were used to test every layout.'],
+          ['Made the risky call', 'Ruled out auto-applying AI changes until real accept rates earn automation, category by category.'],
+          ['Built the system', 'A 53-component tokenised design system and 173 screens with clickable prototypes.'],
+          ['Read the data honestly', 'Reported that 1 of 15 workspaces is active and planned the next experiment around onboarding.'],
         ],
       },
       {
@@ -549,6 +605,16 @@ export const cases: Case[] = [
         ],
       },
       {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Turned a demo into a journey', 'Treated the 15-step CES demo as the user journey, with a 10–30 second budget for every step.'],
+          ['Designed for scale, not per car', 'Wrote adaptation rules so one app reflowed across five display formats on three cars.'],
+          ['Validated at scale', 'Ran prototype validation with about 2,000 US participants alongside a UX researcher.'],
+          ['Owned quality to production', 'Reviewed every build against the design, logging pixel-level fixes through to production.'],
+        ],
+      },
+      {
         kind: 'decisions',
         title: 'Key decisions',
         items: [
@@ -585,6 +651,13 @@ export const cases: Case[] = [
           method:
             'All three numbers come from prototype usability validation with about 2,000 participants in the US, which I ran with a UX researcher — not production analytics. CES 2024 was a showcase, listed as exposure rather than a measured result; the whole app later shipped in BMW and Subaru vehicles.',
         },
+      },
+      {
+        kind: 'pairs',
+        title: 'What I’d do next',
+        items: [
+          ['Measure it in production', 'Now that One Audio ships in BMW and Subaru vehicles, I would check whether faster setup holds outside the lab.'],
+        ],
       },
     ],
     tile: { eyebrow: 'One Audio · Harman Kardon · HARMAN', stat: { n: '65%', label: 'Faster setup · prototype test' }, pills: [{ text: 'Shipped in BMW & Subaru', tone: 'live' }, { text: 'Shown at CES 2024', tone: 'line' }], role: 'Associate Experience Designer · 2024' },
@@ -627,6 +700,16 @@ export const cases: Case[] = [
           ['It calls', 'Supplier in Tamil, transporter in Hindi, dispatch in Telugu'],
           ['You decide', 'One message: cause, who promised what, one decision'],
           ['It follows through', 'Checks in as each promise comes due; re-plans on a slip'],
+        ],
+      },
+      {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Set the trust rules', 'Says it is an AI on every call, only calls approved contacts, and keeps a full record of every call.'],
+          ['Kept money with the owner', 'The AI never agrees a price: every money decision waits for the owner’s tap.'],
+          ['Designed for real constraints', 'WhatsApp’s three-button limit, Indic scripts up to 40% longer, and offline and error states for every surface.'],
+          ['Handed off completely', '46 screens, 5 prototype flows and a full engineering handoff.'],
         ],
       },
       {
@@ -733,6 +816,16 @@ export const cases: Case[] = [
           'Framed five roles (controller, CFO, founder, AP specialist and the vendor’s AR contact) and a nine-stage journey from free leak check to fee paid — as hypotheses for usability testing.',
           'Mapped the finding lifecycle in FigJam: 15 states from “to review” to “fee paid”, and four flows including disconnected and partial data.',
           'Designed 39 desktop screens: onboarding, findings, decisions, recovery, fees, settings, failure states, and company groups in USD and INR.',
+        ],
+      },
+      {
+        kind: 'leadership',
+        title: 'How I led the work',
+        items: [
+          ['Owned the whole product', 'Journeys, information architecture, interface, design system and every state: 39 screens across 7 flows.'],
+          ['Designed for trust first', 'Every finding answers how much, why, how sure and what next, and no vendor is contacted without approval.'],
+          ['Framed the research', 'Five roles and a nine-stage journey, written as hypotheses for the first usability test.'],
+          ['Worked with an AI team', 'Worked with AI agents covering product, architecture, engineering, QA and content.'],
         ],
       },
       {
