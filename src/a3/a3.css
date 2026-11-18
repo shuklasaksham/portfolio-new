@@ -517,15 +517,15 @@ main:focus { outline: none; }
 
 /* ---------- print: résumé only ---------- */
 @media print {
-  @page { size: A4; margin: 10mm 14mm; }
+  @page { size: A4; margin: 8mm 14mm; }
   body { font-size: 10pt; }
   .hdr, .ftr, .skip, .rhead > .lbl, .rhead__meta, .rhead__main, .ask { display: none !important; }
   .rhead { display: block; padding: 0; }
-  .doc { border: 0; padding: 0; margin: 0; font-size: 9pt; line-height: 1.32; color: #222; }
-  .doc h2 { font-size: 19pt; }
+  .doc { border: 0; padding: 0; margin: 0; font-size: 9pt; line-height: 1.28; color: #222; }
+  .doc h2 { font-size: 18pt; }
   .doc__contact { margin: 4px 0 10px; }
-  .doc h3 { margin: 14px 0 7px; padding-bottom: 4px; }
-  .doc__role + .doc__role { margin-top: 10px; }
+  .doc h3 { margin: 11px 0 6px; padding-bottom: 3px; }
+  .doc__role + .doc__role { margin-top: 8px; }
   /* Native list markers keep the PDF's text in reading order for ATS parsers. */
   .doc ul { margin-top: 3px; padding-left: 13px; list-style: disc; }
   .doc li { position: static; padding-left: 1px; margin-top: 2px; }

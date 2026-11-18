@@ -1155,9 +1155,9 @@ export const resume = {
       role: 'Experience Designer II · Verizon',
       when: '2025 – Present · Hyderabad',
       bullets: [
-        'Proposed a guided agent instead of an open chat for tello.ai, Total Wireless’s AI assistant, and designed its conversation and plan cards; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%. Now live on the Total Wireless site.',
-        'Prototyped a conversational phone activation flow that replaces a 12+ screen form with one conversation, using camera scanning for IMEI, SIM number, and plan PIN.',
-        'Own UX and design-system work on my team; guide two junior designers (about 8 months), reviewing their work and setting direction.',
+        'Proposed a guided agent instead of an open chat for tello.ai, Total Wireless’s AI assistant; wrote the conversation before any screen, then designed its stepper and plan cards. In the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster (15 → 2.8 min), CSAT rose 12% and drop-off fell 6%. Now live.',
+        'Prototyped a conversational phone activation flow that replaces a 12+ screen form: camera scanning for IMEI, SIM number and plan PIN across three scan flows with 20+ states; presented it to leadership.',
+        'Own UX and design-system work on my team; guide two junior designers, reviewing their work and setting direction.',
       ],
     },
     {
@@ -1174,7 +1174,7 @@ export const resume = {
       when: '2022 – 2024 · Bengaluru',
       bullets: [
         'Designed One Audio, a connected multi-device audio app for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024 and shipped in BMW and Subaru vehicles; with a UX researcher, ran prototype validation with about 2,000 US participants: 65% faster device setup, +13% multi-device use and a 4.2/5 rating.',
-        'Wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design through to production.',
+        'Treated the 15-step CES demo as the user journey; wrote adaptation rules so one app reflowed across five in-car display formats on three cars, and reviewed every build against the design through to production.',
       ],
     },
   ],
@@ -1183,7 +1183,7 @@ export const resume = {
       role: 'Founder & Product Designer · DarpanAI (independent product)',
       when: '2026 – Present',
       bullets: [
-        'Designed and launched an AI video director for everyday creators in India: it plans the shots, coaches out loud in Hindi, scores every take and edits the reel.',
+        'Designed and launched an AI video director for creators in India that plans shots, coaches out loud in Hindi, scores takes and edits the reel.',
         'Launched in October 2026; within two weeks 65 creators signed up, 6 subscribed to Pro at ₹299/month and 32 reels were finished.',
       ],
     },
@@ -1192,15 +1192,23 @@ export const resume = {
       when: '2026 – Present',
       bullets: [
         'Designed and launched Bracket (live, v0.4; #9 on Product Hunt), an AI memory for freelancers and small teams: it detects scope, date and price decisions in email and Slack and asks a person before changing anything.',
-        'Built a 53-component tokenised design system and 173 desktop and mobile screens, with clickable prototypes.',
+        'Built a 53-component tokenised design system and 173 screens with clickable prototypes.',
+      ],
+    },
+    {
+      role: 'Product Designer · Plug and RelayOS (independent products)',
+      when: 'Ongoing',
+      bullets: [
+        'Plug (in design, launching 14 Jan 2027): AI that recovers vendor overpayments only after a person approves; 39 screens across 7 flows, every state designed.',
+        'RelayOS (concept): multilingual voice AI for manufacturers that never agrees a price without the owner; 46 screens and a full engineering handoff.',
       ],
     },
   ],
   skills: [
     ['AI', 'Conversational UX, Agentic AI, Human-AI interaction'],
-    ['Product design', 'Interaction design, Information architecture, Prototyping, Automotive HMI, 0-to-1 product design'],
+    ['Product design', 'Interaction design, Information architecture, Prototyping, Automotive HMI, Voice UX, UX writing, 0-to-1'],
     ['Design systems', 'Design tokens, Component libraries, Accessibility'],
-    ['Research', 'Usability testing, User interviews'],
+    ['Research', 'Usability testing, A/B testing, User interviews'],
     ['Tools', 'Figma, FigJam, Framer, Jira, Notion, Adobe Creative Suite, Procreate'],
   ] as [string, string][],
   education: 'B.Tech, Electrical & Electronics Engineering — United College of Engineering & Research, Prayagraj · 2018 – 2022',
