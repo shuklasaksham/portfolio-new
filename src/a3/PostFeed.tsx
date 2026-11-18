@@ -8,6 +8,9 @@ import { Img } from './ui';
 
 const MAILTO = 'mailto:shuklasaksham01@gmail.com';
 const isPhone = (p: Post) => p.shot.h > p.shot.w * 1.4;
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+/** "16 Nov 2026", fixed so server and browser render the same text. */
+const fmtDate = (iso: string) => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
 
 const Icon = ({ d, fill = 'none' }: { d: string; fill?: string }) => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d={d} fill={fill} stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -21,7 +24,7 @@ const I = {
   more: 'M6 12h.01M12 12h.01M18 12h.01',
 };
 
-function PostCard({ p }: { p: Post }) {
+function PostCard({ p, i }: { p: Post; i: number }) {
   const text = useRef<HTMLDivElement>(null);
   const [long, setLong] = useState(false);
   const [open, setOpen] = useState(false);
@@ -46,13 +49,13 @@ function PostCard({ p }: { p: Post }) {
   const tweet = `https://x.com/intent/post?text=${encodeURIComponent(`${p.title} — ${profile.name}`)}&url=${encodeURIComponent(url)}`;
 
   return (
-    <article className="sp" id={p.id}>
+    <article className="sp" id={p.id} style={{ order: i }}>
       <img className="sp__avatar" src="/img/portrait.webp" width={40} height={40} alt="" />
       <div className="sp__main">
         <header className="sp__head">
           <b>{profile.name}</b>
           <span className="sp__dot" aria-hidden="true">·</span>
-          <Link to={`/work/${p.slug}`} className="sp__proj">{p.project}</Link>
+          <time className="sp__date" dateTime={p.date}>{fmtDate(p.date)}</time>
           <span className="sp__more" aria-hidden="true"><Icon d={I.more} /></span>
         </header>
 
@@ -67,9 +70,15 @@ function PostCard({ p }: { p: Post }) {
           </button>
         )}
 
-        <a className={`sp__media${isPhone(p) ? ' sp__media--phone' : ''}`} href={p.shot.src} target="_blank" rel="noreferrer" aria-label={`Open full size: ${p.shot.alt}`}>
-          <Img shot={p.shot} />
-        </a>
+        {p.video ? (
+          <div className="sp__media sp__media--video">
+            <video src={p.video} poster={p.shot.src} width={p.shot.w} height={p.shot.h} controls playsInline preload="none" aria-label={p.shot.alt} />
+          </div>
+        ) : (
+          <a className={`sp__media${isPhone(p) ? ' sp__media--phone' : ''}`} href={p.shot.src} target="_blank" rel="noreferrer" aria-label={`Open full size: ${p.shot.alt}`}>
+            <Img shot={p.shot} />
+          </a>
+        )}
 
         <footer className="sp__actions">
           <a href={`${MAILTO}?subject=${encodeURIComponent(`Re: ${p.title}`)}`} aria-label="Reply by email" title="Reply"><Icon d={I.reply} /></a>
@@ -77,7 +86,7 @@ function PostCard({ p }: { p: Post }) {
           <button type="button" className={liked ? 'is-liked' : ''} aria-pressed={liked} aria-label="Like" title="Like" onClick={() => setLiked((v) => !v)}>
             <Icon d={I.like} fill={liked ? 'currentColor' : 'none'} />
           </button>
-          <Link to={`/work/${p.slug}`} className="sp__case">Case study <span aria-hidden="true">→</span></Link>
+          {p.slug && <Link to={`/work/${p.slug}`} className="sp__case">Case study <span aria-hidden="true">→</span></Link>}
           <span className="sp__end">
             <button type="button" className={saved ? 'is-saved' : ''} aria-pressed={saved} aria-label="Bookmark" title="Bookmark" onClick={() => setSaved((v) => !v)}>
               <Icon d={I.save} fill={saved ? 'currentColor' : 'none'} />
@@ -94,7 +103,13 @@ export function Posts() {
   return (
     <>
       <h2 className="sr-only">Posts</h2>
-      <div className="spfeed">{posts.map((p) => <PostCard key={p.id} p={p} />)}</div>
+      <div className="spfeed">
+        {[0, 1].map((col) => (
+          <div key={col} className="spfeed__col">
+            {posts.map((p, i) => i % 2 === col && <PostCard key={p.id} p={p} i={i} />)}
+          </div>
+        ))}
+      </div>
     </>
   );
 }

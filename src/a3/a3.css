@@ -1255,3 +1255,11 @@ main { padding-bottom: 96px; }
 .sp__end button:hover, .sp__end .is-saved { color: #1d9bf0; }
 .sp__end button:hover { background: rgba(29, 155, 240, .1); }
 @media (max-width: 767px) { .spfeed { columns: 1; } .sp { padding: 14px 14px 6px 12px; gap: 10px; } }
+.sp__date { color: #6b6f6c; font-size: 15px; }
+.sp__media--video { background: #0f1411; border-color: #0f1411; }
+.sp__media--video video { display: block; width: 100%; height: auto; }
+/* Feed: newest first across both columns; one list on mobile */
+.spfeed { columns: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.spfeed__col { display: flex; flex-direction: column; gap: 16px; }
+.spfeed .sp { margin: 0; }
+@media (max-width: 767px) { .spfeed { display: flex; flex-direction: column; } .spfeed__col { display: contents; } }

@@ -1,10 +1,19 @@
-// Posts tab: design posts written the way I post on LinkedIn: a hook, short lines,
-// bullets and a takeaway. Every fact comes from the case studies (no new numbers or stories).
+// Posts tab: UI/UX and product design posts, the way I post on LinkedIn, with project
+// updates in between. Project facts and their dates come from the case studies.
 import SCREENS from './screens.json';
 import type { Shot } from './content';
 
 /** body: paragraphs separated by a blank line; lines inside a paragraph by a newline. */
-export type Post = { id: string; slug: string; project: string; title: string; body: string; shot: Shot };
+export type Post = {
+  id: string;
+  date: string; // ISO date
+  title: string;
+  body: string;
+  shot: Shot;
+  video?: string;
+  /** Project updates link to their case study. */
+  slug?: string;
+};
 
 const all = Object.values(SCREENS as Record<string, Shot[]>).flat();
 const p = (src: string): Shot => {
@@ -12,298 +21,281 @@ const p = (src: string): Shot => {
   if (!s) throw new Error(`Post image not found: ${src}`);
   return s;
 };
+const art = (name: string, alt: string): Shot => ({ src: `/img/posts/${name}.webp`, w: 1600, h: 1000, alt });
 const img = (name: string, w: number, h: number, alt: string): Shot => ({ src: `/img/${name}.webp`, w, h, alt });
 
 export const posts: Post[] = [
   {
-    id: 'agents-need-structure',
-    slug: 'tello',
-    project: 'tello.ai',
-    title: 'An AI agent still needs structure',
-    body: `The brief said “AI assistant”. The risk was an open chat. 🤔
+    id: 'showreel',
+    date: '2026-11-16',
+    title: 'My showreel',
+    body: `Made a reel of everything I’ve designed and shipped so far 🎬
 
-People come to a phone carrier to do one job: pick a plan, pick a phone, activate. Most of them don’t know what to ask an assistant.
+• tello.ai: agentic AI for plan selection at Verizon, +7% conversion
+• Bang & Olufsen: in-car audio, shipped in Hyundai and Skoda
+• Harman Kardon One Audio: shipped in BMW and Subaru
+• Bracket: #9 on Product Hunt
+• DarpanAI: an AI video director with paying creators
+• Plug and RelayOS: AI products for finance teams and manufacturers
 
-So I proposed a guided agent instead:
-• One question at a time
-• Plans arrive as cards, not paragraphs
-• Every choice stays pinned
-• “Ask anything” is still there when you need it
-
-In the team’s A/B test, choosing a plan went from about 15 minutes to 2.8. Conversion went up 7%.
-
-The chat isn’t what makes an AI flow feel trustworthy. The structure around it is.`,
-    shot: p('/img/p/tello/02-plan-cards.webp'),
+Have a look and tell me which one you’d want the full story on 👇`,
+    shot: { src: '/video/showreel-poster.webp', w: 1280, h: 720, alt: 'Saksham Shukla showreel' },
+    video: '/video/showreel-2.mp4',
   },
   {
-    id: 'one-dot',
-    slug: 'bang-olufsen',
-    project: 'Bang & Olufsen',
-    title: 'Replace the equaliser with one dot',
-    body: `Nobody in a moving car should need to understand audio engineering. 🎛️
-
-The old audio settings: bass, treble and fader, three layers deep. Most drivers never touched them, and the ones who did took their eyes off the road.
-
-Beosonic replaces all of it with one dot on two axes you can feel:
-• Bright ↔ Warm
-• Relaxed ↔ Energetic
-
-The dot is the sound, with safe presets underneath. Presets don’t autosave (tap to load, long-press to save), so a favourite is never silently overwritten.
-
-In 98 in-car sessions, interaction time fell 40% against the three-layer model. It shipped in Hyundai and Skoda vehicles.
-
-Design for the hand that’s on the wheel, not the spec sheet.`,
-    shot: p('/img/p/bang-olufsen/05-beosonic-sound-circle.webp'),
-  },
-  {
-    id: 'no-auto-apply',
-    slug: 'bracket',
-    project: 'Bracket',
-    title: 'Why Bracket never auto-applies a change',
-    body: `The hardest design question in AI products: should the AI act on its own?
-
-In Bracket, the AI can spot a changed price or date in an email thread. Applying it automatically would feel magical.
-
-I ruled it out. One silently wrong price poisons every answer that depends on it.
-
-What we do instead:
-• Every change waits for one deliberate click
-• Source on the left, the AI’s reading on the right
-• A confidence level on every claim
-
-Yes, it’s more clicks today. Automation has to be earned, category by category, from real accept rates. Right now 90% of review items get accepted.
-
-Trust isn’t a feature you add later. It’s the interaction model.`,
-    shot: p('/img/p/bracket/05-change-review.webp'),
-  },
-  {
-    id: 'rules-not-redesigns',
-    slug: 'harman-kardon',
-    project: 'Harman Kardon One Audio',
-    title: 'Rules, not redesigns',
-    body: `3 cars. 5 display formats. 1 design team. A fixed CES date. 🚗
-
-A separate layout per screen would have meant five designs to build, QA and keep in sync.
-
-So I wrote adaptation rules instead:
-• Background and UI scale separately
-• Everything anchors to stage positions
-• One app reflows to every screen
-
-We gave up some per-car polish for one consistent experience that shipped on time. The whole app later shipped in BMW and Subaru vehicles.
-
-When the screens multiply, design the rules, not the screens.`,
-    shot: p('/img/p/harman-kardon/11-wide-ivi-seatsonic.webp'),
-  },
-  {
-    id: 'score-the-take',
-    slug: 'darpan',
-    project: 'DarpanAI',
-    title: 'Score the take, not the person',
-    body: `First-time creators don’t need to hear that something went wrong. They need to know what to fix next. 🎬
-
-That’s how I designed the take report in DarpanAI:
-• A score out of 10 for every take
-• A short list of what to try next: filler words, speed (130–150 words a minute), pauses, light
-• The best take kept automatically
-
-The report explains every score, so it reads like a note from a director, not a grade.
-
-Feedback design is product design. The tone decides whether people try again.`,
-    shot: p('/img/p/darpan/09-take-review.webp'),
-  },
-  {
-    id: 'four-decisions',
+    id: 'plug-in-design',
+    date: '2026-11-12',
     slug: 'plug',
-    project: 'Plug',
-    title: 'Four decisions, not two',
-    body: `Approve / Reject is a lazy pattern for AI findings.
+    title: 'Plug: launching 14 Jan 2027',
+    body: `Something new I’ve been designing: Plug 💸
 
-It forces a choice on someone who is only unsure, or who disagrees with the amount. Doubt turns into a rejection, and the reason is lost.
+Plug is an AI recovery platform for finance teams. It checks every payment for duplicates and unused vendor credits, explains each finding with its evidence, and recovers the money only after a person approves.
 
-In Plug, every finding gets four options:
-• Approve
-• Reject, with a reason
-• Ask Plug
-• Dispute the amount
+The pricing model shaped the whole UX: Plug charges 15% of what comes back, and nothing if nothing does.
 
-Each one states its consequence, including the fee, before you commit. Above a threshold ($10,000 by default), an approver decides.
+So far:
+• 39 desktop screens across 7 flows
+• Loading, empty, error and partial-data states for all of them
+• A full design system
 
-More choices on screen means fewer wrong rejections, and every rejection keeps its reason.`,
-    shot: img('plug-finding', 1440, 1347, 'Plug finding detail: two payments for the same invoice side by side, with the evidence and the decision panel'),
+Launching 14 Jan 2027.`,
+    shot: img('plug-overview', 1440, 900, 'Plug overview: found, waiting for your decision, with vendors and recovered'),
   },
   {
-    id: 'ai-never-agrees-a-price',
-    slug: 'relayos',
-    project: 'RelayOS',
-    title: 'An AI should never agree a price',
-    body: `A transporter asks for ₹800 extra for a Thursday pickup. Should the AI agent say yes?
+    id: 'microcopy',
+    date: '2026-11-09',
+    title: 'A button should say what happens next',
+    body: `“Submit” is the laziest word in UI. ✍️
 
-In RelayOS, never. An AI committing money on the owner’s behalf breaks trust immediately.
+Users shouldn’t have to read the whole screen to know what a button does. The label is the promise.
 
-So every money decision comes back to the owner on WhatsApp as one question, with the consequence spelled out:
+Instead of:
+• Submit → Send invoice
+• OK → Delete 3 files
+• Cancel → Keep editing
 
-“Approve ₹800 extra? If you reject, the earliest pickup is Monday and the order ships 3 days late.”
+Verb + object. Every time.
 
-• Approve, Reject or Call me
-• No reply? It waits, reminds once, then holds
-
-Voice AI can make the calls. The owner keeps the money decisions.
-
-(RelayOS is a concept, not yet tested with owners.)`,
-    shot: p('/img/p/relayos/03-whatsapp-plan-approval.webp'),
+Bonus: when the action is destructive, put the number in the label. “Delete 3 files” makes people pause in a way “Delete” never does.`,
+    shot: art('microcopy', 'Vague buttons (Submit, OK, Yes) next to specific ones (Send invoice, Delete 3 files, Keep editing)'),
   },
   {
-    id: 'test-both',
-    slug: 'bang-olufsen',
-    project: 'Bang & Olufsen',
-    title: 'When a debate stalls, test both',
-    body: `An engineer wanted to keep the traditional equaliser. I wanted a gesture.
-
-I could have argued for my idea. Instead I proposed testing both on the same tasks.
-
-What happened:
-• The team prototyped one gesture-based control
-• The advanced settings stayed within reach, so nobody lost what they cared about
-• Interaction time dropped 40%
-• It shipped in Hyundai and Skoda vehicles
-
-Evidence ends a design debate faster than opinion does, and the working relationship survives it. 🤝`,
-    shot: p('/img/p/bang-olufsen/06-beosonic-sound-modes-custom.webp'),
-  },
-  {
-    id: 'camera-does-the-copying',
-    slug: 'tello',
-    project: 'tello.ai',
-    title: 'Let the camera do the copying',
-    body: `Activating a phone used to mean typing:
-• A 15-digit IMEI
-• A SIM number
-• A plan PIN
-…across 12+ form screens.
-
-People dropped out at exactly the steps that asked them to copy numbers. 📱
-
-So in the new flow, the agent reads them off the box with the camera.
-
-But scans fail. Every scan offers three ways out, each one tap away:
-• Rescan
-• Type it in
-• Reach a human
-
-Most of the design work was those failure paths: 20+ states across three scan flows.
-
-The happy path is the easy part. Design the way out.`,
-    shot: p('/img/p/tello/09-imei-scan.webp'),
-  },
-  {
-    id: 'read-your-numbers',
-    slug: 'bracket',
-    project: 'Bracket',
-    title: 'Read your own numbers honestly',
-    body: `Bracket hit #9 on Product Hunt. 🎉
-
-The dashboard tells a quieter story:
-• 15 workspaces created
-• 4 Gmail accounts connected
-• 1 active workspace
-• Nobody finished the tour
-
-My hypothesis (not yet verified): Bracket asks for setup before it shows any value.
-
-Before redesigning anything, I’ll replay the 14 sandbox sessions and talk to five people who never connected a source. If setup is the blocker, the next test is a Gmail-first start that shows one real decision in the first session.
-
-A launch is a starting line, not a result.`,
-    shot: p('/img/p/bracket/01-onboarding-connect-sources.webp'),
-  },
-  {
-    id: 'coach-then-quiet',
+    id: 'darpan-live',
+    date: '2026-11-05',
     slug: 'darpan',
-    project: 'DarpanAI',
-    title: 'Coach out loud, then go quiet',
-    body: `Designing a voice coach taught me one thing: knowing when to stop talking is a feature. 🎙️
+    title: 'DarpanAI: two weeks live',
+    body: `DarpanAI has been live for two weeks. Here’s the honest dashboard 📊
 
-In DarpanAI:
-• Light and framing are easiest to fix before a take, so it speaks its tips first: “Turn toward the window. Your face is dark.”
-• Delivery is easiest when nobody interrupts, so during the take it goes silent and shows only small tips on screen
+• 65 creators signed up (after removing developer accounts)
+• 6 subscribed to Pro
+• 152 scripts → 266 takes → 32 finished reels, none failed
+• Only 2 creators recorded a take this week
 
-The trade-off: some fixes wait until the take ends.
+That last line is the real story. Sign-ups aren’t the problem. Retention is.
 
-That’s worth it. A coach who talks over you isn’t coaching.`,
-    shot: p('/img/p/darpan/05-live-coaching.webp'),
+My hypothesis: the loop ends at export, and nothing guides creators to their next reel. Next I’ll test a guided second reel: every finished reel ends with the next idea already planned.
+
+Building in public means sharing this part too.`,
+    shot: p('/img/p/darpan/12-reel-ready.webp'),
   },
   {
-    id: 'predictable-light',
-    slug: 'harman-kardon',
-    project: 'Harman Kardon One Audio',
-    title: 'On a show floor, predictable beats generative',
-    body: `At CES, the cabin light had to react to the music on demo hardware, every time, in front of visitors. ✨
+    id: 'ai-trust',
+    date: '2026-10-27',
+    title: 'Five patterns that make AI trustworthy',
+    body: `The hardest problem in AI products isn’t the model. It’s this:
 
-Light generated in real time looked great in theory and was unpredictable on that hardware.
+How does a user trust what the AI just did? 🤔
 
-So the light became a pre-rendered video driven by music data:
-• 5 themes
-• 2 mechanisms: speed follows amplitude, layers follow beats
+5 patterns I keep coming back to:
+• Confidence: say how sure the AI is
+• Source: show where it got the answer
+• “Why this?”: one tap to the reasoning
+• Undo: every AI action is reversible
+• Approval gates: the AI asks before it acts on anything that matters
 
-Less generative, but cinematic and reliable.
+None of these are flashy. All of them decide whether people come back.
 
-Sometimes the right design call is the one that still works the hundredth time.`,
-    shot: p('/img/p/harman-kardon/05-mood-pacific-whisper.webp'),
+Which one do you see missing most often?`,
+    shot: art('trust', 'AI trust patterns: confidence, source, why this, undo and approve before it acts, around an AI suggestion card'),
   },
   {
-    id: 'ai-teaches-the-control',
-    slug: 'bang-olufsen',
-    project: 'Bang & Olufsen',
-    title: 'Let the AI’s answer teach the manual control',
-    body: `“I want an AC/DC sound mode.” 🎸
+    id: 'error-messages',
+    date: '2026-10-14',
+    title: 'Every error answers three questions',
+    body: `“Something went wrong.” 🙃
 
-In the B&O app, drivers can ask for a sound in plain words. The answer lands on the same Beosonic circle they’d use by hand, with a note on why it fits.
+That message tells users nothing. A good error answers three questions:
 
-Why that matters:
-• An AI that hides what it changed leaves people stuck the moment they want it slightly different
-• An AI that shows its work on the manual control teaches that control
-• One tap undoes any AI change
+1. What happened? “Couldn’t upload invoices.csv”
+2. Why? “Row 14 is missing an amount”
+3. What now? [Fix row 14] [Upload again]
 
-Good AI features make people better at the product, not more dependent on the AI.`,
-    shot: p('/img/p/bang-olufsen/07-beosonic-ai-request.webp'),
+And a few rules I follow:
+• Never blame the user
+• Keep what they already typed
+• Put the fix right next to the message
+
+Errors are part of the flow, not an interruption to it.`,
+    shot: art('errors', 'An error card annotated with what happened, why, and what now'),
   },
   {
-    id: 'states-are-designed',
-    slug: 'plug',
-    project: 'Plug',
-    title: 'States are designed, not left over',
-    body: `In a product that finds money and writes to your vendors, trust is won or lost in the edge cases.
+    id: 'bracket-ph',
+    date: '2026-10-01',
+    slug: 'bracket',
+    title: 'Bracket is live on Product Hunt',
+    body: `Bracket is live on Product Hunt today, and it finished #9 🚀
 
-In Plug, I designed each of these as a real screen:
+Bracket is an AI memory for freelancers and small teams. It detects decisions (scope, dates, prices) inside email and Slack threads, then asks a human before updating anything.
+
+The design rule I didn’t compromise on: the AI never changes anything on its own. Source on the left, the AI’s reading on the right, one click to accept.
+
+Built it end to end:
+• 53-component design system
+• 173 screens with clickable prototypes
+
+Thank you to everyone who upvoted and left feedback 🙏`,
+    shot: p('/img/p/bracket/04-overview.webp'),
+  },
+  {
+    id: 'empty-states',
+    date: '2026-09-18',
+    title: 'An empty state is an onboarding screen',
+    body: `“No data.” Two words, and a dead end. 😶
+
+The empty state is often the first screen a new user sees. That makes it your onboarding.
+
+A good empty state has:
+• What will appear here
+• Why it’s empty right now
+• One clear action to fill it
+
+“No invoices yet. Connect your accounting tool and every payment gets checked automatically. [Connect a source]”
+
+Design the empty state first. If you can’t explain the screen when it’s empty, the screen isn’t clear yet.`,
+    shot: art('empty', 'A blank “No data” state next to a helpful empty state with a clear next step'),
+  },
+  {
+    id: 'button-states',
+    date: '2026-09-02',
+    title: 'A button has six states, not one',
+    body: `Most handoffs show one button. Engineering needs six. 👇
+
+• Default
+• Hover
+• Pressed
+• Focus (a visible ring, for keyboard users)
+• Disabled
 • Loading
-• Empty
-• Errors
-• Partial data
-• Disconnected accounts
 
-Each one says what happened and what to do next. Every branch of onboarding has somewhere to go: an unverified email, denied access, invalid files, partial data.
+Loading is the one teams forget most often. Without it, people click twice and you get two payments, two emails, two orders.
 
-They’re part of the 39 screens, not an afterthought at handoff.
-
-If engineering has to guess a state, the design isn’t finished.`,
-    shot: img('plug-f6-disconnected', 1440, 900, 'Plug data sources with a disconnected account, saying what happened and how to reconnect'),
+If a state isn’t in the file, someone will guess it in code.`,
+    shot: art('states', 'One button shown in six states: default, hover, pressed, focus, disabled and loading'),
   },
   {
-    id: 'test-in-the-car',
-    slug: 'bang-olufsen',
-    project: 'Bang & Olufsen',
-    title: 'Some problems only show up in the car',
-    body: `We tested Beosonic in the vehicle, with live sound and ambient light, not just on a desk. 🚘
+    id: 'tokens',
+    date: '2026-08-19',
+    title: 'Name design tokens by role, not by colour',
+    body: `green-500 is a colour. status.success is a decision. 🎨
 
-6 fixes only showed up there.
+When tokens are named after colours:
+• Rebrands mean find-and-replace across the whole product
+• Dark mode becomes a second design system
+• Nobody knows if blue-600 is a link, a button or a chart
 
-One example: the cabin light lagged behind the screen. The fix was tying light timing to screen transitions.
+Name them by role instead:
+• action.primary
+• border.subtle
+• status.success
+• status.error
 
-After that:
-• Light behaviour was specified for every state, from start-up to soundscapes
-• Engineering never had to guess
+The colour can change. The role never does.`,
+    shot: art('tokens', 'Colour-named tokens crossed out, next to role-named tokens'),
+  },
+  {
+    id: 'touch-targets',
+    date: '2026-07-30',
+    title: 'The icon is 24px. The target isn’t.',
+    body: `Your icon can be small. The tap area can’t. 👆
 
-Test where the product is used. The desk lies.`,
-    shot: p('/img/p/bang-olufsen/09-beoscapes-adjustment.webp'),
+The numbers worth remembering:
+• Apple HIG: 44 × 44 pt
+• Material Design: 48 × 48 dp
+• WCAG 2.2 minimum: 24 × 24 CSS px
+
+Pad the hit area, not the icon. And keep enough space between targets that a thumb can’t hit two at once.
+
+This matters even more in a car, where people tap at arm’s length on a moving road.`,
+    shot: art('targets', 'Touch target sizes: 44 by 44 points, 48 by 48 dp and the 24 by 24 pixel minimum'),
+  },
+  {
+    id: 'contrast',
+    date: '2026-07-12',
+    title: 'Light grey text is a readability bug',
+    body: `That elegant light grey caption? A lot of people can’t read it. 👀
+
+WCAG AA asks for:
+• 4.5:1 for body text
+• 3:1 for large text and UI components
+
+Some quick checks on white:
+• #AAAAAA → 2.32:1 ✕
+• #8A8A8A → 3.45:1 ✕
+• #767676 → 4.54:1 ✓
+
+Low contrast doesn’t look minimal. It looks unfinished to anyone in sunlight, on a cheap screen, or over 40.
+
+Check it in the file, before it ships.`,
+    shot: art('contrast', 'Grey text samples on white with their contrast ratios'),
+  },
+  {
+    id: 'loading',
+    date: '2026-06-24',
+    title: 'Skeletons vs spinners',
+    body: `A spinner says “wait”. A skeleton says “here’s what’s coming”. ⏳
+
+When to use which:
+• Under about a second: show nothing, or the content just appears
+• Loading content with a known layout: skeleton
+• A single action like saving or sending: spinner or progress on the button
+• Long waits: real progress, and let people do something else
+
+Skeletons make waits feel shorter because the layout is already there. Nothing jumps when the content lands.`,
+    shot: art('loading', 'A spinner card next to a skeleton card showing the shape of the content'),
+  },
+  {
+    id: 'type-scale',
+    date: '2026-06-06',
+    title: 'Fewer type sizes, clearer hierarchy',
+    body: `If your file has 14 font sizes, you don’t have a hierarchy. You have a mood board. 🔤
+
+Most product UIs need five:
+• Display
+• Title
+• Heading
+• Body
+• Caption
+
+Then build hierarchy with weight, colour and spacing before reaching for another size.
+
+Fewer sizes = faster decisions, cleaner handoff, and a UI that feels designed instead of assembled.`,
+    shot: art('type', 'A five-step type scale: display, title, heading, body and caption'),
+  },
+  {
+    id: 'spacing',
+    date: '2026-05-21',
+    title: 'Spacing is rhythm, not a number',
+    body: `Everyone talks about the 8pt grid. The grid isn’t the point. Rhythm is. 📐
+
+What actually makes a layout feel calm:
+• One base unit (4 or 8)
+• A short scale: 4, 8, 12, 16, 24, 32, 48, 64
+• Related things closer together, unrelated things further apart
+• The same gap for the same relationship, everywhere
+
+When spacing is consistent, users read structure before they read words.
+
+Bad spacing is the most common reason a “clean” UI still feels off.`,
+    shot: art('spacing', 'A spacing scale from 4 to 64'),
   },
 ];
