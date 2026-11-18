@@ -56,72 +56,81 @@ function totalMonths(list: readonly Employment[]) {
   return seen.size;
 }
 
-const COMPANIES = [
-  { key: 'verizon', name: 'Verizon India', logo: '/img/logos/verizon.svg', w: 2007, h: 450 },
-  { key: 'harman', name: 'Harman International India', logo: '/img/logos/harman.svg', w: 750, h: 439 },
-] as const;
-type CompanyKey = (typeof COMPANIES)[number]['key'];
-const rolesAt = (k: CompanyKey) => about.employment.filter((e) => e.logo === k);
+const LOGO = {
+  verizon: { src: '/img/logos/verizon.svg', w: 2007, h: 450 },
+  harman: { src: '/img/logos/harman-white.svg', w: 750, h: 439 },
+} as const;
 
-/** Company logos on the left; hovering, focusing or tapping one slides its roles in on the right. Verizon shows first. */
+/**
+ * Employment history as a career timeline: one bar per role, sized to its real length,
+ * that grows in when the section scrolls into view. Hovering, focusing or tapping a role
+ * slides its details in, bullets one after another. The current role shows first.
+ */
 function Employment() {
-  const [active, setActive] = useState<CompanyKey>('verizon');
+  const jobs = [...about.employment].reverse(); // oldest first, left to right
+  const [active, setActive] = useState(jobs.length - 1);
+  const first = toIndex(jobs[0].start);
+  const last = nowIndex();
+  const length = last - first + 1;
+  const years: number[] = [];
+  for (let y = Math.floor(first / 12); y * 12 <= last; y++) years.push(y);
   return (
-    <section className="emp" aria-labelledby="emp-title">
-      <div className="emp__top">
-        <h2 id="emp-title" className="emp__h">Employment history</h2>
-        <p className="emp__total"><span suppressHydrationWarning>{fmt(totalMonths(about.employment))}</span> total</p>
+    <section className="cx" aria-labelledby="cx-title" data-rv>
+      <div className="cx__head">
+        <div>
+          <p className="cx__eyebrow">Employment history</p>
+          <h2 id="cx-title" className="cx__title">Designing AI and in-car products <em>since 2022.</em></h2>
+        </div>
+        <p className="cx__total">
+          <b suppressHydrationWarning>{fmt(totalMonths(about.employment))}</b>
+          <span>Total experience</span>
+        </p>
       </div>
-      <div className="emp__grid">
-      <div className="emp__cos" role="tablist" aria-label="Companies" aria-orientation="vertical">
-        {COMPANIES.map((c) => {
-          const roles = rolesAt(c.key);
-          return (
-            <button
-              key={c.key}
-              type="button"
-              role="tab"
-              id={`emp-tab-${c.key}`}
-              aria-selected={active === c.key}
-              aria-controls={`emp-panel-${c.key}`}
-              className={`emp__co emp__co--${c.key}${active === c.key ? ' is-active' : ''}`}
-              onMouseEnter={() => setActive(c.key)}
-              onFocus={() => setActive(c.key)}
-              onClick={() => setActive(c.key)}
-            >
-              <img src={c.logo} width={c.w} height={c.h} alt={c.name} />
-              <span className="emp__co-meta">
-                <span suppressHydrationWarning>{fmt(totalMonths(roles))}</span> · {roles.length} {roles.length > 1 ? 'roles' : 'role'}
-              </span>
-            </button>
-          );
-        })}
+
+      <div className="cx__track" role="tablist" aria-label="Roles">
+        {jobs.map((j, i) => (
+          <button
+            key={j.role}
+            type="button"
+            role="tab"
+            id={`cx-tab-${i}`}
+            aria-selected={i === active}
+            aria-controls={`cx-panel-${i}`}
+            className={`cx__seg${i === active ? ' is-active' : ''}`}
+            style={{ flexGrow: months(j), ['--d' as string]: `${i * 140}ms` }}
+            suppressHydrationWarning
+            onMouseEnter={() => setActive(i)}
+            onFocus={() => setActive(i)}
+            onClick={() => setActive(i)}
+          >
+            <span className="cx__seg-co">{j.logo === 'verizon' ? 'Verizon' : 'HARMAN'}</span>
+            <span className="cx__seg-role">{j.role}</span>
+            <span className="cx__bar" aria-hidden="true" />
+            <span className="cx__seg-time" suppressHydrationWarning>{fmt(months(j))}</span>
+          </button>
+        ))}
       </div>
-      <div className="emp__panels">
-      {COMPANIES.map((c) => (
-        <div
-          key={c.key}
-          id={`emp-panel-${c.key}`}
-          role="tabpanel"
-          aria-labelledby={`emp-tab-${c.key}`}
-          className="emp__panel"
-          hidden={active !== c.key}
-        >
-          {rolesAt(c.key).map((e) => (
-            <article key={e.role} className="emp__role">
-              <h3>{e.role} <span>· {e.company}</span></h3>
-              <p className="emp__dates">
-                {e.dates} · <span suppressHydrationWarning>{fmt(months(e))}</span> · {e.place}
-              </p>
-              <ul className="emp__list">
-                {e.bullets.map((b) => <li key={b}>{b}</li>)}
-              </ul>
-            </article>
-          ))}
+      <div className="cx__years" aria-hidden="true">
+        {years.map((y) => (
+          <span key={y} style={{ left: `${Math.max(0, ((y * 12 - first) / length) * 100)}%` }} suppressHydrationWarning>{y}</span>
+        ))}
+      </div>
+
+      {jobs.map((j, i) => (
+        <div key={j.role} id={`cx-panel-${i}`} role="tabpanel" aria-labelledby={`cx-tab-${i}`} className="cx__panel" hidden={i !== active}>
+          <div className="cx__who">
+            <img className={`cx__logo cx__logo--${j.logo}`} src={LOGO[j.logo].src} width={LOGO[j.logo].w} height={LOGO[j.logo].h} alt={j.company} />
+            <h3>{j.role}</h3>
+            <p className="cx__co">{j.company}</p>
+            <p className="cx__dates">
+              {j.dates} · <span suppressHydrationWarning>{fmt(months(j))}</span> · {j.place}
+            </p>
+          </div>
+          <ul className="cx__list">
+            {j.bullets.map((b, k) => <li key={b} style={{ ['--i' as string]: k }}>{b}</li>)}
+          </ul>
         </div>
       ))}
-      </div>
-      </div>
     </section>
   );
 }
