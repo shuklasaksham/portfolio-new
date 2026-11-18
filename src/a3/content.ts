@@ -52,6 +52,8 @@ export type Case = {
   cover: { phones: Shot[] } | { wide: Shot; gauge?: { n: string; label: string; fill: number } };
   sections: Section[];
   card: { result: string; line: string; meta: string };
+  /** Homepage card, built for a recruiter's first scan: what, role, status, one sourced result, one proof point. */
+  tile: { eyebrow: string; stat: { n: string; label: string }; pills: { text: string; tone: 'live' | 'line' | 'draft' }[]; role: string };
   /** The decision that was the designer's own call — only where that is documented. */
   myCall?: string;
   /** What was the designer's own work in a team project, restated from the case study's role section. */
@@ -176,6 +178,7 @@ export const cases: Case[] = [
         items: [['Agents still need structure', 'Steppers, pinned facts and cards are what make an AI flow feel trustworthy — not the chat itself.']],
       },
     ],
+    tile: { eyebrow: 'tello.ai · Verizon · Total Wireless', stat: { n: '+7%', label: 'Conversion · A/B test' }, pills: [{ text: 'Live on Total Wireless', tone: 'live' }, { text: '5× faster plan selection', tone: 'line' }], role: 'Experience Designer II · 2025 · team result' },
     card: { result: '+7% conversion', line: 'A plan in 2.8 minutes, not 15.', meta: 'Plan selection A/B tested and live · Activation prototyped' },
     myCall: 'I proposed a guided agent instead of an open chat: one question at a time, plans as cards, every choice pinned — trading a free-form first turn for a path nobody gets lost on.',
     myPart: 'I wrote the conversation before any screen existed, then designed the stepper, rich cards and three scan flows (20+ states) that cut the steps a customer takes.',
@@ -300,6 +303,7 @@ export const cases: Case[] = [
         ],
       },
     ],
+    tile: { eyebrow: 'DarpanAI · AI video director', stat: { n: '65', label: 'Creators in 2 weeks' }, pills: [{ text: 'Live · 6 paying creators', tone: 'live' }, { text: '32 reels finished', tone: 'line' }], role: 'Independent product · 0 → 1 · 2026' },
     card: { result: '6 paying creators', line: 'An AI video director that plans, coaches and edits.', meta: 'Independent · 0 → 1 · Live' },
     myCall: 'I decided Darpan starts from the creator’s own words rather than a template, and that editing is fully automatic — trading fine control for finished reels.',
     next: 'bang-olufsen',
@@ -405,6 +409,7 @@ export const cases: Case[] = [
         ],
       },
     ],
+    tile: { eyebrow: 'Audio by Bang & Olufsen · HARMAN', stat: { n: '−40%', label: 'Interaction time' }, pills: [{ text: 'Shipped in Hyundai & Skoda', tone: 'live' }, { text: '98 in-car participants', tone: 'line' }], role: 'Experience Designer · 2024' },
     card: { result: '−40% interaction time', line: 'Shaping in-car sound by feel, not equaliser.', meta: 'Shipped in Hyundai and Skoda vehicles' },
     myCall: 'When an engineer wanted to keep the traditional equaliser, I proposed testing both against the same tasks instead of arguing — and the team prototyped one gesture-based control, with the advanced settings kept within reach. In testing it cut interaction time 40% against the 3-layer model, and it shipped.',
     myPart: 'I designed Beosonic, AI sound tuning and the QR sign-in, then tested them in the car with live sound and light, and fed six fixes back into the spec.',
@@ -501,6 +506,7 @@ export const cases: Case[] = [
         },
       },
     ],
+    tile: { eyebrow: 'Bracket · AI memory for small teams', stat: { n: '90%', label: 'Review items accepted' }, pills: [{ text: 'Live · v0.4', tone: 'live' }, { text: '53 components · 173 screens', tone: 'line' }], role: 'Founder & designer · 2026' },
     card: { result: 'Live · v0.4', line: 'An AI memory people can trust.', meta: 'Independent · Live' },
     myCall: 'I ruled out auto-applying AI-detected changes: nothing changes without one deliberate click, until real accept rates earn automation category by category.',
     next: 'harman-kardon',
@@ -581,6 +587,7 @@ export const cases: Case[] = [
         },
       },
     ],
+    tile: { eyebrow: 'One Audio · Harman Kardon · HARMAN', stat: { n: '65%', label: 'Faster setup · prototype test' }, pills: [{ text: 'Shipped in BMW & Subaru', tone: 'live' }, { text: 'Shown at CES 2024', tone: 'line' }], role: 'Associate Experience Designer · 2024' },
     card: { result: '', line: '65% faster device setup in prototype usability testing.', meta: 'CES 2024 · Shipped in BMW and Subaru vehicles' },
     myPart: 'I treated the 15-step CES demo as the user journey, wrote the adaptation rules that let one app reflow across five in-car display formats, and ran the ~2,000-participant validation with a UX researcher.',
     next: 'relayos',
@@ -682,6 +689,7 @@ export const cases: Case[] = [
         ],
       },
     ],
+    tile: { eyebrow: 'RelayOS · Voice AI for manufacturers', stat: { n: '46', label: 'Screens · full handoff' }, pills: [{ text: 'Concept · not shipped', tone: 'draft' }, { text: 'Hindi · Tamil · Telugu', tone: 'line' }], role: 'Independent concept' },
     card: {
       result: '',
       line: 'Voice AI that recovers a delayed order from one WhatsApp voice note — calling suppliers, transporters and the floor in their own languages.',
@@ -885,6 +893,7 @@ export const cases: Case[] = [
         ],
       },
     ],
+    tile: { eyebrow: 'Plug · AI overpayment recovery', stat: { n: '39', label: 'Screens · 7 flows' }, pills: [{ text: 'In design · launch Dec 2026', tone: 'draft' }, { text: 'Paid only from what it recovers', tone: 'line' }], role: 'Senior Product Designer · 2026' },
     card: {
       result: '',
       line: 'An AI that finds what a company overpaid its vendors and recovers it — and is only paid once the money is back.',

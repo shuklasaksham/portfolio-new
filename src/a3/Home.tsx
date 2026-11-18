@@ -1,47 +1,49 @@
 import { Link } from 'react-router-dom';
 import { cases, home, profile, type Case, type Shot } from './content';
 import { jumpTo } from './scroll';
-import { Accent, AskButton, Footer, Gauge, Img, Label, Tag, useReveal } from './ui';
+import { Accent, AskButton, Footer, Img, Label, useReveal } from './ui';
 
 const bySlug = (s: string) => cases.find((c) => c.slug === s)!;
 
-function Visual({ c }: { c: Case }) {
+function Media({ c }: { c: Case }) {
   if (c.slug === 'tello' || c.slug === 'darpan') {
     const shots: Shot[] = home.cards[c.slug];
     return (
-      <div className={`card__media card__media--phones n${shots.length}`}>
-        {shots.map((s) => <Img key={s.src} shot={s} />)}
+      <div className={`xcard__media xcard__media--phones n${shots.length}`} aria-hidden="true">
+        {shots.map((s) => <Img key={s.src} shot={{ ...s, alt: '' }} />)}
       </div>
     );
   }
   if ('wide' in c.cover) {
-    const dark = c.slug === 'bang-olufsen' || c.slug === 'harman-kardon' || c.slug === 'bracket';
     return (
-      <div className={`card__media card__media--wide${dark ? ' is-dark' : ''}`}>
+      <div className="xcard__media xcard__media--wide" aria-hidden="true">
         <Img shot={{ ...c.cover.wide, alt: '' }} />
-        {c.cover.gauge && (
-          <div className="hmi-chip">
-            <Gauge {...c.cover.gauge} size="sm" />
-          </div>
-        )}
       </div>
     );
   }
   return null;
 }
 
+/** Work card, ordered for a recruiter's first scan: what it is, the result, the status, the role, then the work. */
 function Card({ c, big }: { c: Case; big?: boolean }) {
+  const t = c.tile;
   return (
-    <Link to={`/work/${c.slug}`} className={`card${big ? ' card--big' : ''}`} data-rv>
-      <Visual c={c} />
-      <div className="card__row">
-        <span className="lbl">{c.num}</span>
-        <Tag tier={c.tier} />
-        {c.card.result && <span className="card__result">{c.card.result}</span>}
+    <Link to={`/work/${c.slug}`} className={`xcard${big ? ' xcard--big' : ''}`} data-rv>
+      <div className="xcard__text">
+        <div className="xcard__head">
+          <p className="xcard__eyebrow">{t.eyebrow}</p>
+          <p className="xcard__stat"><b>{t.stat.n}</b><span>{t.stat.label}</span></p>
+        </div>
+        <h3 className="xcard__title"><Accent text={c.title} accent={c.accent} /></h3>
+        <p className="xcard__pills">
+          {t.pills.map((x) => <span key={x.text} className={`xpill xpill--${x.tone}`}>{x.text}</span>)}
+        </p>
+        <p className="xcard__foot">
+          <span>{c.num} · {t.role}</span>
+          <span className="xcard__cta">Read case study →</span>
+        </p>
       </div>
-      <h3 className="card__name">{c.name}</h3>
-      <p className="card__line">{c.card.line}</p>
-      <p className="lbl lbl--muted">{c.card.meta}</p>
+      <Media c={c} />
     </Link>
   );
 }
@@ -91,12 +93,6 @@ export default function Home() {
         <div className="work__head">
           <h2 id="work-title" className="h-xl">Work</h2>
           <span className="lbl lbl--muted">07 projects · ordered by depth</span>
-          <span className="work__legend" aria-hidden="true">
-            <Tag tier="deep" />
-            <Tag tier="medium" />
-            <Tag tier="concept" />
-            <Tag tier="design" />
-          </span>
         </div>
 
         <Label tone="muted">Case studies — full reads</Label>
@@ -114,19 +110,7 @@ export default function Home() {
         </div>
 
         <Label tone="muted">Concept — not shipped</Label>
-        {[bySlug('relayos')].map((c) => (
-          <Link key={c.slug} to={`/work/${c.slug}`} className="concept" data-rv>
-            <div className="concept__text">
-              <div className="card__row">
-                <span className="lbl">{c.num}</span>
-                <Tag tier={c.tier} />
-              </div>
-              <h3 className="card__name">{c.name}</h3>
-              <p className="card__line">{c.card.line}</p>
-            </div>
-            {'wide' in c.cover && <Img shot={{ ...c.cover.wide, alt: '' }} className="concept__img" />}
-          </Link>
-        ))}
+        <Card c={bySlug('relayos')} big />
       </section>
 
       <section className="wrap how" aria-labelledby="how-title">
