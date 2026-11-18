@@ -943,7 +943,6 @@ export const about = {
   details: [
     ['Location', 'Hyderabad, India'],
     ['Time zone', 'IST (GMT+5:30)'],
-    ['Language', 'Fluent in English'],
   ] as [string, string][],
   title: 'I care about why it matters, how it’s built, and whether it ships.',
   accent: 'ships.',

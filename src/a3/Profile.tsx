@@ -121,9 +121,9 @@ export function ProfilePage({ children, className = '' }: { children: ReactNode;
 
 function TileMedia({ c }: { c: Case }) {
   if (c.slug === 'tello' || c.slug === 'darpan') {
-    const shots: Shot[] = home.cards[c.slug];
+    const shots: Shot[] = home.cards[c.slug].slice(0, 3);
     return (
-      <span className={`tile__media tile__media--phones n${shots.length}`} aria-hidden="true">
+      <span className="tile__media tile__media--phones" aria-hidden="true">
         {shots.map((s) => <Img key={s.src} shot={{ ...s, alt: '' }} />)}
       </span>
     );
