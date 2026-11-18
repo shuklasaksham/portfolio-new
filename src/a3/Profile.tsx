@@ -171,10 +171,20 @@ function TileMedia({ c }: { c: Case }) {
 }
 
 /** A work tile: the project's cover image, linking to its case study. */
-export function Tile({ c }: { c: Case }) {
+export function Tile({ c, onOpen }: { c: Case; onOpen?: (c: Case) => void }) {
   const t = c.tile;
   return (
-    <Link to={`/work/${c.slug}`} className="wtile wtile--cover" data-rv>
+    <Link
+      to={`/work/${c.slug}`}
+      className="wtile wtile--cover"
+      data-rv
+      onClick={(e) => {
+        // A plain click opens the preview; Ctrl/Cmd/Shift/middle-click still open the case study.
+        if (!onOpen || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        onOpen(c);
+      }}
+    >
       <img src={`/img/covers/${c.slug}.webp`} width={1200} height={900} loading="lazy" decoding="async" alt="" />
       <span className="sr-only">{c.name}: {c.title} {t.stat.n} {t.stat.label}.</span>
     </Link>

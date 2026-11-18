@@ -1,6 +1,8 @@
-import { cases } from './content';
+import { useCallback, useState } from 'react';
+import { cases, type Case } from './content';
 import { ProfilePage, Tile } from './Profile';
 import { useReveal } from './ui';
+import { WorkModal } from './WorkModal';
 
 const bySlug = (s: string) => cases.find((c) => c.slug === s)!;
 
@@ -18,14 +20,17 @@ function Empty({ title, text }: { title: string; text: string }) {
 
 export default function Home({ tab = 'work' }: { tab?: 'work' | 'posts' | 'reviews' }) {
   useReveal(tab);
+  const [open, setOpen] = useState<Case | null>(null);
+  const close = useCallback(() => setOpen(null), []);
   return (
     <ProfilePage className={`pf--${tab}`}>
       {tab === 'work' && (
         <>
           <h2 className="sr-only">Work</h2>
           <div className="wgrid">
-            {ORDER.map((s) => <Tile key={s} c={bySlug(s)} />)}
+            {ORDER.map((s) => <Tile key={s} c={bySlug(s)} onOpen={setOpen} />)}
           </div>
+          {open && <WorkModal c={open} onClose={close} />}
         </>
       )}
       {tab === 'posts' && <Empty title="No posts yet" text="Posts will appear here." />}
