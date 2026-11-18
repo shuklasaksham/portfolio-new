@@ -955,3 +955,13 @@ main { padding-bottom: 96px; }
 .pf .pf__stat:hover { background: rgba(255, 255, 255, .05); }
 .pf .pf__stat:hover dt { color: #9ef0c6; }
 @media (prefers-reduced-motion: reduce) { .pf .pf__stat { transition: none; } }
+
+/* Stats: light card (overrides the dark version) */
+.pf .pf__stats { color: var(--ink); background: #fff; border: 1px solid var(--pf-line, #e6e6e1); box-shadow: 0 1px 2px rgba(10, 10, 10, .04); }
+.pf .pf__stat + .pf__stat::before { background: var(--pf-line, #e6e6e1); }
+.pf .pf__stat dd { color: var(--ink); }
+.pf .pf__stat dt { color: var(--text-3); }
+.pf .pf__stat:hover { background: #f4f7f5; }
+.pf .pf__stat:hover dd { color: #1a9b55; }
+.pf .pf__stat:hover dt { color: var(--text-2); }
+.pf .pf__stat dd { transition: color .25s; }
