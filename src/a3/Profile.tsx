@@ -138,19 +138,13 @@ function TileMedia({ c }: { c: Case }) {
   return null;
 }
 
-/** A work tile: the work on top; below it the company, the title and one sourced result. */
+/** A work tile: the project's cover image, linking to its case study. */
 export function Tile({ c }: { c: Case }) {
   const t = c.tile;
   return (
-    <Link to={`/work/${c.slug}`} className="wtile" data-rv>
-      <TileMedia c={c} />
-      <span className="wtile__body">
-        <span className="wtile__meta">{t.eyebrow}</span>
-        <span className="wtile__row">
-          <h3 className="wtile__title"><Accent text={c.title} accent={c.accent} /></h3>
-          <span className="wtile__stat"><b>{t.stat.n}</b><span>{t.stat.label}</span></span>
-        </span>
-      </span>
+    <Link to={`/work/${c.slug}`} className="wtile wtile--cover" data-rv>
+      <img src={`/img/covers/${c.slug}.webp`} width={1200} height={900} loading="lazy" decoding="async" alt="" />
+      <span className="sr-only">{c.name}: {c.title} {t.stat.n} {t.stat.label}.</span>
     </Link>
   );
 }

@@ -857,3 +857,7 @@ main { padding-bottom: 96px; }
 .wtile .wtile__stat b { font: 600 24px/1 var(--sans); letter-spacing: -0.03em; color: var(--x-lime); }
 .wtile .wtile__stat span { margin-top: 4px; font: 400 10px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--x-muted); max-width: 110px; }
 .wtile:hover { transform: translateY(-4px); }
+
+/* Round 14: tiles are the static cover images */
+.wtile--cover { display: block; padding: 0; aspect-ratio: 4 / 3; background: #0f1411; }
+.wtile--cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
