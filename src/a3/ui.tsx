@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { createPortal } from 'react-dom';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { answer, SUGGESTIONS, type Answer } from './ask';
 import { profile, TIER_TAG, type Shot, type Tier } from './content';
 
@@ -208,98 +207,5 @@ export function AskButton({ className = '' }: { className?: string }) {
     <button className={`btn btn--line ${className}`} onClick={open}>
       <span className="dot" aria-hidden="true" /> Ask Saksham
     </button>
-  );
-}
-
-/* ---------- header, menu, footer ---------- */
-
-const NAV = [
-  ['Work', '/'],
-  ['About', '/about'],
-  ['Résumé', '/resume'],
-] as const;
-
-function Menu({ onClose }: { onClose: () => void }) {
-  const { open } = useAsk();
-  const first = useRef<HTMLAnchorElement>(null);
-  useEffect(() => {
-    first.current?.focus();
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    document.addEventListener('keydown', onKey);
-    document.documentElement.classList.add('is-locked');
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.documentElement.classList.remove('is-locked');
-    };
-  }, [onClose]);
-  return (
-    <div className="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu">
-      <div className="menu__top wrap">
-        <Link to="/" className="hdr__name" onClick={onClose}>{profile.name}</Link>
-        <button className="hdr__menu" onClick={onClose}>Close</button>
-      </div>
-      <nav className="menu__nav wrap" aria-label="Main">
-        {NAV.map(([label, to], i) => (
-          <Link key={to} to={to} onClick={onClose} ref={i === 0 ? first : undefined}>
-            <span className="lbl">{String(i + 1).padStart(2, '0')}</span>
-            {label}
-          </Link>
-        ))}
-        <a href={`mailto:${profile.email}`}>
-          <span className="lbl">04</span>Contact
-        </a>
-      </nav>
-      <div className="menu__foot wrap">
-        <button className="btn btn--line btn--block" onClick={() => { onClose(); open(); }}>
-          <span className="dot" aria-hidden="true" /> Ask Saksham about the work
-        </button>
-        <Label tone="muted">Contact</Label>
-        <a className="menu__mail" href={`mailto:${profile.email}`}>{profile.email}</a>
-        <p className="lbl">
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn →</a>
-          <Link to="/resume" onClick={onClose}>Résumé PDF →</Link>
-        </p>
-        <Label tone="muted">{profile.location}</Label>
-      </div>
-    </div>
-  );
-}
-
-export function Header() {
-  const [menu, setMenu] = useState(false);
-  const location = useLocation();
-  useEffect(() => setMenu(false), [location.pathname]);
-  return (
-    <header className="hdr">
-      <div className="hdr__in wrap">
-        <Link to="/" className="hdr__name">{profile.name}</Link>
-        <span className="hdr__meta">Product designer</span>
-        <span className="hdr__meta">{profile.location}</span>
-        <nav className="hdr__nav" aria-label="Main">
-          {NAV.map(([label, to]) => (
-            <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => (isActive || (to === '/' && location.pathname.startsWith('/work')) ? 'is-active' : '')}>
-              {label}
-            </NavLink>
-          ))}
-          <a href={`mailto:${profile.email}`}>Contact</a>
-        </nav>
-        <button className="hdr__menu" aria-expanded={menu} aria-controls="site-menu" onClick={() => setMenu(true)}>Menu</button>
-      </div>
-      {/* Portal: the header's backdrop-filter would otherwise contain the fixed overlay. */}
-      {menu && createPortal(<Menu onClose={() => setMenu(false)} />, document.body)}
-    </header>
-  );
-}
-
-export function Footer() {
-  return (
-    <footer className="ftr wrap">
-      <a className="ftr__mail" href={`mailto:${profile.email}`}>{profile.email}</a>
-      <p className="ftr__links lbl">
-        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn →</a>
-        <Link to="/resume">Résumé →</Link>
-        <span>© 2026</span>
-      </p>
-    </footer>
   );
 }

@@ -961,6 +961,26 @@ export const about = {
       'What I took from it: disagreements become productive when the team weighs user outcomes and technical constraints together, instead of defending individual solutions.',
     ],
   },
+  employment: [
+    {
+      role: 'Experience Specialist II',
+      company: 'Verizon India',
+      dates: 'March 2025 – Present · Hyderabad',
+      text: 'Designing tello.ai, the AI assistant on Total Wireless. I proposed a guided agent instead of an open chat and designed its conversation, stepper and plan cards; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster and CSAT rose 12%, and plan selection is now live. I also prototyped a conversational phone activation flow that replaces a 12+ screen form with camera scanning. I own UX and design-system work on my team and have guided two junior designers for about eight months, reviewing their work and setting what to design and how.',
+    },
+    {
+      role: 'Experience Designer',
+      company: 'Harman International India',
+      dates: 'February 2024 – February 2025 · Bengaluru',
+      text: 'Designed in-vehicle audio for Audio by Bang & Olufsen — Beosonic feel-based sound control, AI sound tuning and QR sign-in — now shipped in Hyundai and Skoda vehicles. I aligned with Bang & Olufsen in a 2-day workshop and had each section approved with them. When an engineer wanted to keep the traditional equaliser, I proposed testing both on the same tasks; with 98 participants in the car, the gesture model cut interaction time 40% and driver distraction 10%. In-car testing with live sound and light fed six fixes into the spec.',
+    },
+    {
+      role: 'Associate Experience Designer',
+      company: 'Harman International India',
+      dates: 'February 2022 – February 2024 · Bengaluru',
+      text: 'Designed One Audio, a connected multi-device audio app for Harman Kardon, shown in HARMAN’s AutoOne cockpit at CES 2024 and later shipped in BMW and Subaru vehicles. I wrote adaptation rules so one app reflowed across five in-car display formats on three cars, ran prototype validation with about 2,000 US participants alongside a UX researcher (65% faster device setup, +13% multi-device use, 4.2/5), and reviewed every build against the design through to production.',
+    },
+  ],
   experience: [
     ['2025 – Now', 'Experience Designer II', 'Verizon', 'Hyderabad'],
     ['2024 – 2025', 'Experience Designer', 'HARMAN International', 'Bengaluru'],

@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './a3/Home';
 import { useRouteScroll } from './a3/scroll';
-import { AskProvider, Header } from './a3/ui';
+import { AskProvider } from './a3/ui';
 
 const CasePage = lazy(() => import('./a3/CasePage'));
 const About = lazy(() => import('./a3/About'));
@@ -30,7 +30,6 @@ export default function App() {
   return (
     <AskProvider>
       <a className="skip" href="#main">Skip to content</a>
-      <Header />
       <main id="main" tabIndex={-1}>
         <Suspense fallback={<div className="page" style={{ minHeight: '100vh' }} />}>
           <Routes>

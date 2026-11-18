@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getCase, TIER_TAG, type Callout, type Decision, type Outcome, type Section, type Shot } from './content';
 import NotFound from './NotFound';
 import { jumpTo } from './scroll';
-import { Accent, Footer, Gauge, Img, Label, Tag, useReveal } from './ui';
+import { Accent, Gauge, Img, Label, Tag, useReveal } from './ui';
 
 const pad = (i: number) => String(i + 1).padStart(2, '0');
 const isPhone = (s: Shot) => s.h > s.w;
@@ -327,7 +327,6 @@ export default function CasePage() {
         <span className="nextlink__name">{next.name} <span aria-hidden="true">→</span></span>
         <span className="nextlink__line">{next.card.line}</span>
       </Link>
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Accent, Footer, Label } from './ui';
+import { Accent, Label } from './ui';
 
 export default function NotFound() {
   return (
@@ -14,7 +14,6 @@ export default function NotFound() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

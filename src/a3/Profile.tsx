@@ -3,7 +3,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { home, profile, type Case, type Shot } from './content';
-import { Accent, AskButton, Footer, Img } from './ui';
+import { Accent, AskButton, Img } from './ui';
 
 const MAILTO = `mailto:${profile.email}`;
 
@@ -126,7 +126,6 @@ export function ProfilePage({ children, className = '' }: { children: ReactNode;
       <ProfileHead />
       <ProfileTabs />
       <div className="pf__body wrap">{children}</div>
-      <Footer />
     </div>
   );
 }

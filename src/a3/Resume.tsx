@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { profile, resume } from './content';
-import { Accent, Footer, Label } from './ui';
+import { Accent } from './ui';
 
 // Generated from this page's print styles by `npm run resume-pdf`; regenerate after editing the résumé.
 const RESUME_PDF = '/Saksham-Shukla-Resume.pdf';
@@ -20,7 +21,7 @@ export default function Resume() {
   return (
     <div className="page resume">
       <section className="wrap grid rhead">
-        <Label tone="muted">Résumé</Label>
+        <p className="lbl lbl--muted rhead__crumb"><Link to="/">← Work</Link> / Résumé</p>
         <dl className="meta rhead__meta">
           <div><dt className="lbl lbl--muted">Format</dt><dd>ATS-friendly · single column</dd></div>
           <div><dt className="lbl lbl--muted">Length</dt><dd>One page</dd></div>
@@ -57,7 +58,6 @@ export default function Resume() {
           <p>{resume.education}</p>
         </article>
       </section>
-      <Footer />
     </div>
   );
 }

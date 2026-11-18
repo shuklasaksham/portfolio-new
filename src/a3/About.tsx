@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { about, home, resume } from './content';
 import { ProfilePage, Socials } from './Profile';
@@ -30,6 +30,31 @@ function SideCard() {
   );
 }
 
+type Employment = (typeof about.employment)[number];
+
+/** One role: title, dates, and a summary clamped to three lines with a "more" toggle. */
+function Job({ e }: { e: Employment }) {
+  const [open, setOpen] = useState(false);
+  const [long, setLong] = useState(true);
+  const text = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    const el = text.current;
+    if (el && !open) setLong(el.scrollHeight > el.clientHeight + 2);
+  }, [open]);
+  return (
+    <article className="emp__job" data-rv>
+      <h3>{e.role} | {e.company}</h3>
+      <p className="emp__dates">{e.dates}</p>
+      <p ref={text} className={`emp__text${open ? ' is-open' : ''}`}>{e.text}</p>
+      {long && (
+        <button type="button" className="emp__more" aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? 'less' : 'more'}
+        </button>
+      )}
+    </article>
+  );
+}
+
 export default function About() {
   useReveal('about');
   return (
@@ -46,18 +71,9 @@ export default function About() {
         <SideCard />
       </div>
 
-      <section className="grid rows-sec">
-        <h2 className="h-sec">Experience</h2>
-        <div className="rows">
-          {about.experience.map(([when, role, co, place]) => (
-            <div key={when} className="rows__r" data-rv>
-              <span className="lbl lbl--muted">{when}</span>
-              <span className="rows__main">{role}</span>
-              <span>{co}</span>
-              <span className="rows__muted">{place}</span>
-            </div>
-          ))}
-        </div>
+      <section className="emp" aria-labelledby="emp-title">
+        <h2 id="emp-title" className="emp__h">Employment history</h2>
+        {about.employment.map((e) => <Job key={e.role} e={e} />)}
       </section>
 
       <section className="grid rows-sec">
