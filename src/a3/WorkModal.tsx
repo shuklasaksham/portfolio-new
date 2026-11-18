@@ -107,7 +107,7 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
       <div className="wm__scrim" onClick={onClose} />
       <div className="wm__panel" role="dialog" aria-modal="true" aria-labelledby="wm-title" ref={panel}>
         <header className="wm__head">
-          <h2 id="wm-title">{c.name} — {meta?.subtitle ?? c.title}</h2>
+          <h2 id="wm-title">{c.name} <span className="wm__dash">—</span> <em>{meta?.subtitle ?? c.title}</em></h2>
           <div className="wm__actions">
             <button type="button" className="wm__copy" onClick={copy} aria-live="polite">
               {copied ? 'Link copied' : 'Copy link'}
