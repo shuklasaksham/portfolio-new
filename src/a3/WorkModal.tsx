@@ -26,7 +26,7 @@ const GROUP: Record<Section['kind'], Exclude<TabKey, 'overview'>> = {
 type Block = { kind: 'wide'; shot: Shot } | { kind: 'phones'; shots: Shot[] };
 const isTall = (s: Shot) => s.h > s.w * 1.4;
 
-/** Every screen in the case study, in reading order, with phones grouped into rows. */
+/** Every screen in the case study, in reading order, with phones grouped six to a row. */
 function blocksFor(c: Case): Block[] {
   const all: Shot[] = [];
   if ('wide' in c.cover) all.push(c.cover.wide);
@@ -43,7 +43,7 @@ function blocksFor(c: Case): Block[] {
   let row: Shot[] = [];
   const flush = () => { if (row.length) out.push({ kind: 'phones', shots: row }); row = []; };
   for (const s of shots) {
-    if (isTall(s)) { row.push(s); if (row.length === 3) flush(); }
+    if (isTall(s)) { row.push(s); if (row.length === 6) flush(); }
     else { flush(); out.push({ kind: 'wide', shot: s }); }
   }
   flush();
