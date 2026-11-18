@@ -23,17 +23,17 @@ const COVERS = [
   {
     slug: 'tello', eyebrow: 'Verizon · tello.ai · Experience Designer II',
     title: 'A plan in <em>2.8 minutes,</em><br>not 15.', n: '+7%', label: 'Conversion · A/B test',
-    layout: 'phones', shots: ['tello-plans', 'tello-phones', 'tello-scan', 'tello-pin'],
+    layout: 'phones', shots: ['p/tello/02-plan-cards', 'p/tello/04-phone-selection', 'p/tello/10-sim-card-scan', 'p/tello/12-configure-steps'],
   },
   {
     slug: 'bang-olufsen', eyebrow: 'HARMAN · Audio by Bang & Olufsen · Experience Designer',
     title: 'Shaping sound <em>by feel,</em><br>not by equaliser.', n: '−40%', label: 'Interaction time',
-    layout: 'pair', shots: ['bo-beosonic', 'bo-ai'],
+    layout: 'pair', shots: ['p/bang-olufsen/05-beosonic-sound-circle', 'p/bang-olufsen/08-beosonic-ai-result'],
   },
   {
     slug: 'harman-kardon', eyebrow: 'HARMAN · Harman Kardon One Audio · Associate Experience Designer',
     title: 'Making sound<br>you can <em>see.</em>', n: '65%', label: 'Faster device setup',
-    layout: 'pair', shots: ['oa-hero', 'oa-system'],
+    layout: 'pair', shots: ['p/harman-kardon/01-home', 'p/harman-kardon/06-seatsonic-seat-audio'],
   },
   {
     slug: 'plug', eyebrow: 'Plug · Founder and product designer',
@@ -43,17 +43,17 @@ const COVERS = [
   {
     slug: 'bracket', eyebrow: 'Bracket · Founder and product designer',
     title: 'An AI memory<br>people can <em>trust.</em>', n: '#9', label: 'On Product Hunt',
-    layout: 'pair', shots: ['overview', 'review'],
+    layout: 'pair', shots: ['p/bracket/04-overview', 'p/bracket/05-change-review'],
   },
   {
     slug: 'darpan', eyebrow: 'DarpanAI · Founder and product designer',
     title: 'From an idea to a finished<br>reel, with <em>no editing.</em>', n: '65', label: 'Creators in 2 weeks',
-    layout: 'phones', shots: ['darpan-plan', 'darpan-report', 'darpan-ready'],
+    layout: 'phones', shots: ['p/darpan/04-shot-plan', 'p/darpan/09-take-review', 'p/darpan/12-reel-ready'],
   },
   {
     slug: 'relayos', eyebrow: 'RelayOS · Voice AI for manufacturers',
     title: 'One voice note to recover<br>a <em>delayed order.</em>', n: '46', label: 'Screens · full handoff',
-    layout: 'wide-phone', shots: ['relay-run', 'relay-plan'],
+    layout: 'wide-phone', shots: ['p/relayos/04-web-run-decision', 'p/relayos/03-whatsapp-plan-approval'],
   },
 ];
 

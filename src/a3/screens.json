@@ -1,0 +1,484 @@
+{
+  "tello": [
+    {
+      "src": "/img/p/tello/01-home-landing.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Home: one question, quick replies and four clear starting points"
+    },
+    {
+      "src": "/img/p/tello/02-plan-cards.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Plans arrive as cards inside the conversation"
+    },
+    {
+      "src": "/img/p/tello/03-plan-lines-stepper.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Choose lines with a stepper; the plan stays pinned"
+    },
+    {
+      "src": "/img/p/tello/04-phone-selection.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Phones that come with the plan, as cards"
+    },
+    {
+      "src": "/img/p/tello/05-bring-number-keypad.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Bring your number with a keypad in the chat"
+    },
+    {
+      "src": "/img/p/tello/06-cart-review.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Review the cart without leaving the conversation"
+    },
+    {
+      "src": "/img/p/tello/07-checkout.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Checkout: log in or continue as a guest"
+    },
+    {
+      "src": "/img/p/tello/08-activation-start.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Activation: five steps, one question at a time"
+    },
+    {
+      "src": "/img/p/tello/09-imei-scan.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Scan the IMEI off the box"
+    },
+    {
+      "src": "/img/p/tello/10-sim-card-scan.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Scan the SIM card number"
+    },
+    {
+      "src": "/img/p/tello/11-pin-entry.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Enter the plan PIN"
+    },
+    {
+      "src": "/img/p/tello/12-configure-steps.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Set up the eSIM, step by step"
+    },
+    {
+      "src": "/img/p/tello/13-welcome.webp",
+      "w": 1125,
+      "h": 2436,
+      "alt": "Activated: welcome to Total Wireless"
+    }
+  ],
+  "bang-olufsen": [
+    {
+      "src": "/img/p/bang-olufsen/05-beosonic-sound-circle.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Beosonic: one dot on two feel-based axes"
+    },
+    {
+      "src": "/img/p/bang-olufsen/06-beosonic-sound-modes-custom.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Sound modes, with Custom as soon as you move the dot"
+    },
+    {
+      "src": "/img/p/bang-olufsen/07-beosonic-ai-request.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Ask for a sound in plain words"
+    },
+    {
+      "src": "/img/p/bang-olufsen/08-beosonic-ai-result.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "The AI answer lands on the same circle, with why it fits"
+    },
+    {
+      "src": "/img/p/bang-olufsen/04-sound-focus-seats.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Sound Focus: tune for the driver, the front row or every seat"
+    },
+    {
+      "src": "/img/p/bang-olufsen/03-system-overview.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "System overview: the car’s speakers in 3D, with a gestures guide"
+    },
+    {
+      "src": "/img/p/bang-olufsen/01-qr-sign-in.webp",
+      "w": 2400,
+      "h": 1501,
+      "alt": "Sign in with one QR code: benefits first, then scan to pair"
+    },
+    {
+      "src": "/img/p/bang-olufsen/02-home-personalized.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Signed-in home: stories, recently played and radio near you"
+    },
+    {
+      "src": "/img/p/bang-olufsen/09-beoscapes-adjustment.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Beoscapes: an illustrated soundscape with its own dial"
+    },
+    {
+      "src": "/img/p/bang-olufsen/10-media-featured.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Media: featured releases and playlists"
+    },
+    {
+      "src": "/img/p/bang-olufsen/11-media-jukebox.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "Jukebox: a shared queue for the road trip"
+    },
+    {
+      "src": "/img/p/bang-olufsen/12-bo-radio.webp",
+      "w": 2400,
+      "h": 1500,
+      "alt": "B&O Radio: stations near you and for you"
+    }
+  ],
+  "harman-kardon": [
+    {
+      "src": "/img/p/harman-kardon/01-home.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Home: the car’s seats and speakers in 3D"
+    },
+    {
+      "src": "/img/p/harman-kardon/02-now-playing.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Now playing"
+    },
+    {
+      "src": "/img/p/harman-kardon/03-media-qobuz-home.webp",
+      "w": 2400,
+      "h": 1349,
+      "alt": "Media: Qobuz, with a Harman Kardon curated playlist"
+    },
+    {
+      "src": "/img/p/harman-kardon/04-media-album-details.webp",
+      "w": 2400,
+      "h": 1349,
+      "alt": "Album details"
+    },
+    {
+      "src": "/img/p/harman-kardon/05-mood-pacific-whisper.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Mood: the Pacific Whisper scene"
+    },
+    {
+      "src": "/img/p/harman-kardon/06-seatsonic-seat-audio.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Seatsonic: audio for each seat"
+    },
+    {
+      "src": "/img/p/harman-kardon/07-seatsonic-bass-impact.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Seatsonic: bass impact, made visible"
+    },
+    {
+      "src": "/img/p/harman-kardon/08-seatsonic-personi-fi.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Personi-Fi: tune the sound to your ears"
+    },
+    {
+      "src": "/img/p/harman-kardon/09-system-overview.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "System overview: every speaker in the cabin"
+    },
+    {
+      "src": "/img/p/harman-kardon/10-system-ambient-light-custom.webp",
+      "w": 2400,
+      "h": 1350,
+      "alt": "Ambient light in your own colour"
+    }
+  ],
+  "harman-kardon-formats": [
+    {
+      "src": "/img/p/harman-kardon/11-wide-ivi-seatsonic.webp",
+      "w": 2400,
+      "h": 900,
+      "alt": "Seatsonic reflowed to a wide, short display"
+    },
+    {
+      "src": "/img/p/harman-kardon/12-wide-ivi-mood.webp",
+      "w": 2400,
+      "h": 900,
+      "alt": "Mood on the wide display"
+    },
+    {
+      "src": "/img/p/harman-kardon/13-passenger-screen-home.webp",
+      "w": 2400,
+      "h": 900,
+      "alt": "Home on the passenger display"
+    },
+    {
+      "src": "/img/p/harman-kardon/14-tablet-home.webp",
+      "w": 2400,
+      "h": 1512,
+      "alt": "Home reflowed to a taller tablet display"
+    }
+  ],
+  "bracket": [
+    {
+      "src": "/img/p/bracket/01-onboarding-connect-sources.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Onboarding: connect Gmail and Slack, with a clear retry when one fails"
+    },
+    {
+      "src": "/img/p/bracket/02-onboarding-choose-what-bracket-reads.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Choose exactly which threads Bracket reads"
+    },
+    {
+      "src": "/img/p/bracket/03-onboarding-learning.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Learning live: what it has found so far, by category"
+    },
+    {
+      "src": "/img/p/bracket/04-overview.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Overview: what needs you, split from what just happened"
+    },
+    {
+      "src": "/img/p/bracket/05-change-review.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Change review: the source on the left, the proposed update on the right"
+    },
+    {
+      "src": "/img/p/bracket/06-resolve-conflict.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Resolve a conflict between two sources"
+    },
+    {
+      "src": "/img/p/bracket/07-memory-commitments.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Memory: every commitment with its evidence and history"
+    },
+    {
+      "src": "/img/p/bracket/08-memory-source-evidence.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Open the original message a memory came from"
+    },
+    {
+      "src": "/img/p/bracket/09-conversations-draft-reply.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Conversations: an AI-drafted reply that cites its sources"
+    },
+    {
+      "src": "/img/p/bracket/10-timeline.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Timeline: every change, with restore"
+    },
+    {
+      "src": "/img/p/bracket/11-source-detail-gmail.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Source settings: what Bracket reads, and how to stop it"
+    },
+    {
+      "src": "/img/p/bracket/12-empty-new-workspace.webp",
+      "w": 2400,
+      "h": 1560,
+      "alt": "Empty state: nothing to remember yet, and how to start"
+    },
+    {
+      "src": "/img/p/bracket/13-mobile-overview.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Mobile overview"
+    },
+    {
+      "src": "/img/p/bracket/14-mobile-change-review.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Mobile change review"
+    }
+  ],
+  "darpan": [
+    {
+      "src": "/img/p/darpan/01-welcome.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Welcome: shoot your first reel"
+    },
+    {
+      "src": "/img/p/darpan/02-home-idea.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Say or type the idea, in Hinglish, Hindi or English"
+    },
+    {
+      "src": "/img/p/darpan/03-home-listening.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Or speak it"
+    },
+    {
+      "src": "/img/p/darpan/04-shot-plan.webp",
+      "w": 780,
+      "h": 2104,
+      "alt": "The script: shots, lines and framing, ready to shoot"
+    },
+    {
+      "src": "/img/p/darpan/05-live-coaching.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Live coaching: teleprompter, framing guide and a light tip"
+    },
+    {
+      "src": "/img/p/darpan/06-countdown.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "A countdown before the take"
+    },
+    {
+      "src": "/img/p/darpan/07-recording.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Recording, with the line highlighted as you speak"
+    },
+    {
+      "src": "/img/p/darpan/08-checking-take.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Checking the take: words first, then director’s notes"
+    },
+    {
+      "src": "/img/p/darpan/09-take-review.webp",
+      "w": 780,
+      "h": 1812,
+      "alt": "Take report: a score, sub-scores and three things to try"
+    },
+    {
+      "src": "/img/p/darpan/10-your-shots.webp",
+      "w": 780,
+      "h": 1978,
+      "alt": "Your shots: the best takes, kept in order"
+    },
+    {
+      "src": "/img/p/darpan/11-making-reel.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Making the reel: captions, trims and joins"
+    },
+    {
+      "src": "/img/p/darpan/12-reel-ready.webp",
+      "w": 780,
+      "h": 2276,
+      "alt": "Your reel is ready to share"
+    },
+    {
+      "src": "/img/p/darpan/14-colour-tokens.webp",
+      "w": 2400,
+      "h": 1633,
+      "alt": "Semantic colour tokens from the Darpan design system"
+    }
+  ],
+  "relayos": [
+    {
+      "src": "/img/p/relayos/02-whatsapp-voice-note.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "The owner reports a delay with one WhatsApp voice note"
+    },
+    {
+      "src": "/img/p/relayos/03-whatsapp-plan-approval.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "The plan comes back with one decision: approve ₹800?"
+    },
+    {
+      "src": "/img/p/relayos/06-whatsapp-confirmed-checkins.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Approved: pickup locked, check-in calls scheduled"
+    },
+    {
+      "src": "/img/p/relayos/07-whatsapp-slip-replan.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "A slip breaks the plan: a new plan and one new decision"
+    },
+    {
+      "src": "/img/p/relayos/08-whatsapp-run-closed.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Shipped on time: the run summary"
+    },
+    {
+      "src": "/img/p/relayos/09-whatsapp-morning-digest.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "Morning digest: every open order and what needs you"
+    },
+    {
+      "src": "/img/p/relayos/13-whatsapp-contact-opts-out.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "A contact opts out of AI calls with one word"
+    },
+    {
+      "src": "/img/p/relayos/04-web-run-decision.webp",
+      "w": 2400,
+      "h": 2352,
+      "alt": "Live run: plan, calls with transcripts, and what RelayOS did"
+    },
+    {
+      "src": "/img/p/relayos/05-web-run-mobile.webp",
+      "w": 780,
+      "h": 1688,
+      "alt": "The same run on mobile web"
+    },
+    {
+      "src": "/img/p/relayos/10-web-home.webp",
+      "w": 2400,
+      "h": 1902,
+      "alt": "Workspace home: what needs you, coming due, recent recoveries"
+    },
+    {
+      "src": "/img/p/relayos/11-web-contacts.webp",
+      "w": 2400,
+      "h": 908,
+      "alt": "Contacts with languages and promises kept; opt-outs respected"
+    },
+    {
+      "src": "/img/p/relayos/12-web-settings.webp",
+      "w": 2400,
+      "h": 1758,
+      "alt": "Settings: calling hours, languages and the daily check"
+    }
+  ]
+}

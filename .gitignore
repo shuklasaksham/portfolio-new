@@ -3,3 +3,5 @@ dist/
 *.log
 .DS_Store
 dist-ssr/
+assets-src/figma/
+assets-src/figma2/

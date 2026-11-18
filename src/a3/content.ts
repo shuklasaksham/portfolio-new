@@ -1,6 +1,8 @@
 // Site content, copied from the Figma page "Website — A3 Swiss dossier (final)".
 // Every number carries its source. Keep this file and the Figma frames in sync.
 
+import SCREENS from './screens.json';
+
 const img = (name: string) => `/img/${name}.webp`;
 
 export type Shot = { src: string; w: number; h: number; alt: string };
@@ -996,6 +998,28 @@ export const cases: Case[] = [
     next: 'bracket',
   },
 ];
+
+// Final product screens from each project's Figma file (scripts/product-screens.mjs),
+// added to every case study as a screen-by-screen gallery before its results.
+const PRODUCT: Record<string, { key: string; title: string; text: string }[]> = {
+  tello: [{ key: 'tello', title: 'The product, screen by screen', text: 'From the first question to an activated phone: plan cards, phone selection, cart and checkout, then camera scans for the IMEI, SIM and PIN.' }],
+  'bang-olufsen': [{ key: 'bang-olufsen', title: 'The product, screen by screen', text: 'The production design: Beosonic and its AI tuning, Sound Focus and QR sign-in, with the media, radio and Beoscapes around them.' }],
+  'harman-kardon': [
+    { key: 'harman-kardon', title: 'The product, screen by screen', text: 'The final app across Home, Media, Mood, Sound and System.' },
+    { key: 'harman-kardon-formats', title: 'One app, every display', text: 'The same screens reflowed by the adaptation rules to wide, passenger and tablet displays, with no per-car redesign.' },
+  ],
+  bracket: [{ key: 'bracket', title: 'The product, screen by screen', text: 'From connecting a source to reviewing a change: every screen keeps the source next to what the AI concluded.' }],
+  darpan: [{ key: 'darpan', title: 'The product, screen by screen', text: 'The whole loop on a phone: idea, script, coached take, take report and a finished reel.' }],
+  relayos: [{ key: 'relayos', title: 'The product, screen by screen', text: 'The owner stays in WhatsApp; the web app shows the full run for anyone who wants the detail.' }],
+};
+for (const c of cases) {
+  const extra = (PRODUCT[c.slug] ?? [])
+    .map((p) => ({ kind: 'gallery' as const, title: p.title, text: p.text, shots: (SCREENS as Record<string, Shot[]>)[p.key] ?? [] }))
+    .filter((g) => g.shots.length);
+  if (!extra.length) continue;
+  const at = c.sections.findIndex((s) => s.kind === 'outcome' || s.kind === 'results');
+  c.sections.splice(at < 0 ? c.sections.length : at, 0, ...extra);
+}
 
 export const getCase = (slug?: string) => cases.find((c) => c.slug === slug);
 

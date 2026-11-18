@@ -1188,3 +1188,14 @@ main { padding-bottom: 96px; }
 .lead__card:first-child .lbl--accent { color: #c8ff4d; }
 .lead__card:first-child p { color: rgba(243, 246, 244, .82); }
 @media (max-width: 767px) { .lead { grid-template-columns: 1fr; } }
+
+/* Galleries: phones four across, wide screens two across */
+.gallery__grid + .gallery__grid { margin-top: 28px; }
+.gallery__grid--phones { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 16px; }
+.gallery__grid--phones a { border-radius: 18px; border: 0; background: none; }
+.gallery__grid--phones img { border-radius: 18px; box-shadow: 0 10px 24px rgba(10, 10, 10, .1); }
+.gallery__grid a { border-radius: 14px; overflow: hidden; }
+@media (max-width: 899px) { .gallery__grid--phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.wm .gallery__grid--phones { padding: 28px; border-radius: 18px; background: radial-gradient(90% 120% at 100% 100%, #104332 0%, rgba(16, 67, 50, 0) 65%), #0f1411; }
+.wm .gallery__grid--phones figcaption { color: rgba(243, 246, 244, .78); }
+.wm .gallery__grid--phones a { border: 0; background: none; }

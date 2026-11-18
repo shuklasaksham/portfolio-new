@@ -174,16 +174,20 @@ export function Body({ s }: { s: Section }) {
               <figcaption>{s.flow.caption} <span className="lbl lbl--muted">Open full size ↗</span></figcaption>
             </figure>
           )}
-          <div className="gallery__grid">
-            {s.shots.map((x) => (
-              <figure key={x.src} data-rv>
-                <a href={x.src} target="_blank" rel="noreferrer" aria-label={`Open full size: ${x.alt}`}>
-                  <Img shot={x} />
-                </a>
-                <figcaption>{x.alt}</figcaption>
-              </figure>
-            ))}
-          </div>
+          {[{ phones: false, shots: s.shots.filter((x) => !isPhone(x)) }, { phones: true, shots: s.shots.filter(isPhone) }]
+            .sort((a, b) => b.shots.length - a.shots.length)
+            .map(({ phones, shots: group }) => group.length > 0 && (
+            <div key={String(phones)} className={`gallery__grid${phones ? ' gallery__grid--phones' : ''}`}>
+              {group.map((x) => (
+                <figure key={x.src} data-rv>
+                  <a href={x.src} target="_blank" rel="noreferrer" aria-label={`Open full size: ${x.alt}`}>
+                    <Img shot={x} />
+                  </a>
+                  <figcaption>{x.alt}</figcaption>
+                </figure>
+              ))}
+            </div>
+          ))}
         </div>
       );
     case 'outcome':
