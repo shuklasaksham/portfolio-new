@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { about, home, resume } from './content';
+import { about, resume } from './content';
 import { ProfilePage, Socials } from './Profile';
-import { Label, useReveal } from './ui';
+import { useReveal } from './ui';
 
 const SKILLS = resume.skills.flatMap(([, v]) => v.split(', '));
 const SHOWN = 8;
@@ -76,46 +75,6 @@ export default function About() {
         {about.employment.map((e) => <Job key={e.role} e={e} />)}
       </section>
 
-      <section className="grid rows-sec">
-        <h2 className="h-sec">A disagreement, resolved</h2>
-        <article className="story" data-rv>
-          <Label tone="accent">{about.disagreement.where}</Label>
-          <h3>{about.disagreement.title}</h3>
-          {about.disagreement.paragraphs.map((p) => <p key={p}>{p}</p>)}
-          <Link to="/work/bang-olufsen" className="lbl story__link">Read the Bang &amp; Olufsen case study →</Link>
-        </article>
-      </section>
-
-      <section className="grid rows-sec">
-        <h2 className="h-sec">How I work</h2>
-        <div className="habits">
-          {home.principles.map(([k, t, d]) => (
-            <div key={k} data-rv>
-              <Label tone="accent">{k}</Label>
-              <h3>{t}</h3>
-              <p>{d}</p>
-            </div>
-          ))}
-          {about.habits.slice(0, 1).map(([where, t, d]) => (
-            <div key={t} data-rv>
-              <Label tone="accent">{where}</Label>
-              <h3>{t}</h3>
-              <p>{d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="grid rows-sec">
-        <h2 className="h-sec">Education</h2>
-        <div className="rows">
-          <div className="rows__r" data-rv>
-            <span className="lbl lbl--muted">{about.education[0]}</span>
-            <span className="rows__main">{about.education[1]}</span>
-            <span className="rows__muted rows__wide">{about.education[2]}</span>
-          </div>
-        </div>
-      </section>
     </ProfilePage>
   );
 }

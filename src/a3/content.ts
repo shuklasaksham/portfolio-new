@@ -78,6 +78,7 @@ export const profile = {
   email: 'shuklasaksham01@gmail.com',
   linkedin: 'https://linkedin.com/in/saksham-shuklaa',
   linkedinLabel: 'linkedin.com/in/saksham-shuklaa',
+  instagram: 'https://www.instagram.com/_sakshamshukla_/',
   site: 'https://www.sakshamshukla.com',
   siteLabel: 'sakshamshukla.com',
   location: 'Hyderabad, India',
@@ -933,10 +934,11 @@ export const home = {
 
 export const about = {
   bio: [
-    'Product designer with 4.5+ years designing AI and conversational products at Verizon and HARMAN. Work I designed with my teams lifted conversion 7% in an A/B test and shipped in Hyundai, Skoda, BMW and Subaru vehicles.',
-    'At Verizon I own UX and design-system work on my team and guide two junior designers.',
-    'I also design and build my own AI products: Bracket hit #9 on Product Hunt, and DarpanAI has paying users.',
-    'Based in Hyderabad, India (IST, GMT+5:30), with working hours that overlap Europe and US East mornings.',
+    'I’m a product designer with 4.5+ years of shipping AI, conversational and in-car products — at Verizon today, and at HARMAN before that.',
+    'At Verizon I design tello.ai, the AI assistant on Total Wireless. I pushed for a guided agent instead of an open chat; in the team’s A/B test conversion rose 7%, and it is now live. I own UX and the design system on my team, and guide two junior designers.',
+    'At HARMAN I designed in-car audio for Bang & Olufsen and Harman Kardon that now ships in Hyundai, Skoda, BMW and Subaru vehicles — tested in the car and with prototypes before launch.',
+    'Outside work I design and build my own AI products end to end. Bracket reached #9 on Product Hunt, and DarpanAI has paying users.',
+    'I work best where design meets engineering: writing the rules, specifying every state and reviewing builds until they match. Based in Hyderabad (IST, GMT+5:30), with hours that overlap Europe and US East mornings.',
   ],
   details: [
     ['Location', 'Hyderabad, India'],
@@ -963,7 +965,7 @@ export const about = {
   },
   employment: [
     {
-      role: 'Experience Specialist II',
+      role: 'Experience Designer II',
       company: 'Verizon India',
       dates: 'March 2025 – Present · Hyderabad',
       text: 'Designing tello.ai, the AI assistant on Total Wireless. I proposed a guided agent instead of an open chat and designed its conversation, stepper and plan cards; in the team’s 4-week A/B test with 2,400 users, conversion rose 7%, plan selection became 5× faster and CSAT rose 12%, and plan selection is now live. I also prototyped a conversational phone activation flow that replaces a 12+ screen form with camera scanning. I own UX and design-system work on my team and have guided two junior designers for about eight months, reviewing their work and setting what to design and how.',

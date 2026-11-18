@@ -3,7 +3,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { home, profile, type Case, type Shot } from './content';
-import { Accent, AskButton, Img } from './ui';
+import { Accent, Img } from './ui';
 
 const MAILTO = `mailto:${profile.email}`;
 
@@ -23,6 +23,9 @@ const LinkedIn = () => (
 const Mail = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
 );
+const Instagram = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" /></svg>
+);
 const Doc = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" /><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
 );
@@ -31,6 +34,7 @@ export function Socials() {
   return (
     <span className="pf__icons">
       <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="pf__icon"><LinkedIn /></a>
+      <a href={profile.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="pf__icon"><Instagram /></a>
       <a href={MAILTO} aria-label="Email" className="pf__icon"><Mail /></a>
       <Link to="/resume" aria-label="Résumé" className="pf__icon"><Doc /></Link>
     </span>
@@ -84,7 +88,6 @@ export function ProfileHead() {
         <p className="pf__tag">Product designer. I design and build.</p>
         <div className="pf__ctas">
           <a className="pf__btn" href={MAILTO}>Message</a>
-          <AskButton className="pf__btn2" />
         </div>
         <dl className="pf__stats">
           {STATS.map(([n, l]) => (
