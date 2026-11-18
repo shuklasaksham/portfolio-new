@@ -106,7 +106,7 @@ function OutcomeView({ o }: { o: Outcome }) {
   );
 }
 
-function Body({ s }: { s: Section }) {
+export function Body({ s }: { s: Section }) {
   switch (s.kind) {
     case 'lede':
       return <p className="lede" data-rv>{s.text}</p>;

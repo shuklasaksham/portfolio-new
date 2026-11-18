@@ -1,8 +1,8 @@
 // Project preview that opens over the work grid: role, description, skills and the
 // key result on the left; every screen from the case study on the right.
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { home, profile, type Case, type Shot } from './content';
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react';
+import { Body } from './CasePage';
+import { home, profile, type Case, type Section, type Shot } from './content';
 import { Img } from './ui';
 
 /** Short subtitle and skill tags shown in the preview, per project. */
@@ -14,6 +14,13 @@ const META: Record<string, { subtitle: string; role: string; skills: string[] }>
   bracket: { subtitle: 'AI-native SaaS product design', role: 'Founder & product designer', skills: ['Product design', 'Human-in-the-loop AI', 'Design systems', 'SaaS', 'Prototyping'] },
   darpan: { subtitle: 'AI video director for creators', role: 'Founder & product designer', skills: ['0-to-1 product design', 'Voice UX', 'Mobile UI', 'AI coaching', 'UX writing'] },
   relayos: { subtitle: 'Voice AI for manufacturers', role: 'Product designer · independent concept', skills: ['Voice AI', 'WhatsApp UX', 'Multilingual design', 'Service design', 'Engineering handoff'] },
+};
+
+type TabKey = 'overview' | 'process' | 'decisions' | 'outcome';
+const TAB_LABEL: Record<TabKey, string> = { overview: 'Overview', process: 'Process', decisions: 'Key decisions', outcome: 'Outcome' };
+const GROUP: Record<Section['kind'], Exclude<TabKey, 'overview'>> = {
+  lede: 'process', list: 'process', steps: 'process', image: 'process', gallery: 'process',
+  decisions: 'decisions', outcome: 'outcome', results: 'outcome', pairs: 'outcome',
 };
 
 type Block = { kind: 'wide'; shot: Shot } | { kind: 'phones'; shots: Shot[] };
@@ -47,6 +54,23 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
   const panel = useRef<HTMLDivElement>(null);
   const close = useRef<HTMLButtonElement>(null);
   const [copied, setCopied] = useState(false);
+  const [tab, setTab] = useState<TabKey>('overview');
+  const body = useRef<HTMLDivElement>(null);
+  const tabs: TabKey[] = ['overview', ...(['process', 'decisions', 'outcome'] as const).filter((k) => c.sections.some((x) => GROUP[x.kind] === k))];
+
+  // New tab: back to the top, and show its content (no scroll-reveal inside the preview).
+  useEffect(() => {
+    if (body.current) body.current.scrollTop = 0;
+    panel.current?.querySelectorAll('[data-rv]').forEach((el) => el.classList.add('is-in'));
+  }, [tab]);
+
+  const onTabKey = (e: ReactKeyboardEvent, i: number) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+    setTab(next);
+    document.getElementById(`wm-tab-${next}`)?.focus();
+  };
   const meta = META[c.slug];
   const role = meta?.role ?? c.facts.find(([k]) => k === 'Role')?.[1];
   const url = `${profile.site}/work/${c.slug}`;
@@ -95,37 +119,76 @@ export function WorkModal({ c, onClose }: { c: Case; onClose: () => void }) {
           </div>
         </header>
 
-        <div className="wm__body">
-          <aside className="wm__info">
-            {role && <p className="wm__role"><span>My role.</span> {role}</p>}
-            <h3>Project description</h3>
-            <p className="wm__desc">{c.summary}</p>
-            {(c.myCall || c.myPart) && <p className="wm__desc">{c.myCall ?? c.myPart}</p>}
-            <h3>Key result</h3>
-            <p className="wm__result"><b>{c.brief.result.n}</b> {c.brief.result.label}</p>
-            <p className="wm__src">{c.brief.result.source}</p>
-            {meta && (
-              <>
-                <h3>Skills and deliverables</h3>
-                <p className="wm__chips">{meta.skills.map((s) => <span key={s}>{s}</span>)}</p>
-              </>
-            )}
-            <Link to={`/work/${c.slug}`} className="wm__more" onClick={onClose}>Read the full case study →</Link>
-          </aside>
+        <div className="wm__tabs" role="tablist" aria-label="Project sections">
+          {tabs.map((k, i) => (
+            <button
+              key={k}
+              type="button"
+              role="tab"
+              id={`wm-tab-${k}`}
+              aria-selected={tab === k}
+              aria-controls="wm-panel"
+              tabIndex={tab === k ? 0 : -1}
+              className={tab === k ? 'is-active' : ''}
+              onClick={() => setTab(k)}
+              onKeyDown={(e) => onTabKey(e, i)}
+            >
+              {TAB_LABEL[k]}
+            </button>
+          ))}
+        </div>
 
-          <div className="wm__shots">
-            {blocksFor(c).map((b, i) =>
-              b.kind === 'wide' ? (
-                <figure key={b.shot.src} className="wm__shot">
-                  <Img shot={b.shot} eager={i < 2} />
-                </figure>
-              ) : (
-                <figure key={b.shots[0].src} className="wm__shot wm__shot--phones">
-                  {b.shots.map((s) => <Img key={s.src} shot={s} />)}
-                </figure>
-              ),
-            )}
-          </div>
+        <div className="wm__body" ref={body} id="wm-panel" role="tabpanel" aria-labelledby={`wm-tab-${tab}`} key={tab}>
+          {tab === 'overview' ? (
+            <div className="wm__overview">
+              <aside className="wm__info">
+                {role && <p className="wm__role"><span>My role.</span> {role}</p>}
+                <h3>Project description</h3>
+                <p className="wm__desc">{c.summary}</p>
+                <h3>Problem</h3>
+                <p className="wm__desc">{c.brief.problem}</p>
+                <h3>What I did</h3>
+                <p className="wm__desc">{c.brief.did}</p>
+                {c.myCall && (<><h3>My call</h3><p className="wm__desc">{c.myCall}</p></>)}
+                {c.myPart && (<><h3>My part</h3><p className="wm__desc">{c.myPart}</p></>)}
+                <h3>Key result</h3>
+                <p className="wm__result"><b>{c.brief.result.n}</b> {c.brief.result.label}</p>
+                <p className="wm__src">{c.brief.result.source}</p>
+                {meta && (
+                  <>
+                    <h3>Skills and deliverables</h3>
+                    <p className="wm__chips">{meta.skills.map((x) => <span key={x}>{x}</span>)}</p>
+                  </>
+                )}
+                <dl className="wm__facts">
+                  {c.facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
+                </dl>
+              </aside>
+
+              <div className="wm__shots">
+                {blocksFor(c).map((b, i) =>
+                  b.kind === 'wide' ? (
+                    <figure key={b.shot.src} className="wm__shot">
+                      <Img shot={b.shot} eager={i < 2} />
+                    </figure>
+                  ) : (
+                    <figure key={b.shots[0].src} className="wm__shot wm__shot--phones">
+                      {b.shots.map((x) => <Img key={x.src} shot={x} />)}
+                    </figure>
+                  ),
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="wm__doc">
+              {c.sections.filter((x) => GROUP[x.kind] === tab).map((x) => (
+                <section key={x.title} className="wm__sec">
+                  <h3 className="wm__sec-h">{x.title}</h3>
+                  <Body s={x} />
+                </section>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
