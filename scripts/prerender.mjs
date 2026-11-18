@@ -70,14 +70,16 @@ async function page(meta, renderPath, file, notFound = false) {
 }
 
 for (const p of pages) await page(p, p.path, p.path === '/' ? 'index.html' : `${p.path.slice(1)}/index.html`);
-for (const [path, title] of [['/posts', 'Posts'], ['/reviews', 'Reviews']]) {
-  await page({ path, title: `${title} — Saksham Shukla`, description: home.sub }, path, `${path.slice(1)}/index.html`);
-}
+const SECTIONS = [
+  { path: '/posts', title: 'Posts — Saksham Shukla', description: 'Design notes from my work on AI and in-car products: the decisions, trade-offs and lessons behind each screen.' },
+  { path: '/reviews', title: 'Reviews — Saksham Shukla', description: home.sub },
+];
+for (const p of SECTIONS) await page(p, p.path, `${p.path.slice(1)}/index.html`);
 await page({ path: '/404', title: 'Not found — Saksham Shukla', description: 'This page isn’t in the dossier.' }, '/404', '404.html', true);
 
 writeFileSync(
   resolve(dist, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages, SECTIONS[0]]
     .map((p) => `  <url><loc>${SITE}${p.path === '/' ? '/' : p.path}</loc></url>`)
     .join('\n')}\n</urlset>\n`,
 );
