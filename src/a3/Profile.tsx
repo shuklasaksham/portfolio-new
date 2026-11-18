@@ -77,14 +77,14 @@ function Reel() {
     <figure className="pf__reel">
       <video
         ref={ref}
-        src="/video/reel.mp4"
-        poster="/video/reel-poster.webp"
+        src="/video/showreel.mp4"
+        poster="/video/showreel-poster.webp"
         muted
         loop
         playsInline
         controls
         preload="none"
-        aria-label="20-second reel: tello.ai, Bang & Olufsen and Harman Kardon in-car audio, Bracket, DarpanAI and RelayOS"
+        aria-label="Showreel: tello.ai at Verizon; Bang & Olufsen and Harman Kardon at HARMAN; Plug, Bracket, DarpanAI and RelayOS"
       />
     </figure>
   );
