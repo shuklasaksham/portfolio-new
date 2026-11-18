@@ -120,6 +120,8 @@ export function ProfileHead() {
 
 const TABS = [
   ['Work', '/'],
+  ['Posts', '/posts'],
+  ['Reviews', '/reviews'],
   ['About', '/about'],
 ] as const;
 
