@@ -705,3 +705,46 @@ main { padding-bottom: 96px; }
 .emp__text.is-open { display: block; -webkit-line-clamp: unset; }
 .emp__more { margin-top: 4px; padding: 0; border: 0; background: none; font: inherit; font-size: 15px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .emp__more:hover { color: var(--accent); }
+
+/* ---------- Round 9: calmer tiles, brand hovers, tools, logos ---------- */
+.wtile { border-radius: 18px; aspect-ratio: 4 / 3.1; padding: 22px 22px 0; }
+.wgrid { gap: 14px; }
+.wtile__title { margin-top: 12px; font-size: 24px; }
+.wtile__pills { margin-top: 14px; }
+.tile__media { margin-top: 18px; }
+
+/* brand icons: plain by default, real colours on hover / keyboard focus */
+.duo { position: relative; display: inline-grid; }
+.duo > span { grid-area: 1 / 1; display: grid; place-items: center; transition: opacity .2s; }
+.duo__color { opacity: 0; }
+.pf__icon:hover .duo__plain, .pf__icon:focus-visible .duo__plain { opacity: 0; }
+.pf__icon:hover .duo__color, .pf__icon:focus-visible .duo__color { opacity: 1; }
+.pf__icon { transition: border-color .2s, color .2s, background-color .2s; }
+.pf__icon--li:hover, .pf__icon--li:focus-visible { border-color: #0A66C2; }
+.pf__icon--ig:hover, .pf__icon--ig:focus-visible { border-color: #D62976; }
+.pf__icon--mail:hover, .pf__icon--mail:focus-visible { border-color: #EA4335; }
+.pf__icon--cv:hover, .pf__icon--cv:focus-visible { border-color: #1D4ED8; color: #1D4ED8; }
+.pf__loc { transition: color .2s; cursor: default; }
+.pf__loc:hover { color: var(--pf-green, #1a9b55); }
+
+.pf__chip--tool { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px 6px 9px; background: #fff; border: 1px solid var(--pf-line, #e6e6e1); }
+.pf__chip--tool svg, .pf__chip--tool img { width: 16px; height: 16px; object-fit: contain; }
+.pf__chips + .pf__card-h { margin-top: 20px; }
+
+.emp__job { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; align-items: start; }
+.emp__logo { display: grid; place-items: center; width: 56px; height: 56px; border: 1px solid var(--pf-line, #e6e6e1); border-radius: 12px; background: #fff; overflow: hidden; }
+.emp__logo--harman img { width: 46px; height: auto; }
+.emp__list { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15.5px; line-height: 24px; color: var(--text-2); }
+.emp__list li::marker { color: var(--text-3); }
+.emp__more { margin-top: 8px; }
+@media (max-width: 639px) {
+  .emp__job { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
+  .emp__logo { width: 44px; height: 44px; border-radius: 10px; }
+  .emp__logo--harman img { width: 36px; }
+}
+.wtile { aspect-ratio: 4 / 3.6; padding: 18px 18px 0; }
+.wtile__title { margin-top: 8px; font-size: 22px; }
+.wtile__pills { margin-top: 10px; }
+.tile__media { margin-top: 14px; }
+@media (max-width: 639px) { .wtile { aspect-ratio: 4 / 3.8; } }
+.emp__list { list-style: disc; } .emp__list li { padding-left: 2px; }

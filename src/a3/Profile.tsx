@@ -3,6 +3,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { home, profile, type Case, type Shot } from './content';
+import { GmailIcon, InstagramIcon, LinkedInIcon, PinIcon, ResumeIcon } from './brand';
 import { Accent, Img } from './ui';
 
 const MAILTO = `mailto:${profile.email}`;
@@ -13,30 +14,13 @@ export const STATS: [string, string][] = [
   ['4.5+', 'Years'],
 ];
 
-/* ---------- icons (inline, decorative) ---------- */
-const Pin = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.8" d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
-);
-const LinkedIn = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4v-11Z" /></svg>
-);
-const Mail = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
-);
-const Instagram = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" /></svg>
-);
-const Doc = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" /><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
-);
-
 export function Socials() {
   return (
     <span className="pf__icons">
-      <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="pf__icon"><LinkedIn /></a>
-      <a href={profile.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="pf__icon"><Instagram /></a>
-      <a href={MAILTO} aria-label="Email" className="pf__icon"><Mail /></a>
-      <Link to="/resume" aria-label="Résumé" className="pf__icon"><Doc /></Link>
+      <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="pf__icon pf__icon--li"><LinkedInIcon /></a>
+      <a href={profile.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="pf__icon pf__icon--ig"><InstagramIcon /></a>
+      <a href={MAILTO} aria-label="Email" className="pf__icon pf__icon--mail"><GmailIcon /></a>
+      <Link to="/resume" aria-label="Résumé" className="pf__icon pf__icon--cv"><ResumeIcon /></Link>
     </span>
   );
 }
@@ -81,7 +65,7 @@ export function ProfileHead() {
           </span>
           <span className="pf__where">
             <span>Verizon · Hyderabad</span>
-            <a className="pf__avail" href={MAILTO}>Available <span aria-hidden="true">›</span></a>
+            <a className="pf__avail" href={MAILTO}>Open to work <span aria-hidden="true">›</span></a>
           </span>
         </div>
         <h1 className="pf__name">{profile.name}</h1>
@@ -116,7 +100,7 @@ export function ProfileTabs() {
         ))}
       </nav>
       <span className="pf__meta">
-        <span className="pf__loc"><Pin /> {profile.location}</span>
+        <span className="pf__loc"><PinIcon /> {profile.location}</span>
         <Socials />
       </span>
     </div>
@@ -165,9 +149,8 @@ export function Tile({ c }: { c: Case }) {
       </span>
       <h3 className="wtile__title"><Accent text={c.title} accent={c.accent} /></h3>
       <span className="wtile__pills">
-        {t.pills.map((x) => <span key={x.text} className={`xpill xpill--${x.tone}`}>{x.text}</span>)}
+        <span className={`xpill xpill--${t.pills[0].tone}`}>{t.pills[0].text}</span>
       </span>
-      <span className="wtile__role">{t.role}</span>
       <TileMedia c={c} />
     </Link>
   );
